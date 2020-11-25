@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ActionRPG"
+config/name="SecretSanta"
 run/main_scene="res://World.tscn"
 
 [autoload]
@@ -35,6 +35,10 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "EXP-System-Dialog" )
 
 [importer_defaults]
 
