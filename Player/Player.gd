@@ -19,7 +19,6 @@ var roll_vector = Vector2.DOWN
 var stats = PlayerStats
 
 # initialize as if it was being initialized in _ready
-onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
@@ -67,6 +66,7 @@ func move_state(delta):
 	move()
 	
 	if Input.is_action_just_pressed("roll"):
+		hurtbox.start_invincibility(0.4)
 		state = ROLL
 	
 	if Input.is_action_just_pressed("attack"):
@@ -95,12 +95,13 @@ func roll_animation_finish():
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.start_invincibility(0.6)
+	_invincibility_started()
 	hurtbox.create_hit_effect()
 	var playerHurtSound = PlayerHurtSound.instance()
 	get_tree().current_scene.add_child(playerHurtSound)
 
 
-func _on_Hurtbox_invincibility_started():
+func _invincibility_started():
 	blinkAnimationPlayer.play("Start")
 
 

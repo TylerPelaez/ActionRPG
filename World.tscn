@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Enemies/Acolyte.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -590,5 +591,8 @@ margin_left = 3.50508
 margin_top = 3.87965
 margin_right = 64.5051
 margin_bottom = 15.8797
+
+[node name="Acolyte" parent="." instance=ExtResource( 11 )]
+position = Vector2( 129, 108 )
 
 [editable path="Camera2D"]

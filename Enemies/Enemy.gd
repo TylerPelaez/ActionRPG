@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Enemy
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
@@ -14,13 +15,11 @@ enum {
 	CHASE
 }
 
-onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionArea = $PlayerDetectionArea
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
-onready var animationPlayer = $AnimationPlayer
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -68,13 +67,15 @@ func _physics_process(delta):
 func accelerate_toward_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-	sprite.flip_h = velocity.x < 0
+	update_animation()
 	
+# A noop in the base class, which has no information regarding animation state
+func update_animation():
+	pass
 
 func seek_player():
 	if playerDetectionArea.can_see_player():
 		state = CHASE
-		
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
@@ -95,12 +96,3 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
-
-
-
-func _on_Hurtbox_invincibility_started():
-	animationPlayer.play("Start")
-
-
-func _on_Hurtbox_invincibility_ended():
-	animationPlayer.play("Stop")
