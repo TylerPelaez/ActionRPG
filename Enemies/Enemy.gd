@@ -12,7 +12,8 @@ export var WANDER_TARGET_DROPOFF_RANGE := 5
 enum {
 	IDLE,
 	WANDER,
-	CHASE
+	CHASE,
+	ATTACK # For enemies with an explicit attack
 }
 
 onready var stats = $Stats
@@ -35,34 +36,49 @@ func _physics_process(delta):
 	
 	match state:
 		IDLE:
-			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-			seek_player()
-			
-			if wanderController.get_time_left() == 0:
-				update_wander()
-				
+			idle_state(delta)
 		
 		WANDER:
-			seek_player()
-			
-			if wanderController.get_time_left() == 0:
-				update_wander()
-			
-			accelerate_toward_point(wanderController.target_position, delta)
-			
-			if global_position.distance_to(wanderController.target_position) <= WANDER_TARGET_DROPOFF_RANGE:
-				update_wander()
+			wander_state(delta)
 			
 		CHASE:
-			var player = playerDetectionArea.player
-			if player != null:
-				accelerate_toward_point(player.global_position, delta)	
-			else:
-				state = IDLE	
+			chase_state(delta)
+		ATTACK:
+			attack_state(delta)
 
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * PUSH_STRENGTH
 	velocity = move_and_slide(velocity)
+
+
+func wander_state(delta):
+	seek_player()
+	
+	if wanderController.get_time_left() == 0:
+		update_wander()
+	
+	accelerate_toward_point(wanderController.target_position, delta)
+	
+	if global_position.distance_to(wanderController.target_position) <= WANDER_TARGET_DROPOFF_RANGE:
+		update_wander()
+			
+	
+func chase_state(delta):
+	var player = playerDetectionArea.player
+	if player != null:
+		accelerate_toward_point(player.global_position, delta)	
+	else:
+		state = IDLE
+	
+func idle_state(delta):
+	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	seek_player()
+	
+	if wanderController.get_time_left() == 0:
+		update_wander()
+
+func attack_state(delta):
+	pass # unimplemented for base / simple enemies
 
 func accelerate_toward_point(point, delta):
 	var direction = global_position.direction_to(point)

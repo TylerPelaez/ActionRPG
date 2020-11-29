@@ -13,12 +13,13 @@ radius = 6.0
 height = 6.0
 
 [sub_resource type="CircleShape2D" id=8]
+resource_local_to_scene = true
 radius = 46.0
 
 [sub_resource type="CircleShape2D" id=9]
 radius = 4.0
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=13]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
@@ -43,7 +44,7 @@ region = Rect2( 48, 0, 16, 24 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 16, 24 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
@@ -82,9 +83,9 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="AnimatedSprite" parent="." index="6"]
-material = SubResource( 10 )
-frames = SubResource( 11 )
-frame = 4
+material = SubResource( 13 )
+frames = SubResource( 14 )
+frame = 2
 playing = true
 offset = Vector2( 0, -12 )
 

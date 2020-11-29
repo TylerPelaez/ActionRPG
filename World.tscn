@@ -593,6 +593,7 @@ margin_right = 64.5051
 margin_bottom = 15.8797
 
 [node name="Acolyte" parent="." instance=ExtResource( 11 )]
-position = Vector2( 129, 108 )
+position = Vector2( 305.5, 56 )
+collision_layer = 16
 
 [editable path="Camera2D"]

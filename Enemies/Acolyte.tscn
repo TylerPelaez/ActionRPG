@@ -12,6 +12,7 @@ radius = 6.058
 height = 11.681
 
 [sub_resource type="CircleShape2D" id=47]
+resource_local_to_scene = true
 radius = 80.0
 
 [sub_resource type="CircleShape2D" id=48]
@@ -24,7 +25,7 @@ shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=52]
 radius = 4.8471
-height = 11.858
+height = 8.086
 
 [sub_resource type="Animation" id=53]
 resource_name = "Start"
@@ -326,9 +327,6 @@ tracks/0/keys = {
 visible = false
 shape = SubResource( 45 )
 
-[node name="Hurtbox" parent="." index="1"]
-visible = false
-
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -8.081 )
 shape = SubResource( 46 )
@@ -355,10 +353,11 @@ offset = Vector2( 0, -9 )
 hframes = 21
 
 [node name="Hitbox" parent="." index="8"]
-visible = false
+collision_mask = 2147483648
+damage = 0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, -9.185 )
+position = Vector2( 0, -7.139 )
 shape = SubResource( 52 )
 
 [node name="InvincibilityAnimationPlayer" parent="." index="9"]

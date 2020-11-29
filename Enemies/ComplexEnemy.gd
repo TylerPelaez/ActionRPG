@@ -10,14 +10,31 @@ onready var animationState = animationTree.get("parameters/playback")
 func _ready():
 	animationTree.active = true
 
-func _physics_process(delta):
-	match state:
-		IDLE:
-			animationState.travel("Idle")
-		WANDER:
-			animationState.travel("Run")
-		CHASE:
-			animationState.travel("Run")
+func idle_state(delta):
+	.idle_state(delta)
+	animationState.travel("Idle")
+
+func wander_state(delta):
+	.wander_state(delta)
+	
+	if velocity == Vector2.ZERO:
+		animationState.travel("Idle")
+	else:
+		animationState.travel("Run")
+	
+func chase_state(delta):
+	.chase_state(delta)
+	if velocity == Vector2.ZERO:
+		animationState.travel("Idle")
+	else:
+		animationState.travel("Run")
+
+func attack_state(delta):
+	.attack_state(delta)
+	velocity = Vector2.ZERO
+	animationState.travel("Attack")
+
+
 
 func update_animation():
 	var facing_direction = velocity.normalized()
