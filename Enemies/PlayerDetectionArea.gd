@@ -14,7 +14,15 @@ func _ready():
 		playerInsideRadius = playerOutsideRadius * PLAYER_STICKINESS_MULTIPLIER
 
 func can_see_player():
-	return player != null
+	if player == null:
+		return false
+	
+	# LOS check. WE don't care about cones of vision or any of that stuff
+	var space_state = get_world_2d().direct_space_state
+	# 1 is a mask for the world
+	var result = space_state.intersect_ray(global_position, player.global_position, [self], 1)
+	
+	return result == null || result.empty()
 
 func _on_PlayerDetectionArea_body_entered(body):
 	if collider.shape is CircleShape2D:

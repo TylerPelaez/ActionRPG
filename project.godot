@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Enemy",
+"class": "ComplexEnemy",
+"language": "GDScript",
+"path": "res://Enemies/ComplexEnemy.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -18,10 +23,17 @@ _global_script_classes=[ {
 "class": "HitBox",
 "language": "GDScript",
 "path": "res://Hitboxes and Hurtboxes/Hitbox.gd"
+}, {
+"base": "AnimatedSprite",
+"class": "MagicProjectile",
+"language": "GDScript",
+"path": "res://Enemies/MagicProjectile.gd"
 } ]
 _global_script_class_icons={
+"ComplexEnemy": "",
 "Enemy": "",
-"HitBox": ""
+"HitBox": "",
+"MagicProjectile": ""
 }
 
 [application]
@@ -32,6 +44,7 @@ run/main_scene="res://World.tscn"
 [autoload]
 
 PlayerStats="*res://Player/PlayerStats.tscn"
+Utils="*res://Utils.gd"
 
 [display]
 

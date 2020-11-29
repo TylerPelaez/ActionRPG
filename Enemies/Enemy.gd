@@ -21,10 +21,12 @@ onready var playerDetectionArea = $PlayerDetectionArea
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
+onready var chasePlayerTimer = $ChasePlayerPathfindTimer
+onready var debugLine = $Line2D
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
-
+var chase_player_path
 var state = CHASE
 
 func _ready():
@@ -49,9 +51,25 @@ func _physics_process(delta):
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * PUSH_STRENGTH
 	velocity = move_and_slide(velocity)
+	
+	
+	if state == CHASE && chase_player_path != null && !chase_player_path.empty() && global_position.distance_squared_to(chase_player_path[0]) <= 0.0001:
+		chase_player_path.remove(0)  
+
+	if Utils.draw_debug:
+		if chase_player_path != null:
+			var newPoints = [Vector2.ZERO]
+			
+			for point in chase_player_path:
+				newPoints.append(transform.xform_inv(point))
+			
+			debugLine.points = newPoints
+		else:
+			debugLine.points = PoolVector2Array()
 
 
 func wander_state(delta):
+	chase_player_path = null
 	seek_player()
 	
 	if wanderController.get_time_left() == 0:
@@ -66,11 +84,15 @@ func wander_state(delta):
 func chase_state(delta):
 	var player = playerDetectionArea.player
 	if player != null:
-		accelerate_toward_point(player.global_position, delta)	
+		if player.global_position.distance_squared_to(global_position) <= 1 || chase_player_path == null || chase_player_path.empty():
+			accelerate_toward_point(player.global_position, delta)	
+		else:
+			accelerate_toward_point(chase_player_path[0], delta)	
 	else:
 		state = IDLE
 	
 func idle_state(delta):
+	chase_player_path = null
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	seek_player()
 	
@@ -92,6 +114,11 @@ func update_animation():
 func seek_player():
 	if playerDetectionArea.can_see_player():
 		state = CHASE
+		update_chase_player_path()
+		chasePlayerTimer.start()
+		
+func update_chase_player_path():
+	chase_player_path = get_tree().current_scene.get_nav_path(global_position, playerDetectionArea.player.global_position)
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
@@ -108,7 +135,13 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
-	queue_free()
+	call_deferred("queue_free")
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+
+func _on_ChasePlayerPathfindTimer_timeout():
+	if state == CHASE && playerDetectionArea.player != null:
+		update_chase_player_path()
+	chasePlayerTimer.start()

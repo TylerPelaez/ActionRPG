@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,9 +8,11 @@
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Player/Tree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Enemies/Acolyte.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/Navigation2D.gd" type="Script" id=12]
+[ext_resource path="res://World/World.gd" type="Script" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -179,6 +181,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=49]
+resource_local_to_scene = true
 0/name = "CliffTileset.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -486,7 +489,13 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="NavigationPolygon" id=50]
+vertices = PoolVector2Array( -64, -56, 368, -56, 128, -32, -32, -32, 368, 232, 352, 192, 352, 128, 256, 128, 256, 224, 224, 192, 224, 128, -64, 232, -32, 32, 128, 32, 192, 96, 192, 128, 160, 96, 160, 128, 128, 128, 128, 160, -32, 160, 192, 224, 192, 192, 288, 224, 288, 192, -32, 224 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 1, 4, 5, 6 ), PoolIntArray( 7, 8, 9, 10 ), PoolIntArray( 11, 0, 3, 12 ), PoolIntArray( 13, 2, 1, 6, 7, 14 ), PoolIntArray( 10, 15, 14 ), PoolIntArray( 13, 16, 17, 18, 12 ), PoolIntArray( 18, 19, 20, 12 ), PoolIntArray( 21, 22, 9, 8 ), PoolIntArray( 23, 24, 5, 4 ), PoolIntArray( 23, 4, 11, 8 ), PoolIntArray( 21, 8, 11 ), PoolIntArray( 25, 21, 11 ), PoolIntArray( 20, 25, 11 ), PoolIntArray( 20, 11, 12 ), PoolIntArray( 14, 16, 13 ), PoolIntArray( 14, 7, 10 ) ]
+outlines = [ PoolVector2Array( -64, -56, 368, -56, 368, 232, -64, 232 ), PoolVector2Array( -32, 160, 128, 160, 128, 128, 160, 128, 160, 96, 192, 96, 192, 128, 224, 128, 224, 192, 192, 192, 192, 224, -32, 224 ), PoolVector2Array( 128, -32, -32, -32, -32, 32, 128, 32 ), PoolVector2Array( 256, 128, 352, 128, 352, 192, 288, 192, 288, 224, 256, 224 ) ]
+
 [node name="World" type="Node2D"]
+script = ExtResource( 13 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 160, 90 )
@@ -584,6 +593,16 @@ position = Vector2( 291.475, 97.6322 )
 [node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 249.604, 20.3626 )
 
+[node name="Acolyte" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 294.616, 64 )
+collision_layer = 16
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 50 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
@@ -591,9 +610,5 @@ margin_left = 3.50508
 margin_top = 3.87965
 margin_right = 64.5051
 margin_bottom = 15.8797
-
-[node name="Acolyte" parent="." instance=ExtResource( 11 )]
-position = Vector2( 305.5, 56 )
-collision_layer = 16
 
 [editable path="Camera2D"]

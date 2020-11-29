@@ -85,7 +85,7 @@ shape = SubResource( 9 )
 [node name="AnimatedSprite" parent="." index="6"]
 material = SubResource( 13 )
 frames = SubResource( 14 )
-frame = 2
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -101,6 +101,9 @@ visible = false
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -15 )
 shape = SubResource( 12 )
+
+[node name="ChasePlayerPathfindTimer" parent="." index="10"]
+wait_time = 0.5
 
 [editable path="Hurtbox"]
 

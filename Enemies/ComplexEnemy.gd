@@ -1,4 +1,6 @@
 extends Enemy
+class_name ComplexEnemy
+# Complex Here refers to animation style, vs simple animation
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
@@ -33,8 +35,6 @@ func attack_state(delta):
 	.attack_state(delta)
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
-
-
 
 func update_animation():
 	var facing_direction = velocity.normalized()

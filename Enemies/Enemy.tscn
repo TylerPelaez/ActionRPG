@@ -29,5 +29,16 @@ collision_layer = 8
 
 [node name="Hitbox" parent="." instance=ExtResource( 7 )]
 collision_mask = 4
+
+[node name="ChasePlayerPathfindTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
+default_color = Color( 1, 0.4, 0.4, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[connection signal="timeout" from="ChasePlayerPathfindTimer" to="." method="_on_ChasePlayerPathfindTimer_timeout"]
