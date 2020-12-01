@@ -9,6 +9,8 @@ onready var invincibilityAnimationPlayer = $InvincibilityAnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
+var player_target = null
+
 func _ready():
 	animationTree.active = true
 
@@ -30,6 +32,21 @@ func chase_state(delta):
 		animationState.travel("Idle")
 	else:
 		animationState.travel("Run")
+		
+	var player = playerDetectionArea.player
+	if player != null:
+		# We need to be facing the right way
+		animationTree.set("parameters/Attack/blend_position", (player.global_position - global_position).normalized())
+		
+		if can_attack(player.global_position):
+			state = ATTACK
+			player_target = player
+	else:
+		state = IDLE
+
+# Each enemy implements this differently
+func can_attack(target):
+	pass
 
 func attack_state(delta):
 	.attack_state(delta)

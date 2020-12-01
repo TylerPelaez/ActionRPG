@@ -6,12 +6,11 @@
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/MagicProjectileShape.tres" type="Shape2D" id=5]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=1]
 radius = 5.0
 
 [node name="MagicProjectile" type="AnimatedSprite"]
 frames = ExtResource( 3 )
-frame = 3
 playing = true
 offset = Vector2( 0.5, -16 )
 script = ExtResource( 1 )
@@ -21,13 +20,14 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -15.5 )
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 monitoring = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.5, -15.5 )
 shape = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]

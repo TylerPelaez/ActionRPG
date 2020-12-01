@@ -583,19 +583,22 @@ position = Vector2( 240, 80 )
 
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 48, 104 )
+collision_layer = 16
 
 [node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 74.9695, 130.595 )
+collision_layer = 16
 
 [node name="Bat6" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 291.475, 97.6322 )
+collision_layer = 16
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 249.604, 20.3626 )
+collision_layer = 16
 
 [node name="Acolyte" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 294.616, 64 )
-collision_layer = 16
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 script = ExtResource( 12 )

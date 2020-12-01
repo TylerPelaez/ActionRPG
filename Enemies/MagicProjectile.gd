@@ -3,7 +3,7 @@ class_name MagicProjectile
 
 
 export var MAX_SPEED = 75
-export var ACCELERATION = 300 
+export var ACCELERATION = 150
 
 onready var velocity = Vector2.ZERO
 onready var area2D = $Area2D
@@ -24,6 +24,7 @@ func accelerate_toward_point(point, delta):
 
 func launch(target):
 	_target = target
+	velocity = global_position.direction_to(_target.global_position) * (MAX_SPEED / 2.0)
 	speed_scale *= 2
 	area2D.monitoring = true
 	deletionTimer.start()
