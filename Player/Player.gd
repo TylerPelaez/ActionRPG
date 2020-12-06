@@ -93,12 +93,13 @@ func roll_animation_finish():
 
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
-	hurtbox.start_invincibility(0.6)
-	_invincibility_started()
-	hurtbox.create_hit_effect()
-	var playerHurtSound = PlayerHurtSound.instance()
-	get_tree().current_scene.add_child(playerHurtSound)
+	if area is HitBox:
+		stats.health -= area.damage
+		hurtbox.start_invincibility(0.6)
+		_invincibility_started()
+		hurtbox.create_hit_effect()
+		var playerHurtSound = PlayerHurtSound.instance()
+		get_tree().current_scene.add_child(playerHurtSound)
 
 
 func _invincibility_started():

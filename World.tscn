@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Enemies/Acolyte.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/Navigation2D.gd" type="Script" id=12]
 [ext_resource path="res://World/World.gd" type="Script" id=13]
+[ext_resource path="res://Enemies/StatueKnight.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -581,26 +582,20 @@ position = Vector2( 168, 16 )
 [node name="Tree2" parent="YSort/Trees" instance=ExtResource( 9 )]
 position = Vector2( 240, 80 )
 
-[node name="Bat" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 48, 104 )
-collision_layer = 16
-
-[node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 74.9695, 130.595 )
-collision_layer = 16
-
 [node name="Bat6" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 291.475, 97.6322 )
-collision_layer = 16
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 249.604, 20.3626 )
-collision_layer = 16
 
 [node name="Acolyte" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 294.616, 64 )
 
+[node name="StatueKnight" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 48, 120 )
+
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 script = ExtResource( 12 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]

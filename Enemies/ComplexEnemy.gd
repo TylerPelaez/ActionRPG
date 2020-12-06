@@ -9,6 +9,8 @@ onready var invincibilityAnimationPlayer = $InvincibilityAnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
+onready var attackTimer = $AttackTimer
+
 var player_target = null
 
 func _ready():
@@ -28,11 +30,17 @@ func wander_state(delta):
 	
 func chase_state(delta):
 	.chase_state(delta)
+		
+	chase_but_dont_move()
+
+func chase_but_dont_move():
+		# Set animation state, otherwise an attack might end but the animation will never reset
 	if velocity == Vector2.ZERO:
 		animationState.travel("Idle")
 	else:
 		animationState.travel("Run")
 		
+	
 	var player = playerDetectionArea.player
 	if player != null:
 		# We need to be facing the right way
@@ -65,3 +73,7 @@ func _on_Hurtbox_invincibility_ended():
 
 func _on_Hurtbox_invincibility_started():
 	invincibilityAnimationPlayer.play("Start")
+
+func finish_attack():
+	attackTimer.start()
+	state = CHASE

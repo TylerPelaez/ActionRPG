@@ -1,0 +1,6 @@
+[gd_resource type="CapsuleShape2D" format=2]
+
+[resource]
+resource_local_to_scene = true
+radius = 9.524
+height = 15.842

@@ -5,10 +5,8 @@ const CircleShape = preload("res://Enemies/MagicProjectileShape.tres")
 
 export var PROJECTILE_SPAWN_OFFSET = Vector2(-0.5, -15.5)
 
-
 const STAND_STILL_AFTER_ATTACK_PERCENTAGE = 50
 
-onready var attackTimer = $AttackTimer
 onready var projectileSpawnPosition = $ProjectileSpawnPosition
 
 var spawning_projectile = null
@@ -85,10 +83,6 @@ func launch_projectile():
 	spawning_projectile.launch(player_target)
 	spawning_projectile = null
 	player_target = null
-
-func finish_attack():
-	attackTimer.start()
-	state = CHASE
 
 func _on_Stats_no_health():
 	._on_Stats_no_health()
