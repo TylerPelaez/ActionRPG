@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Enemy
 
+signal on_death
+
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
 export var ACCELERATION := 300
@@ -118,7 +120,7 @@ func seek_player():
 		chasePlayerTimer.start()
 		
 func update_chase_player_path():
-	chase_player_path = get_tree().current_scene.get_nav_path(global_position, playerDetectionArea.player.global_position)
+	chase_player_path = get_parent().get_nav_path(global_position, playerDetectionArea.player.global_position)
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
@@ -135,11 +137,11 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
+	emit_signal("on_death")
 	call_deferred("queue_free")
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
-
 
 func _on_ChasePlayerPathfindTimer_timeout():
 	if state == CHASE && playerDetectionArea.player != null:

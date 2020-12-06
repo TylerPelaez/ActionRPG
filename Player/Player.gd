@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 

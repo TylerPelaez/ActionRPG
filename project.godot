@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/ComplexEnemy.gd"
 }, {
+"base": "StaticBody2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://Rooms/Door.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -28,12 +33,25 @@ _global_script_classes=[ {
 "class": "MagicProjectile",
 "language": "GDScript",
 "path": "res://Enemies/MagicProjectile.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
+}, {
+"base": "YSort",
+"class": "Room",
+"language": "GDScript",
+"path": "res://Rooms/Room.gd"
 } ]
 _global_script_class_icons={
 "ComplexEnemy": "",
+"Door": "",
 "Enemy": "",
 "HitBox": "",
-"MagicProjectile": ""
+"MagicProjectile": "",
+"Player": "",
+"Room": ""
 }
 
 [application]
