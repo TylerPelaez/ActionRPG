@@ -63,7 +63,7 @@ func _physics_process(delta):
 			var newPoints = [Vector2.ZERO]
 			
 			for point in chase_player_path:
-				newPoints.append(transform.xform_inv(point))
+				newPoints.append(global_transform.xform_inv(point))
 			
 			debugLine.points = newPoints
 		else:

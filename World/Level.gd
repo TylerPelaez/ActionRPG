@@ -1,8 +1,7 @@
-extends Node2D
-
-var player
+extends YSort
 
 onready var camera = $Camera2D
+onready var player = $Player
 
 var current_room
 
@@ -11,12 +10,13 @@ func _ready():
 	for child in get_children():
 		if child is Room:
 			child.connect("room_entered", self, "_on_room_entered")
-			if player == null:
-				for grandchild in child.get_children():
-					if grandchild is Player:
-						current_room = child
-						player = grandchild
-						break
+			if child.starting_room && current_room != null:
+				print("ERROR: multiple rooms tagged as starting room, skipping second")
+				continue
+			
+			if child.starting_room:
+				current_room = child
+				camera.set_limits(current_room.roomExtents.topLeft(), current_room.roomExtents.bottomRight())
 
 func _on_room_entered(room: Room):
 	if current_room == room:
@@ -24,10 +24,6 @@ func _on_room_entered(room: Room):
 	
 	if current_room != null:
 		current_room.exited()
-		current_room.remove_child(player)
-		current_room.remove_child(camera)
 
 	current_room = room
-	current_room.add_child(player)
-	current_room.add_child(camera)
 	camera.set_limits(current_room.roomExtents.topLeft(), current_room.roomExtents.bottomRight())

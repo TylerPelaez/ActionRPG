@@ -3,6 +3,8 @@ class_name Room
 
 signal room_entered(room)
 
+export var starting_room = false
+
 onready var roomExtents = $RoomExtents
 var room_defeated = false
 var enemy_count = 0

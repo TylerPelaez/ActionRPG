@@ -8,6 +8,7 @@ export var ACCELERATION = 150
 onready var velocity = Vector2.ZERO
 onready var area2D = $Area2D
 onready var deletionTimer = $DeletionTimer
+onready var collider = $Hitbox/CollisionShape2D
 
 var _target
 
@@ -27,6 +28,7 @@ func launch(target):
 	velocity = global_position.direction_to(_target.global_position) * (MAX_SPEED / 2.0)
 	speed_scale *= 2
 	area2D.monitoring = true
+	collider.disabled = false
 	deletionTimer.start()
 
 func _on_Area2D_area_entered(area):
