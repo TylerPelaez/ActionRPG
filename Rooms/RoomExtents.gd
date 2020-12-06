@@ -10,8 +10,6 @@ onready var topLeft = $Limits/TopLeft
 onready var bottomRight = $Limits/BottomRight
 
 func _ready():
-	nav.initialize(polygon.polygon)	
-	
 	if topLeft.position == Vector2.ZERO && bottomRight.position == Vector2.ZERO:
 		var min_x = Utils.MAX_INT
 		var min_y = Utils.MAX_INT
@@ -34,3 +32,6 @@ func topLeft():
 	
 func bottomRight():
 	return bottomRight.global_position
+
+func initialize(static_bodies):
+	nav.initialize(polygon.polygon, static_bodies)

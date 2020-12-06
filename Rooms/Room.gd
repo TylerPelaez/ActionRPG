@@ -12,11 +12,16 @@ var enemy_death_count = 0
 
 func _ready():
 	enemy_count = 0
+	var staticBodies = []
 	for child in get_children():
 		if child is Enemy:
 			enemy_count += 1
 			child.connect("on_death", self, "_on_enemy_death")
+		
+		if child is StaticBody2D && !(child is Door):
+			staticBodies.append(child)
 	
+	roomExtents.initialize(staticBodies)
 	if enemy_count == 0:
 		room_defeated = true
 
