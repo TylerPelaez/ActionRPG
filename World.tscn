@@ -1,15 +1,19 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Rooms/Navigation2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Rooms/Navigation2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/FloorTiles.png" type="Texture" id=4]
 [ext_resource path="res://World/WallTileMap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Enemies/Acolyte.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Acolyte/Acolyte.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/World.gd" type="Script" id=13]
-[ext_resource path="res://Enemies/StatueKnight.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Enemies/StatueKnight/StatueKnight.tscn" type="PackedScene" id=14]
+
+
+
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "FloorTiles.png 0"

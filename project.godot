@@ -9,20 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Boss",
+"language": "GDScript",
+"path": "res://Enemies/Bosses/Boss.gd"
+}, {
+"base": "StateMachine",
+"class": "BossStateMachine",
+"language": "GDScript",
+"path": "res://Enemies/Bosses/BossStateMachine.gd"
+}, {
 "base": "Enemy",
 "class": "ComplexEnemy",
 "language": "GDScript",
-"path": "res://Enemies/ComplexEnemy.gd"
+"path": "res://Enemies/Core/ComplexEnemy.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Door",
 "language": "GDScript",
-"path": "res://Rooms/Door.gd"
+"path": "res://World/Rooms/Door.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemies/Enemy.gd"
+"path": "res://Enemies/Core/Enemy.gd"
 }, {
 "base": "Area2D",
 "class": "HitBox",
@@ -32,7 +42,7 @@ _global_script_classes=[ {
 "base": "AnimatedSprite",
 "class": "MagicProjectile",
 "language": "GDScript",
-"path": "res://Enemies/MagicProjectile.gd"
+"path": "res://Enemies/Acolyte/MagicProjectile.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -42,16 +52,36 @@ _global_script_classes=[ {
 "base": "YSort",
 "class": "Room",
 "language": "GDScript",
-"path": "res://Rooms/Room.gd"
+"path": "res://World/Rooms/Room.gd"
+}, {
+"base": "State",
+"class": "Sequence",
+"language": "GDScript",
+"path": "res://Utils/State/Sequence.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Utils/State/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Utils/State/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Boss": "",
+"BossStateMachine": "",
 "ComplexEnemy": "",
 "Door": "",
 "Enemy": "",
 "HitBox": "",
 "MagicProjectile": "",
 "Player": "",
-"Room": ""
+"Room": "",
+"Sequence": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
@@ -62,7 +92,7 @@ run/main_scene="res://World/Level.tscn"
 [autoload]
 
 PlayerStats="*res://Player/PlayerStats.tscn"
-Utils="*res://Utils.gd"
+Utils="*res://Utils/Utils.gd"
 
 [display]
 

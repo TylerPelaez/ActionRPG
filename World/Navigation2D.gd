@@ -30,4 +30,5 @@ func initialize(points: PoolVector2Array, static_bodies: Array):
 
 	nav_instance.set_navigation_polygon(nav_poly)
 
+# warning-ignore:return_value_discarded
 	navpoly_add(nav_poly, global_transform)

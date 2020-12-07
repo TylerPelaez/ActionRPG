@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://World/Rooms/Room.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Rooms/BossRoom.gd" type="Script" id=2]
+
+[node name="BossRoom" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+[connection signal="body_exited" from="RoomExtents" to="." method="_on_RoomExtents_body_exited"]
+
+[editable path="RoomExtents"]

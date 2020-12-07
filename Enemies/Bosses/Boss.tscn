@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/BossLifebar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Bosses/BossStateMachine.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Bosses/Boss.gd" type="Script" id=3]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Hitboxes and Hurtboxes/SoftCollision.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Bosses/Die.gd" type="Script" id=7]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=8]
+
+[node name="Boss" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="ShadowSprite" type="Sprite" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+collision_layer = 8
+
+[node name="Hitbox" parent="." instance=ExtResource( 8 )]
+collision_mask = 4
+
+[node name="SoftCollision" parent="." instance=ExtResource( 6 )]
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="BossStateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Die" type="Node" parent="BossStateMachine"]
+script = ExtResource( 7 )
+
+[node name="BossLifebar" parent="." instance=ExtResource( 1 )]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="BossStateMachine" method="_on_Stats_no_health"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[connection signal="animation_finished" from="AnimationPlayer" to="BossStateMachine" method="_on_animation_finished"]
+[connection signal="finished" from="BossStateMachine/Die" to="." method="_on_Die_finished"]
