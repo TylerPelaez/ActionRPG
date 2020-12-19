@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/Acolyte/MagicProjectile.gd"
 }, {
+"base": "State",
+"class": "Move",
+"language": "GDScript",
+"path": "res://Enemies/Bosses/Move.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "Sequence",
 "language": "GDScript",
 "path": "res://Utils/State/Sequence.gd"
+}, {
+"base": "Move",
+"class": "SimpleAttackMove",
+"language": "GDScript",
+"path": "res://Enemies/Bosses/Hunter/SimpleAttackMove.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -77,9 +87,11 @@ _global_script_class_icons={
 "Enemy": "",
 "HitBox": "",
 "MagicProjectile": "",
+"Move": "",
 "Player": "",
 "Room": "",
 "Sequence": "",
+"SimpleAttackMove": "",
 "State": "",
 "StateMachine": ""
 }
@@ -181,6 +193,7 @@ roll={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="SoftCollisions"
+2d_physics/layer_7="RockWall"
 
 [rendering]
 

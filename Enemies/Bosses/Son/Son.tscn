@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Son/TheSon.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Enemies/Bosses/Son/SonStateMachine.gd" type="Script" id=7]
 [ext_resource path="res://Enemies/Bosses/Idle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Utils/State/Sequence.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ShaderMaterial" id=19]
 resource_local_to_scene = true
@@ -280,6 +281,8 @@ script = ExtResource( 7 )
 [node name="Spawn" parent="BossStateMachine" index="0" instance=ExtResource( 3 )]
 
 [node name="Idle" parent="BossStateMachine" index="1" instance=ExtResource( 8 )]
+
+[node name="RockWallSequence" parent="BossStateMachine" index="2" instance=ExtResource( 9 )]
 
 [editable path="Hurtbox"]
 

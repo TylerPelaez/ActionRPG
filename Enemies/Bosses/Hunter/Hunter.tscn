@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Hunter/Hunter.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Enemies/Bosses/Hunter/SimpleAttack.gd" type="Script" id=9]
 [ext_resource path="res://Enemies/Bosses/Hunter/Hunter.gd" type="Script" id=10]
 [ext_resource path="res://Enemies/Bosses/Hunter/HunterCollisionShape.tres" type="Shape2D" id=11]
-[ext_resource path="res://Enemies/PathfindLine.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/Bosses/Hunter/AreaAttack.gd" type="Script" id=13]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=14]
 
@@ -486,10 +485,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 44, 0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:material:shader_param/active")
@@ -559,6 +558,7 @@ material = SubResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -12 )
 hframes = 47
+frame = 44
 
 [node name="CollisionShape2D" parent="." index="2"]
 visible = false
@@ -636,15 +636,13 @@ script = ExtResource( 13 )
 
 [node name="Idle" parent="BossStateMachine" index="3" instance=ExtResource( 6 )]
 
-[node name="Line2D" parent="." index="10" instance=ExtResource( 12 )]
-
-[node name="Fire0" type="Position2D" parent="." index="11"]
+[node name="Fire0" type="Position2D" parent="." index="10"]
 position = Vector2( 4.5, -28 )
 
-[node name="Fire1" type="Position2D" parent="." index="12"]
+[node name="Fire1" type="Position2D" parent="." index="11"]
 position = Vector2( -5.5, -28 )
 
-[node name="AreaAttack" type="Position2D" parent="." index="13"]
+[node name="AreaAttack" type="Position2D" parent="." index="12"]
 position = Vector2( -0.472473, -10.8668 )
 [connection signal="animation_changed" from="AnimationPlayer" to="BossStateMachine" method="_on_animation_finished"]
 
