@@ -11,10 +11,15 @@ func _ready():
 	for child in get_children():
 		if child is Boss:
 			boss = child
+			boss.connect("died", self, "on_boss_death")
 			break
 
+func on_boss_death():
+	room_defeated = true
+	open_doors()
+
 func spawn_boss():
-	boss.initialize(player)
+	boss.initialize(player, self)
 	boss.start()
 	
 func _on_RoomExtents_body_entered(body):

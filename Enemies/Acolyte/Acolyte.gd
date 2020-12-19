@@ -41,17 +41,7 @@ func can_attack(player_position):
 		return false
 	
 	# Circle intersection check
-	var query = Physics2DShapeQueryParameters.new()
-	query.collide_with_areas = true
-	query.set_shape(CircleShape)
-	query.set_transform(projectileSpawnPosition.global_transform.translated(PROJECTILE_SPAWN_OFFSET))
-	query.collision_layer = 1
-	var shape_result = space_state.intersect_shape(query)
-	if shape_result == null || shape_result.size() == 0:
-		return true
-	else:
-		return false
-	
+	return Utils.circle_cast(CircleShape, projectileSpawnPosition.global_transform.translated(PROJECTILE_SPAWN_OFFSET))
 
 func attack_state(delta):
 	.attack_state(delta)

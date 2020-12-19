@@ -55,7 +55,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	
 	
-	if state == CHASE && chase_player_path != null && !chase_player_path.empty() && global_position.distance_squared_to(chase_player_path[0]) <= 0.0001:
+	if state == CHASE && chase_player_path != null && !chase_player_path.empty() && global_position.distance_squared_to(chase_player_path[0]) <= 1:
 		chase_player_path.remove(0)  
 
 	if Utils.draw_debug:

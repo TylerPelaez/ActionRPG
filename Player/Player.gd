@@ -94,7 +94,7 @@ func roll_animation_finish():
 
 
 func _on_Hurtbox_area_entered(area):
-	if area is HitBox:
+	if area is HitBox && !hurtbox.invincible:
 		stats.health -= area.damage
 		hurtbox.start_invincibility(0.6)
 		_invincibility_started()

@@ -15,7 +15,6 @@ func _ready():
 func initialize():
 	change_phase(current_phase)
 	
-
 func _on_active_state_finished():
 	go_to_next_state()
 

@@ -642,8 +642,8 @@ tracks/0/keys = {
 height = 10.196
 
 [sub_resource type="CapsuleShape2D" id=21]
-radius = 4.525
-height = 7.916
+radius = 3.45634
+height = 9.37705
 
 [sub_resource type="Animation" id=22]
 resource_name = "Start"
@@ -742,7 +742,7 @@ disabled = true
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, -6.733 )
+position = Vector2( -0.508661, -7.04301 )
 shape = SubResource( 21 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

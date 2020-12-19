@@ -1,7 +1,7 @@
 extends State
 
 func enter():
-	owner.get_node('AnimationPlayer').play("idle")
+	owner.play_animation("Idle", owner.last_direction)
 	$Timer.start()
 	
 func update(delta):

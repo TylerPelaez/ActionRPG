@@ -7,4 +7,8 @@ func _decide_on_next_state():
 	if current_state == $Spawn:
 		return $Idle
 	if current_state == $Idle:
-		return $Idle
+		return $SimpleAttackSequence
+	if current_state == $SimpleAttackSequence:
+		return $AreaAttackSequence
+	if current_state == $AreaAttackSequence:
+		return $SimpleAttackSequence

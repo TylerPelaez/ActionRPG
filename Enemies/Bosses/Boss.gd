@@ -8,11 +8,14 @@ onready var stats = $Stats
 onready var hurtbox = $Hurtbox
 onready var lifebar = $BossLifebar
 
+
+var room
 var start_global_position
 var target
 
-func initialize(_target):
+func initialize(_target, _room):
 	target = _target 
+	room = _room
 
 func _ready():
 	visible = false
@@ -26,9 +29,9 @@ func start():
 
 func set_invincible(value):
 	hurtbox.set_invincible(value)
-	$CollisionShape2D.disabled = value
-	$Hitbox/CollisionShape2D.disabled = value
-	$Hitbox.monitorable = not value
+	$CollisionShape2D.set_deferred("disabled", value)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", value)
+	$Hitbox.set_deferred("monitorable", not value)
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
