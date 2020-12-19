@@ -1,0 +1,286 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Bosses/Son/TheSon.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/Bosses/Spawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Bosses/Son/SpawnSon.shader" type="Shader" id=4]
+[ext_resource path="res://Enemies/Bosses/Son/Son.gd" type="Script" id=5]
+[ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Bosses/Son/SonStateMachine.gd" type="Script" id=7]
+[ext_resource path="res://Enemies/Bosses/Idle.tscn" type="PackedScene" id=8]
+
+[sub_resource type="ShaderMaterial" id=19]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/time = 1.0
+shader_param/speed = 3.0
+shader_param/initialOffset = 0.76
+shader_param/clipOffset = 0.76
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.9767
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 4.80518
+height = 22.1757
+
+[sub_resource type="Animation" id=20]
+resource_name = "IdleDown"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "IdleLeft"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "IdleRight"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "IdleUp"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/time")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.196078 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShadowSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_spawn_shader"
+} ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "spawn"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:material:shader_param/active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.85, 2.9, 2.95, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_spawn_shader"
+}, {
+"args": [  ],
+"method": "set_white_color_shader"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:material:shader_param/time")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="Son" instance=ExtResource( 1 )]
+collision_layer = 0
+script = ExtResource( 5 )
+
+[node name="ShadowSprite" parent="." index="0"]
+position = Vector2( 0, 1.149 )
+texture = ExtResource( 6 )
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource( 19 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -14 )
+hframes = 29
+
+[node name="CollisionShape2D" parent="." index="2"]
+visible = false
+position = Vector2( 0, 1.02369 )
+shape = SubResource( 1 )
+
+[node name="Hurtbox" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -13.1826 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="7"]
+anims/IdleDown = SubResource( 20 )
+anims/IdleLeft = SubResource( 21 )
+anims/IdleRight = SubResource( 22 )
+anims/IdleUp = SubResource( 23 )
+anims/die = SubResource( 24 )
+anims/spawn = SubResource( 18 )
+
+[node name="BossStateMachine" parent="." index="8"]
+script = ExtResource( 7 )
+
+[node name="Spawn" parent="BossStateMachine" index="0" instance=ExtResource( 3 )]
+
+[node name="Idle" parent="BossStateMachine" index="1" instance=ExtResource( 8 )]
+
+[editable path="Hurtbox"]
+
+[editable path="Hitbox"]

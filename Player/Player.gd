@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+signal died
+
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 
 export var ACCELERATION = 500
@@ -27,9 +29,7 @@ onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
-	# Breaks the debug rng seed
-	randomize()
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "_on_Stats_no_health")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
@@ -92,6 +92,9 @@ func roll_animation_finish():
 	velocity = velocity / 2
 	state = MOVE
 
+func _on_Stats_no_health():
+	emit_signal("died")
+	queue_free()
 
 func _on_Hurtbox_area_entered(area):
 	if area is HitBox && !hurtbox.invincible:
@@ -101,7 +104,6 @@ func _on_Hurtbox_area_entered(area):
 		hurtbox.create_hit_effect()
 		var playerHurtSound = PlayerHurtSound.instance()
 		get_tree().current_scene.add_child(playerHurtSound)
-
 
 func _invincibility_started():
 	blinkAnimationPlayer.play("Start")

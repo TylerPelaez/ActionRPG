@@ -2,8 +2,14 @@ extends Node
 #Singleton!
 
 const draw_debug = true
+const should_randomize = false
+
 const MAX_INT = 9223372036854775807
 const MIN_INT = -9223372036854775808
+
+func _ready():
+	if should_randomize:
+		randomize()
 
 func instance_scene_on_main(scene, position):
 	var main = get_tree().current_scene

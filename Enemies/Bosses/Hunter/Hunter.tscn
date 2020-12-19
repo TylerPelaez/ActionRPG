@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Hunter/Hunter.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Enemies/Bosses/Hunter/HunterCollisionShape.tres" type="Shape2D" id=11]
 [ext_resource path="res://Enemies/PathfindLine.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/Bosses/Hunter/AreaAttack.gd" type="Script" id=13]
+[ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=14]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -26,7 +27,7 @@ height = 17.4534
 radius = 3.05564
 height = 1.8572
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=4]
 resource_name = "AreaAttack"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -55,7 +56,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -71,7 +72,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -87,7 +88,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -103,7 +104,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -119,7 +120,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -133,23 +134,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6, 7, 8, 9 ]
-}
-
-[sub_resource type="Animation" id=9]
-length = 0.6
-loop = true
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 10, 11, 12, 13 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -166,10 +150,27 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 14, 15, 16, 17 ]
+"values": [ 10, 11, 12, 13 ]
 }
 
 [sub_resource type="Animation" id=11]
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17 ]
+}
+
+[sub_resource type="Animation" id=12]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -185,7 +186,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21, 22, 23 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -241,7 +242,7 @@ tracks/3/keys = {
 "values": [ Vector2( 4.5, -4.5 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -297,7 +298,7 @@ tracks/3/keys = {
 "values": [ Vector2( -17, -18.5 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -353,7 +354,7 @@ tracks/3/keys = {
 "values": [ Vector2( 17, -15 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -409,7 +410,7 @@ tracks/3/keys = {
 "values": [ Vector2( 4.5, -28 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -462,8 +463,9 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=17]
-length = 2.5
+[sub_resource type="Animation" id=18]
+resource_name = "spawn"
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -484,10 +486,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 44, 0 ]
+"values": [ 0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:material:shader_param/active")
@@ -496,7 +498,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 2.35, 2.4, 2.45, 2.5 ),
+"times": PoolRealArray( 2.85, 2.9, 2.95, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
@@ -513,33 +515,71 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_spawn_shader"
+}, {
+"args": [  ],
+"method": "set_white_color_shader"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:material:shader_param/time")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="Hunter" instance=ExtResource( 1 )]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 10 )
 
+[node name="ShadowSprite" parent="." index="0"]
+position = Vector2( -0.5, 0.787 )
+texture = ExtResource( 14 )
+
 [node name="Sprite" parent="." index="1"]
 material = SubResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -12 )
 hframes = 47
-frame = 44
 
 [node name="CollisionShape2D" parent="." index="2"]
+visible = false
 position = Vector2( -0.5, 0 )
 rotation = -1.57079
 shape = ExtResource( 11 )
 disabled = true
+
+[node name="Hurtbox" parent="." index="3"]
+visible = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -0.5, -11.743 )
 shape = SubResource( 2 )
 
 [node name="Hitbox" parent="." index="4"]
+visible = false
 damage = 0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+visible = false
 position = Vector2( -0.4359, -10.4675 )
 disabled = true
 
@@ -547,6 +587,7 @@ disabled = true
 visible = false
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
+visible = false
 position = Vector2( -0.5, 0 )
 rotation = -1.57079
 shape = SubResource( 3 )
@@ -556,21 +597,21 @@ max_health = 16
 
 [node name="AnimationPlayer" parent="." index="7"]
 autoplay = "IdleDown"
-anims/AreaAttack = SubResource( 18 )
-anims/IdleDown = SubResource( 4 )
-anims/IdleLeft = SubResource( 5 )
-anims/IdleRight = SubResource( 6 )
-anims/IdleUp = SubResource( 7 )
-anims/RunDown = SubResource( 8 )
-anims/RunLeft = SubResource( 9 )
-anims/RunRight = SubResource( 10 )
-anims/RunUp = SubResource( 11 )
-anims/SimpleAttackDown = SubResource( 12 )
-anims/SimpleAttackLeft = SubResource( 13 )
-anims/SimpleAttackRight = SubResource( 14 )
-anims/SimpleAttackUp = SubResource( 15 )
-anims/die = SubResource( 16 )
-anims/spawn = SubResource( 17 )
+anims/AreaAttack = SubResource( 4 )
+anims/IdleDown = SubResource( 5 )
+anims/IdleLeft = SubResource( 6 )
+anims/IdleRight = SubResource( 7 )
+anims/IdleUp = SubResource( 8 )
+anims/RunDown = SubResource( 9 )
+anims/RunLeft = SubResource( 10 )
+anims/RunRight = SubResource( 11 )
+anims/RunUp = SubResource( 12 )
+anims/SimpleAttackDown = SubResource( 13 )
+anims/SimpleAttackLeft = SubResource( 14 )
+anims/SimpleAttackRight = SubResource( 15 )
+anims/SimpleAttackUp = SubResource( 16 )
+anims/die = SubResource( 17 )
+anims/spawn = SubResource( 18 )
 
 [node name="BossStateMachine" parent="." index="8"]
 script = ExtResource( 5 )

@@ -9,11 +9,12 @@ const PROJECTILE_COUNT = 5
 const PROJECTILE_ANGLE = 10
 
 var attack_direction
-var count = 0 
 
 func enter():
 	update_direction()
-	count = 0
+
+func update(delta):
+	update_direction()
 	
 func update_direction():
 	attack_direction = (owner.target.global_position - owner.global_position).normalized()
@@ -51,10 +52,3 @@ func fire(index: int):
 		var direction = attack_direction.rotated( mult * deg2rad(PROJECTILE_ANGLE * ((i + 1) / 2)) )
 		var instance = Utils.instance_scene_on_main(ProjectileScene, owner.get_node(FIRE + str(index)).global_position)
 		instance.initialize(direction)
-	
-	if count == 0:
-		update_direction()
-	
-	count += 1
-
-	

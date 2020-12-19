@@ -36,3 +36,7 @@ func change_phase(new_phase):
 
 func _on_Stats_no_health():
 	go_to_next_state($Die)
+
+func idle():
+	go_to_next_state($Idle)
+	active = false

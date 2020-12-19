@@ -28,7 +28,8 @@ func _ready():
 
 func get_nav_path(from, to):
 	var path = roomExtents.nav.get_simple_path(from, to)
-	path.remove(0)
+	if !path.empty():
+		path.remove(0)
 	return path
 
 func close_doors():

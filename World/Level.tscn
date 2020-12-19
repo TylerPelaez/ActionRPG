@@ -13,7 +13,7 @@
 [ext_resource path="res://World/Rooms/BossRoom.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/Acolyte/Acolyte.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/StatueKnight/StatueKnight.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Enemies/Bosses/Hunter/Hunter.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Enemies/Bosses/Son/Son.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
@@ -104,8 +104,8 @@ polygon = PoolVector2Array( 304, 40, 16, 40, 16, -120, 112, -120, 112, -152, 144
 [node name="Door" parent="BossRoom" instance=ExtResource( 6 )]
 position = Vector2( 160, -176 )
 
-[node name="Hunter" parent="BossRoom" instance=ExtResource( 14 )]
-position = Vector2( 160, -40 )
+[node name="Son" parent="BossRoom" instance=ExtResource( 14 )]
+position = Vector2( 160, -88 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 176, 80 )
