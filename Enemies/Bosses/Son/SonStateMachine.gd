@@ -5,6 +5,8 @@ func _decide_on_next_state():
 	if current_state == null:
 		return $Spawn
 	if current_state == $Spawn:
+		return $RockWallSequence
+	if current_state == $RockWallSequence:
 		return $Idle
 	if current_state == $Idle:
 		return $Idle

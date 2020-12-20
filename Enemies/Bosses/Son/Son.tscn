@@ -1,31 +1,54 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Son/TheSon.png" type="Texture" id=2]
 [ext_resource path="res://Enemies/Bosses/Spawn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/Bosses/Son/SpawnSon.shader" type="Shader" id=4]
 [ext_resource path="res://Enemies/Bosses/Son/Son.gd" type="Script" id=5]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Enemies/Bosses/Son/SonStateMachine.gd" type="Script" id=7]
 [ext_resource path="res://Enemies/Bosses/Idle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Utils/State/Sequence.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemies/Bosses/Son/RockWallMove.gd" type="Script" id=10]
+[ext_resource path="res://Enemies/Bosses/Son/CreateWall.gd" type="Script" id=11]
 
-[sub_resource type="ShaderMaterial" id=19]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
-shader = ExtResource( 4 )
-shader_param/time = 1.0
-shader_param/speed = 3.0
-shader_param/initialOffset = 0.76
-shader_param/clipOffset = 0.76
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 2.9767
-
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 4.80518
 height = 22.1757
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=14]
+resource_name = "CreateWall"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 26, 27, 28 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "create_wall"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
 resource_name = "IdleDown"
 length = 0.1
 loop = true
@@ -42,7 +65,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=5]
 resource_name = "IdleLeft"
 length = 0.1
 loop = true
@@ -59,7 +82,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=6]
 resource_name = "IdleRight"
 length = 0.1
 loop = true
@@ -76,7 +99,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=7]
 resource_name = "IdleUp"
 length = 0.1
 loop = true
@@ -93,7 +116,108 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=10]
+resource_name = "RunDown"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "RunLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "RunRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "RunUp"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "SpinAttack"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23, 24 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "SpinPrepare"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 20 ]
+}
+
+[sub_resource type="Animation" id=8]
 resource_name = "die"
 length = 2.0
 tracks/0/type = "value"
@@ -159,7 +283,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=9]
 resource_name = "spawn"
 length = 3.0
 step = 0.05
@@ -182,10 +306,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 28, 0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:material:shader_param/active")
@@ -235,7 +359,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 2.6 ),
+"times": PoolRealArray( 0.05, 2.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -250,30 +374,36 @@ position = Vector2( 0, 1.149 )
 texture = ExtResource( 6 )
 
 [node name="Sprite" parent="." index="1"]
-material = SubResource( 19 )
+material = SubResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -14 )
 hframes = 29
+frame = 28
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 position = Vector2( 0, 1.02369 )
-shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." index="3"]
 visible = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -13.1826 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="7"]
-anims/IdleDown = SubResource( 20 )
-anims/IdleLeft = SubResource( 21 )
-anims/IdleRight = SubResource( 22 )
-anims/IdleUp = SubResource( 23 )
-anims/die = SubResource( 24 )
-anims/spawn = SubResource( 18 )
+anims/CreateWall = SubResource( 14 )
+anims/IdleDown = SubResource( 4 )
+anims/IdleLeft = SubResource( 5 )
+anims/IdleRight = SubResource( 6 )
+anims/IdleUp = SubResource( 7 )
+anims/RunDown = SubResource( 10 )
+anims/RunLeft = SubResource( 11 )
+anims/RunRight = SubResource( 12 )
+anims/RunUp = SubResource( 13 )
+anims/SpinAttack = SubResource( 16 )
+anims/SpinPrepare = SubResource( 15 )
+anims/die = SubResource( 8 )
+anims/spawn = SubResource( 9 )
 
 [node name="BossStateMachine" parent="." index="8"]
 script = ExtResource( 7 )
@@ -283,6 +413,23 @@ script = ExtResource( 7 )
 [node name="Idle" parent="BossStateMachine" index="1" instance=ExtResource( 8 )]
 
 [node name="RockWallSequence" parent="BossStateMachine" index="2" instance=ExtResource( 9 )]
+
+[node name="Move" type="Node" parent="BossStateMachine/RockWallSequence" index="0"]
+script = ExtResource( 10 )
+
+[node name="CreateWall" type="Node" parent="BossStateMachine/RockWallSequence" index="1"]
+script = ExtResource( 11 )
+
+[node name="SpinAttackSequence" parent="BossStateMachine" index="3" instance=ExtResource( 9 )]
+
+[node name="SpinAttackBeginMove" type="Node" parent="BossStateMachine/SpinAttackSequence" index="0"]
+
+[node name="SpinAttackPrepare" type="Node" parent="BossStateMachine/SpinAttackSequence" index="1"]
+
+[node name="SpinAttack" type="Node" parent="BossStateMachine/SpinAttackSequence" index="2"]
+
+[node name="WallOrigin" type="Position2D" parent="." index="11"]
+position = Vector2( -0.0356903, 3.89442 )
 
 [editable path="Hurtbox"]
 

@@ -41,7 +41,7 @@ func can_attack(player_position):
 		return false
 	
 	# Circle intersection check
-	return Utils.circle_cast(CircleShape, projectileSpawnPosition.global_transform.translated(PROJECTILE_SPAWN_OFFSET))
+	return Utils.shape_cast(CircleShape, projectileSpawnPosition.global_transform.translated(PROJECTILE_SPAWN_OFFSET))
 
 func attack_state(delta):
 	.attack_state(delta)

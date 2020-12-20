@@ -98,12 +98,15 @@ func _on_Stats_no_health():
 
 func _on_Hurtbox_area_entered(area):
 	if area is HitBox && !hurtbox.invincible:
-		stats.health -= area.damage
-		hurtbox.start_invincibility(0.6)
-		_invincibility_started()
-		hurtbox.create_hit_effect()
-		var playerHurtSound = PlayerHurtSound.instance()
-		get_tree().current_scene.add_child(playerHurtSound)
+		got_hit(area.damage)
+
+func got_hit(damage):
+	stats.health -= damage
+	hurtbox.start_invincibility(0.6)
+	_invincibility_started()
+	hurtbox.create_hit_effect()
+	var playerHurtSound = PlayerHurtSound.instance()
+	get_tree().current_scene.add_child(playerHurtSound)
 
 func _invincibility_started():
 	blinkAnimationPlayer.play("Start")
@@ -111,3 +114,15 @@ func _invincibility_started():
 
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
+
+
+func _on_Hurtbox_body_shape_entered(body_id, body, body_shape, area_shape):
+	if body is RockWallTileMap && !hurtbox.invincible:
+		var result = Utils.shape_cast_get_result(hurtbox.collisionShape.shape, hurtbox.collisionShape.global_transform)
+		if result == null || result.empty():
+			return
+		else:
+			for res in result:
+				body.delete_cell(res["metadata"][0], res["metadata"][1])
+		
+		got_hit(body.damage)

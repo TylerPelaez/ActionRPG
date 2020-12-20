@@ -3,7 +3,6 @@
 [ext_resource path="res://World/Rooms/Navigation2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Rooms/RoomExtents.gd" type="Script" id=2]
 
-
 [node name="RoomExtents" type="Area2D"]
 script = ExtResource( 2 )
 

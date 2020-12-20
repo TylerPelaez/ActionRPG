@@ -753,6 +753,7 @@ volume_db = -12.518
 anims/Start = SubResource( 22 )
 anims/Stop = SubResource( 23 )
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_shape_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 
 [editable path="HitboxPivot/SwordHitbox"]
