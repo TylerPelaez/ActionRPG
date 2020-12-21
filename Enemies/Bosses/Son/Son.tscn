@@ -438,7 +438,6 @@ script = ExtResource( 12 )
 [node name="SpinAttack" type="Node" parent="BossStateMachine/SpinAttackSequence" index="2"]
 script = ExtResource( 13 )
 MAX_SPEED = 125.0
-TURN_SPEED = 1.0
 
 [node name="Timer" type="Timer" parent="BossStateMachine/SpinAttackSequence/SpinAttack" index="0"]
 wait_time = 10.0

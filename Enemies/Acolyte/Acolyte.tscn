@@ -460,6 +460,7 @@ tracks/0/keys = {
 }
 
 [node name="Acolyte" instance=ExtResource( 1 )]
+light_mask = 4
 script = ExtResource( 4 )
 PUSH_STRENGTH = 200
 
@@ -494,6 +495,7 @@ texture = ExtResource( 5 )
 offset = Vector2( 0.105, 1.058 )
 
 [node name="Sprite" parent="." index="7"]
+light_mask = 4
 material = SubResource( 5 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -9 )

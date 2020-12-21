@@ -1,0 +1,64 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Story_editor"
+names = {
+"DEBUG_DIALOG": 1
+}
+story = {
+1: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Fake Son Dialog For Debugging",
+"name": "DEBUG_DIALOG",
+"nodes": {
+1: {
+"graph_offset": Vector2( -100, 220 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Son</speaker>
+<dialog>It'll be years before you can face me for real, bitch</dialog>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( -100, 80 ),
+"links": {
+0: 1
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( -100, 380 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Son</speaker>
+<dialog>I'm going to crush you!</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( -100, 540 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+}
+}
+available_dids = [  ]
+groups = [  ]

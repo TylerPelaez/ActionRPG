@@ -29,6 +29,7 @@ onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
+	$Light2D.enabled = true
 	stats.connect("no_health", self, "_on_Stats_no_health")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector

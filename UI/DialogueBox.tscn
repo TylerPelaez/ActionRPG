@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/DialogueBox.png" type="Texture" id=1]
+[ext_resource path="res://UI/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/DialogueBox.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ShowText"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="DialogueBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -310.0
+margin_bottom = -170.0
+rect_min_size = Vector2( 10, 10 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 250.0
+margin_bottom = 47.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+margin_right = 250.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+margin_right = 250.0
+margin_bottom = 47.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="BodyLabel" type="Label" parent="MarginContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 245.0
+margin_bottom = 42.0
+size_flags_horizontal = 7
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "test"
+autowrap = true
+percent_visible = 0.0
+max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/MarginContainer/BodyLabel"]
+anims/ShowText = SubResource( 1 )
+[connection signal="animation_finished" from="MarginContainer/MarginContainer/BodyLabel/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

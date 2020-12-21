@@ -8,8 +8,6 @@
 [ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=7]
 
-
-
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 1 )

@@ -22,6 +22,7 @@ func _ready():
 #		tile_set.tile_set_material(tile, TileMaterial)
 #		tile_set.tile_get_material(tile).set_shader_param("global_transform", get_global_transform())
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	var time = $AnimationPlayer.current_animation_position / $AnimationPlayer.current_animation_length
 	
@@ -40,10 +41,14 @@ func _on_ClearTimer_timeout():
 
 func expand(index):
 	if horizontal:
+# warning-ignore:narrowing_conversion
 		set_cell(ORIGIN.x + index, ORIGIN.y, 0)
+# warning-ignore:narrowing_conversion
 		set_cell(ORIGIN.x - index, ORIGIN.y, 0)
 	else:
+# warning-ignore:narrowing_conversion
 		set_cell(ORIGIN.x, ORIGIN.y + index, 0)
+# warning-ignore:narrowing_conversion
 		set_cell(ORIGIN.x, ORIGIN.y - index, 0)
 	expansions += 1
 

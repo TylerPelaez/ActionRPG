@@ -7,6 +7,7 @@ onready var playerWithinRange = $SwordHitboxPivot/PlayerWithinRange
 var canHitPlayer = false
 var playerClose = false
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	playerWithinRange.position = swordHitbox.position
 
@@ -19,6 +20,7 @@ func chase_state(delta):
 	else:
 		.chase_state(delta)
 
+# warning-ignore:unused_argument
 func can_attack(player_position):
 	if attackTimer.time_left > 0:
 		return false
@@ -40,17 +42,21 @@ func update_animation():
 		animationTree.set("parameters/Attack/blend_position", player.global_position - global_position)
 		animationTree.set("parameters/Idle/blend_position", player.global_position - global_position)
 
+# warning-ignore:unused_argument
 func _on_PlayerClose_area_entered(area):
 	playerClose = true
 
 
+# warning-ignore:unused_argument
 func _on_PlayerClose_area_exited(area):
 	playerClose = false
 
 
+# warning-ignore:unused_argument
 func _on_PlayerWithinRange_area_entered(area):
 	canHitPlayer = true
 
 
+# warning-ignore:unused_argument
 func _on_PlayerWithinRange_area_exited(area):
 	canHitPlayer = false
