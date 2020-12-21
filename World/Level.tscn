@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World/Rooms/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Level.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://World/RugTileMap.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Enemies/Bosses/Son/Son.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/Rooms/SideDoor.tscn" type="PackedScene" id=16]
+[ext_resource path="res://World/Torch.tscn" type="PackedScene" id=17]
 
 [node name="Level" type="YSort"]
 script = ExtResource( 2 )
@@ -87,6 +88,7 @@ polygon = PoolVector2Array( 8, 64, 304, 64, 304, 192, 16, 192, 16, 96, 8, 96 )
 
 [node name="Acolyte" parent="Room3" instance=ExtResource( 12 )]
 position = Vector2( 160, 120 )
+collision_layer = 16
 
 [node name="SideDoor2" parent="Room3" instance=ExtResource( 16 )]
 position = Vector2( 4, 97 )
@@ -133,6 +135,10 @@ margin_right = 63.0
 margin_bottom = 14.0
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Torch" parent="." instance=ExtResource( 17 )]
+position = Vector2( 480, 48 )
+frame = 2
 
 [editable path="Room"]
 
