@@ -11,6 +11,8 @@ var room_defeated = false
 var enemy_count = 0
 var enemy_death_count = 0
 var active = false
+var player_entrance_position
+
 
 func _ready():
 	enemy_count = 0
@@ -35,9 +37,12 @@ func get_nav_path(from, to):
 
 func close_doors():
 	active = true
+	
 	for child in get_children():
 		if child is Door:
 			child.close()
+		if child is Enemy:
+			child.activate()
 
 func open_doors():
 	active = false
@@ -53,7 +58,9 @@ func _on_RoomExtents_body_entered(body):
 	if !active:
 		call_deferred("emit_signal", "room_entered", self)
 		if !room_defeated:
+			player_entrance_position = body.global_position
 			close_doors()
+			body.global_position = player_entrance_position
 
 func _on_enemy_death():
 	enemy_death_count += 1

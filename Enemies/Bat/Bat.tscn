@@ -5,8 +5,6 @@
 [ext_resource path="res://Enemies/Core/SimpleEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WhiteColor.shader" type="Shader" id=10]
 
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
 
@@ -16,7 +14,7 @@ height = 6.0
 
 [sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
-radius = 46.0
+radius = 192.167
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 4.0

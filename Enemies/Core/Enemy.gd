@@ -30,11 +30,16 @@ var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var chase_player_path
 var state = CHASE
+var activated = false
+
 
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
 
 func _physics_process(delta):
+	if !activated:
+		return
+	
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
 	
@@ -148,3 +153,7 @@ func _on_ChasePlayerPathfindTimer_timeout():
 	if state == CHASE && playerDetectionArea.player != null:
 		update_chase_player_path()
 	chasePlayerTimer.start()
+
+
+func activate():
+	activated = true

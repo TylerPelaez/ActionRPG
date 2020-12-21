@@ -6,9 +6,10 @@ onready var camera = $Camera2D
 onready var player = $Player
 
 var current_room
+var use_current_room_center
 
 func _ready():
-	for child in get_children():
+	for child in $Rooms.get_children():
 		if child is Room:
 			child.connect("room_entered", self, "_on_room_entered")
 			if child.starting_room && current_room != null:
@@ -28,8 +29,10 @@ func _on_room_entered(room: Room):
 		current_room.exited()
 
 	current_room = room
-	
 	var tween = $Tween
+	var roomBounds = current_room.roomExtents.bottomRight() - current_room.roomExtents.topLeft()
+	var viewport_rect = get_viewport_rect()
+
 	tween.interpolate_property(camera, "limit_left",
 		camera.limit_left, current_room.roomExtents.topLeft().x, total_lerp_time,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
@@ -42,5 +45,13 @@ func _on_room_entered(room: Room):
 	tween.interpolate_property(camera, "limit_bottom",
 		camera.limit_bottom, current_room.roomExtents.bottomRight().y, total_lerp_time,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)		
-
 	tween.start()
+	use_current_room_center = false
+
+
+func _on_Tween_tween_all_completed():
+	if use_current_room_center:
+		camera.limit_left = current_room.roomExtents.topLeft().x
+		camera.limit_top = current_room.roomExtents.topLeft().y
+		camera.limit_right = current_room.roomExtents.bottomRight().x
+		camera.limit_bottom = current_room.roomExtents.bottomRight().y

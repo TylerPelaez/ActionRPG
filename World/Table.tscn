@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://World/Prop.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/beeg-table.png" type="Texture" id=2]
+
+[node name="Table" instance=ExtResource( 1 )]
+light_mask = 4
+
+[node name="Sprite" parent="." index="0"]
+light_mask = -2147483647
+position = Vector2( 0, -14 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( 16, 0, -16, 0, -16, -11, 16, -11 )

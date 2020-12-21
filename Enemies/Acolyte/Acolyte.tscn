@@ -15,7 +15,7 @@ height = 11.681
 
 [sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
-radius = 80.0
+radius = 188.215
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 6.0
@@ -482,6 +482,7 @@ max_health = 2
 visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionArea" index="0"]
+visible = false
 shape = SubResource( 3 )
 
 [node name="SoftCollision" parent="." index="4"]

@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Prop" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 4
+position = Vector2( 0, -16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
