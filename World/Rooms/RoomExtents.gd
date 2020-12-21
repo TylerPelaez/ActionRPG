@@ -26,6 +26,19 @@ func _ready():
 		if fmod(top_left.global_position.y, 32.0) == 0:
 			top_left.global_position += TOP_BUFFER
 		bottom_right.global_position = global_position + Vector2(max_x, max_y) + BOTTOM_RIGHT_OFFSET
+		
+		var bounds_size = bottom_right.global_position - top_left.global_position
+		var viewport_rect = get_viewport_rect().size
+		
+		var bounds_midpoint = (top_left.global_position + bottom_right.global_position) / 2
+		
+		if bounds_size.y < viewport_rect.y:
+			top_left.global_position.y = bounds_midpoint.y - (viewport_rect.y / 2)
+			bottom_right.global_position.y = bounds_midpoint.y + (viewport_rect.y / 2)
+			
+		if bounds_size.x < viewport_rect.x:
+			top_left.global_position.x = bounds_midpoint.x - (viewport_rect.x / 2)
+			bottom_right.global_position.x = bounds_midpoint.x + (viewport_rect.x / 2)
 
 func getRandomPointInRoom():
 	# https://observablehq.com/@scarysize/finding-random-points-in-a-polygon

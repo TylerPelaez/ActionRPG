@@ -3,7 +3,7 @@ extends TileMap
 func _ready():
 	for cell in get_used_cells():
 		var auto_cell = get_cell_autotile_coord(cell.x, cell.y)
-		var autotile_occluder = tile_set.autotile_get_light_occluder(0, auto_cell)
+		var autotile_occluder = tile_set.autotile_get_light_occluder(1, auto_cell)
 		var polygon = OccluderPolygon2D.new()
 		
 		var light_occluder = LightOccluder2D.new()

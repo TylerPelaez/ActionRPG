@@ -30,9 +30,6 @@ func _on_room_entered(room: Room):
 
 	current_room = room
 	var tween = $Tween
-	var roomBounds = current_room.roomExtents.bottomRight() - current_room.roomExtents.topLeft()
-	var viewport_rect = get_viewport_rect()
-
 	tween.interpolate_property(camera, "limit_left",
 		camera.limit_left, current_room.roomExtents.topLeft().x, total_lerp_time,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
