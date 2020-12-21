@@ -13,10 +13,15 @@ var enemy_death_count = 0
 var active = false
 var player_entrance_position
 
+var current_wave = 0
+var max_wave = 0
+var wave_spawners = {}
 
 func _ready():
 	enemy_count = 0
 	var staticBodies = []
+	var highest_wave_found = 0
+	
 	for child in get_children():
 		if child is Enemy:
 			enemy_count += 1
@@ -24,6 +29,14 @@ func _ready():
 		
 		if child is StaticBody2D && !(child is Door):
 			staticBodies.append(child)
+			
+		if child is DelayedSpawn:
+			if child.wave > highest_wave_found:
+				max_wave = child.wave
+			
+			if !wave_spawners.has(child.wave):
+				wave_spawners[child.wave] = []
+			wave_spawners[child.wave].append(child)
 	
 	roomExtents.initialize(staticBodies)
 	if enemy_count == 0:
@@ -64,6 +77,15 @@ func _on_RoomExtents_body_entered(body):
 
 func _on_enemy_death():
 	enemy_death_count += 1
-	if enemy_death_count >= enemy_count:
+	if enemy_death_count >= enemy_count && current_wave == max_wave:
 		room_defeated = true
 		open_doors()
+	elif enemy_death_count >= enemy_count:
+		enemy_death_count = 0
+		current_wave += 1
+		assert(wave_spawners.has(current_wave))
+		enemy_count = wave_spawners[current_wave].size()
+		for spawner in wave_spawners[current_wave]:
+			var instance = spawner.spawnEnemy()
+			instance.connect("on_death", self, "_on_enemy_death")
+		

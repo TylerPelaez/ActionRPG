@@ -1,7 +1,7 @@
 extends Node
 #Singleton!
 
-const draw_debug = false
+const draw_debug = true
 const should_randomize = true
 
 const MAX_INT = 9223372036854775807

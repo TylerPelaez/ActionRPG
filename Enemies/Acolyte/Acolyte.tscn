@@ -536,7 +536,6 @@ anims/RunRight = SubResource( 47 )
 anims/RunUp = SubResource( 48 )
 
 [node name="ProjectileSpawnPosition" type="Position2D" parent="." index="13"]
-position = Vector2( 0, -25 )
 
 [node name="Line2D" parent="." index="14"]
 show_behind_parent = false
