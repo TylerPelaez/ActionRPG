@@ -7,6 +7,8 @@ func _decide_on_next_state():
 	if current_state == $Spawn:
 		return $RockWallSequence
 	if current_state == $RockWallSequence:
-		return $Idle
+		return $SpinAttackSequence
+	if current_state == $SpinAttackSequence:
+		return $RockWallSequence
 	if current_state == $Idle:
-		return $Idle
+		return $RockWallSequence

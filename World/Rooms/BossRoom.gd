@@ -23,10 +23,12 @@ func spawn_boss():
 	boss.start()
 	
 func _on_RoomExtents_body_entered(body):
-	._on_RoomExtents_body_entered(body)
 	player = body
-	if !room_defeated:
-		spawn_boss()
+	if !active:
+		if !room_defeated:
+			spawn_boss()
+	._on_RoomExtents_body_entered(body)
+
 
 func _on_RoomExtents_body_exited(body):
 	player = null

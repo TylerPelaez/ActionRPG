@@ -10,6 +10,7 @@ onready var roomExtents = $RoomExtents
 var room_defeated = false
 var enemy_count = 0
 var enemy_death_count = 0
+var active = false
 
 func _ready():
 	enemy_count = 0
@@ -33,11 +34,13 @@ func get_nav_path(from, to):
 	return path
 
 func close_doors():
+	active = true
 	for child in get_children():
 		if child is Door:
 			child.close()
 
 func open_doors():
+	active = false
 	for child in get_children():
 		if child is Door:
 			child.open()
@@ -47,9 +50,10 @@ func exited():
 
 # warning-ignore:unused_argument
 func _on_RoomExtents_body_entered(body):
-	call_deferred("emit_signal", "room_entered", self)
-	if !room_defeated:
-		close_doors()
+	if !active:
+		call_deferred("emit_signal", "room_entered", self)
+		if !room_defeated:
+			close_doors()
 
 func _on_enemy_death():
 	enemy_death_count += 1

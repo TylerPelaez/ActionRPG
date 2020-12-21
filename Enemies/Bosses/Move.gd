@@ -26,6 +26,7 @@ func enter():
 func update(delta):
 	if target_position_path == null || target_position_path.empty():
 		print_debug("ERROR: target_position_path is empty")
+		emit_signal("finished")
 		return
 		
 	accelerate_toward_point(target_position_path[0], delta)

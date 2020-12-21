@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Son/TheSon.png" type="Texture" id=2]
 [ext_resource path="res://Enemies/Bosses/Spawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Bosses/Son/SpinAttackBeginMove.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Bosses/Son/Son.gd" type="Script" id=5]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Enemies/Bosses/Son/SonStateMachine.gd" type="Script" id=7]
@@ -10,15 +11,17 @@
 [ext_resource path="res://Utils/State/Sequence.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Enemies/Bosses/Son/RockWallMove.gd" type="Script" id=10]
 [ext_resource path="res://Enemies/Bosses/Son/CreateWall.gd" type="Script" id=11]
+[ext_resource path="res://Enemies/Bosses/Son/SpinAttackPrepare.gd" type="Script" id=12]
+[ext_resource path="res://Enemies/Bosses/Son/SpinAttack.gd" type="Script" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 4.80518
 height = 22.1757
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=3]
 resource_name = "CreateWall"
 length = 1.5
 tracks/0/type = "value"
@@ -116,7 +119,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 resource_name = "RunDown"
 length = 0.4
 loop = true
@@ -133,7 +136,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 resource_name = "RunLeft"
 length = 0.4
 loop = true
@@ -150,7 +153,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 resource_name = "RunRight"
 length = 0.4
 loop = true
@@ -167,7 +170,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 resource_name = "RunUp"
 length = 0.4
 loop = true
@@ -184,7 +187,7 @@ tracks/0/keys = {
 "values": [ 16, 17, 18, 19 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=12]
 resource_name = "SpinAttack"
 length = 0.4
 loop = true
@@ -201,9 +204,8 @@ tracks/0/keys = {
 "values": [ 21, 22, 23, 24 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "SpinPrepare"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -217,8 +219,7 @@ tracks/0/keys = {
 "values": [ 20 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "die"
+[sub_resource type="Animation" id=14]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/time")
@@ -283,8 +284,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "spawn"
+[sub_resource type="Animation" id=15]
 length = 3.0
 step = 0.05
 tracks/0/type = "value"
@@ -378,32 +378,39 @@ material = SubResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -14 )
 hframes = 29
-frame = 28
+frame = 21
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, 1.02369 )
+position = Vector2( 0, -13.859 )
 
 [node name="Hurtbox" parent="." index="3"]
 visible = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -13.1826 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="Hitbox" parent="." index="4"]
+collision_mask = 5
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, -13.859 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="7"]
-anims/CreateWall = SubResource( 14 )
+anims/CreateWall = SubResource( 3 )
 anims/IdleDown = SubResource( 4 )
 anims/IdleLeft = SubResource( 5 )
 anims/IdleRight = SubResource( 6 )
 anims/IdleUp = SubResource( 7 )
-anims/RunDown = SubResource( 10 )
-anims/RunLeft = SubResource( 11 )
-anims/RunRight = SubResource( 12 )
-anims/RunUp = SubResource( 13 )
-anims/SpinAttack = SubResource( 16 )
-anims/SpinPrepare = SubResource( 15 )
-anims/die = SubResource( 8 )
-anims/spawn = SubResource( 9 )
+anims/RunDown = SubResource( 8 )
+anims/RunLeft = SubResource( 9 )
+anims/RunRight = SubResource( 10 )
+anims/RunUp = SubResource( 11 )
+anims/SpinAttack = SubResource( 12 )
+anims/SpinPrepare = SubResource( 13 )
+anims/die = SubResource( 14 )
+anims/spawn = SubResource( 15 )
 
 [node name="BossStateMachine" parent="." index="8"]
 script = ExtResource( 7 )
@@ -423,13 +430,23 @@ script = ExtResource( 11 )
 [node name="SpinAttackSequence" parent="BossStateMachine" index="3" instance=ExtResource( 9 )]
 
 [node name="SpinAttackBeginMove" type="Node" parent="BossStateMachine/SpinAttackSequence" index="0"]
+script = ExtResource( 4 )
 
 [node name="SpinAttackPrepare" type="Node" parent="BossStateMachine/SpinAttackSequence" index="1"]
+script = ExtResource( 12 )
 
 [node name="SpinAttack" type="Node" parent="BossStateMachine/SpinAttackSequence" index="2"]
+script = ExtResource( 13 )
+MAX_SPEED = 125.0
+TURN_SPEED = 1.0
+
+[node name="Timer" type="Timer" parent="BossStateMachine/SpinAttackSequence/SpinAttack" index="0"]
+wait_time = 10.0
+one_shot = true
 
 [node name="WallOrigin" type="Position2D" parent="." index="11"]
 position = Vector2( -0.0356903, 3.89442 )
+[connection signal="timeout" from="BossStateMachine/SpinAttackSequence/SpinAttack/Timer" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]
 
