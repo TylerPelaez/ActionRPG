@@ -1,4 +1,5 @@
 extends ComplexEnemy
+class_name StatueKnight
 
 onready var swordHitboxPivot = $SwordHitboxPivot
 onready var swordHitbox = $SwordHitboxPivot/SwordHitbox

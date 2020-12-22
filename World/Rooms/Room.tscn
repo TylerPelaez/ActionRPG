@@ -10,5 +10,6 @@ script = ExtResource( 1 )
 collision_layer = 0
 collision_mask = 2
 [connection signal="body_entered" from="RoomExtents" to="." method="_on_RoomExtents_body_entered"]
+[connection signal="body_exited" from="RoomExtents" to="." method="_on_RoomExtents_body_exited"]
 
 [editable path="RoomExtents"]

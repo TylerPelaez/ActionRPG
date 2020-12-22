@@ -861,6 +861,7 @@ rotation = 4.71239
 position = Vector2( -2.623, 15.924 )
 rotation = 1.5708
 collision_mask = 4
+damage = 2
 
 [node name="CollisionShape2D" parent="SwordHitboxPivot/SwordHitbox" index="0"]
 shape = ExtResource( 4 )

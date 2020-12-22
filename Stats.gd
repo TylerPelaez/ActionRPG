@@ -19,4 +19,7 @@ func set_max_health(value):
 	emit_signal("max_health_changed", max_health)
 
 func _ready():
+	reset()
+
+func reset():
 	self.health = max_health

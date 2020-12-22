@@ -11,36 +11,42 @@ var room_defeated = false
 var enemy_count = 0
 var enemy_death_count = 0
 var active = false
-var player_entrance_position
 
 var current_wave = 0
 var max_wave = 0
 var wave_spawners = {}
+var initial_enemies = []
+var traps = []
 
 func _ready():
 	enemy_count = 0
 	var staticBodies = []
-	var highest_wave_found = 0
 	
 	for child in get_children():
 		if child is Enemy:
 			enemy_count += 1
 			child.connect("on_death", self, "_on_enemy_death")
-		
+			initial_enemies.append([Utils.get_scene_from_enemy_object(child), child.global_position])
+			
 		if child is StaticBody2D && !(child is Door):
 			staticBodies.append(child)
 			
 		if child is DelayedSpawn:
-			if child.wave > highest_wave_found:
+			if child.wave > max_wave:
 				max_wave = child.wave
 			
 			if !wave_spawners.has(child.wave):
 				wave_spawners[child.wave] = []
 			wave_spawners[child.wave].append(child)
-	
+		
+		if child is ArrowTrap:
+			traps.append(child)
+		
 	roomExtents.initialize(staticBodies)
 	if enemy_count == 0:
 		room_defeated = true
+		
+		
 
 func get_nav_path(from, to):
 	var path = roomExtents.nav.get_simple_path(from, to)
@@ -62,6 +68,8 @@ func open_doors():
 	for child in get_children():
 		if child is Door:
 			child.open()
+		if child is Enemy:
+			child.activate()
 
 func exited():
 	pass
@@ -70,10 +78,12 @@ func exited():
 func _on_RoomExtents_body_entered(body):
 	if !active:
 		call_deferred("emit_signal", "room_entered", self)
-		if !room_defeated:
-			player_entrance_position = body.global_position
-			close_doors()
-			body.global_position = player_entrance_position
+
+func on_camera_transition_complete():
+	for trap in traps:
+		trap.activate()
+	if !room_defeated:
+		close_doors()
 
 func _on_enemy_death():
 	enemy_death_count += 1
@@ -88,4 +98,29 @@ func _on_enemy_death():
 		for spawner in wave_spawners[current_wave]:
 			var instance = spawner.spawnEnemy()
 			instance.connect("on_death", self, "_on_enemy_death")
+
+# player died, for instance	
+func reset():
+	open_doors()
+	if !room_defeated:
+		for child in get_children():
+			if child is Enemy:
+				child.queue_free()
+	
+		current_wave = 0
+		enemy_count = initial_enemies.size()
+		enemy_death_count = 0
 		
+		for enemy in initial_enemies:
+			var EnemyScene = enemy[0]
+			var instance = EnemyScene.instance()
+			instance.connect("on_death", self, "_on_enemy_death")
+			call_deferred("add_child", instance)
+			instance.set_deferred("global_position", enemy[1])
+
+
+
+func _on_RoomExtents_body_exited(body):
+	if active:
+		if !roomExtents.is_point_in_room(body.global_position):
+			body.global_position = roomExtents.closest_point_in_room(body.global_position)

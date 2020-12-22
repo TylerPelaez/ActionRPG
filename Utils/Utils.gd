@@ -1,6 +1,18 @@
 extends Node
 #Singleton!
 
+enum ENEMY {
+	BAT,
+	ACOLYTE,
+	KNIGHT
+}
+
+const enemyLookup = {
+	ENEMY.BAT: preload("res://Enemies/Bat/Bat.tscn"),
+	ENEMY.ACOLYTE: preload("res://Enemies/Acolyte/Acolyte.tscn"),
+	ENEMY.KNIGHT: preload("res://Enemies/StatueKnight/StatueKnight.tscn")
+}
+
 const draw_debug = false
 const should_randomize = true
 
@@ -48,3 +60,14 @@ func shape_cast_collision_data(shape: Shape2D, transform: Transform2D, mask: int
 	var query = construct_query_params(shape, transform, mask)
 	var shape_result = space_state.collide_shape(query)
 	return shape_result
+
+
+func get_scene_from_enemy_object(enemy):
+	assert (enemy is Enemy)
+	if enemy is Bat:
+		return enemyLookup[ENEMY.BAT]
+	elif enemy is Acolyte:
+		return enemyLookup[ENEMY.ACOLYTE]
+	elif enemy is StatueKnight:
+		return enemyLookup[ENEMY.KNIGHT]
+	return null

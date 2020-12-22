@@ -6,7 +6,8 @@
 script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
-"DEBUG_DIALOG": 1
+"DEBUG_DIALOG": 1,
+"TUTORIAL_CONTROLS_1": 2
 }
 story = {
 1: {
@@ -49,6 +50,45 @@ story = {
 },
 4: {
 "graph_offset": Vector2( -100, 540 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+2: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Attack Controls",
+"name": "TUTORIAL_CONTROLS_1",
+"nodes": {
+1: {
+"graph_offset": Vector2( 140, -140 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 140, 0 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tutorial</speaker>
+<dialog>Press J to Attack, Press K To Roll</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 140, 140 ),
 "links": {
 
 },

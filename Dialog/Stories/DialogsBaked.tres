@@ -35,8 +35,32 @@ story = {
 "text": "<end>"
 }
 }
+},
+2: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>Press J to Attack, Press K To Roll</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
-"DEBUG_DIALOG": 1
+"DEBUG_DIALOG": 1,
+"TUTORIAL_CONTROLS_1": 2
 }

@@ -1,4 +1,5 @@
 extends Enemy
+class_name Bat
 
 onready var sprite = $AnimatedSprite
 onready var animationPlayer = $InvincibilityAnimationPlayer

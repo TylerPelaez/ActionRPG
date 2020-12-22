@@ -6,11 +6,14 @@ onready var sprite = $Sprite
 onready var hitbox = $Hitbox
 
 var velocity = Vector2.ZERO
+var starts_in_wall
 
-func initialize(direction: Vector2):
+
+func initialize(direction: Vector2, in_wall: bool = false, _speed: float = SPEED ):
 	sprite.rotation = direction.angle()
 	hitbox.rotation = direction.angle()
-	velocity = direction * SPEED
+	velocity = direction * _speed
+	starts_in_wall = in_wall
 
 func _physics_process(delta):
 	global_position += velocity * delta
@@ -29,4 +32,7 @@ func _on_Area2D_area_entered(area):
 	delete()
 
 func _on_Area2D_body_entered(body):
-	delete()
+	if starts_in_wall:
+		starts_in_wall = false
+	else:
+		delete()

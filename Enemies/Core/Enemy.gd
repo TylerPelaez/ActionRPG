@@ -157,3 +157,6 @@ func _on_ChasePlayerPathfindTimer_timeout():
 
 func activate():
 	activated = true
+	
+func deactivate():
+	activated = false

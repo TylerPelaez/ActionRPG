@@ -1,4 +1,5 @@
 extends ComplexEnemy
+class_name Acolyte
 
 const Projectile = preload("res://Enemies/Acolyte/MagicProjectile.tscn")
 const CircleShape = preload("res://Enemies/Acolyte/MagicProjectileShape.tres")
@@ -13,6 +14,7 @@ onready var projectileSpawnPosition = $ProjectileSpawnPosition
 var spawning_projectile = null
 var actual_projectile_spawn_position = Vector2.ZERO
 
+# warning-ignore:unused_argument
 func _process(delta):
 	update()
 

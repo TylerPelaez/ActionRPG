@@ -126,3 +126,25 @@ func bottomRight():
 
 func initialize(static_bodies):
 	nav.initialize(polygon.polygon, static_bodies)
+
+func is_point_in_room(point: Vector2):
+	var transformed_point = polygon.global_transform.xform_inv(point)
+	return Geometry.is_point_in_polygon(transformed_point, polygon.polygon)
+
+func closest_point_in_room(point: Vector2):
+	var transformed_point = polygon.global_transform.xform_inv(point)
+	var min_distance = 9999999.9
+	var closest_point
+	for i in range(0,polygon.polygon.size()):
+		var s1 = polygon.polygon[polygon.polygon.size() - 1 if i == 0 else i - 1]
+		var s2 = polygon.polygon[i]
+		
+		var segment_closest_point = Geometry.get_closest_point_to_segment_2d(transformed_point, s1, s2)
+		var distance = segment_closest_point.distance_to(transformed_point)
+		if distance < min_distance:
+			closest_point = segment_closest_point
+			min_distance = distance
+	
+	
+	return polygon.global_transform.xform(closest_point)
+	

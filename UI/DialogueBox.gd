@@ -1,13 +1,14 @@
 extends Control
 
-signal finished
+signal on_play_dialog
+signal on_finish_dialog
 
 const DEBUG_DIALOG = "DEBUG_DIALOG"
-const DEBUG_STORY = preload("res://Dialog/Stories/SonDialogBaked.tres")
+const DEBUG_STORY = preload("res://Dialog/Stories/DialogsBaked.tres")
 const StoryReaderClass = preload("res://addons/EXP-System-Dialog/Reference_StoryReader/EXP_StoryReader.gd")
 
 const SPEAKER_COLOR_LOOKUP = {
-	"Son": Color.yellow
+	"Son": Color.white
 }
 
 onready var bodyAnimationPlayer = $MarginContainer/MarginContainer/BodyLabel/AnimationPlayer
@@ -19,13 +20,13 @@ var _final_nid = 0
 var story_reader
 var is_waiting = false
 
-var debug = true
+var debug = false
 
 func _ready():
 	story_reader = StoryReaderClass.new()
+	set_story(DEBUG_STORY)
 	
 	if debug:
-		set_story(DEBUG_STORY)
 		visible = false
 		play_dialog(DEBUG_DIALOG)
 
@@ -36,10 +37,11 @@ func set_story(story: Resource):
 # TODO: input
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed == true and event.scancode == KEY_SPACE:
-			_on_Dialog_Player_pressed_spacebar()
+		if event.pressed == true and Input.is_action_just_pressed("attack") && visible:
+			_on_Dialog_Player_advanced()
+			Input.action_release("attack")
 
-func _on_Dialog_Player_pressed_spacebar():
+func _on_Dialog_Player_advanced():
 	if _is_waiting():
 		is_waiting = false
 		_get_next_node()
@@ -56,7 +58,9 @@ func play_dialog(record_name : String):
 	_final_nid = story_reader.get_nid_via_exact_text(_did, "<end>")
 	_get_next_node()
 	_play_node()
+	get_tree().paused = true
 	visible = true
+	emit_signal("on_play_dialog")
 
 # Private Methods
 
@@ -72,6 +76,8 @@ func _get_next_node():
 	
 	if _nid == _final_nid:
 		visible = false
+		get_tree().paused = false
+		emit_signal("on_finish_dialog")
 
 func _get_tagged_text(tag : String, text : String):
 	var start_tag = "<" + tag + ">"
@@ -95,6 +101,11 @@ func _play_node():
 	bodyLabel.set("custom_colors/font_color", textColor)
 	bodyAnimationPlayer.play("ShowText")
 
+
+func on_Events_event_triggered(dialogName):
+	assert(!_is_playing())
+	if story_reader.has_record_name(dialogName):
+		play_dialog(dialogName)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	is_waiting = true

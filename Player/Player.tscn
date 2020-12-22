@@ -782,7 +782,7 @@ range_item_cull_mask = 4
 shadow_filter = 1
 shadow_item_cull_mask = 0
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_shape_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 
 [editable path="HitboxPivot/SwordHitbox"]

@@ -29,10 +29,20 @@ onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
-	$Light2D.enabled = true
 	stats.connect("no_health", self, "_on_Stats_no_health")
+	reset()
+
+func reset():
+	state = MOVE
+	
+	$Light2D.enabled = true
 	animationTree.active = true
+	
+	velocity = Vector2.ZERO
+	roll_vector = Vector2.DOWN
 	swordHitbox.knockback_vector = roll_vector
+
+	stats.reset()
 
 # Update
 func _physics_process(delta):
@@ -95,7 +105,6 @@ func roll_animation_finish():
 
 func _on_Stats_no_health():
 	emit_signal("died")
-	queue_free()
 
 func _on_Hurtbox_area_entered(area):
 	if area is HitBox && !hurtbox.invincible:
@@ -117,7 +126,7 @@ func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
 
 
-func _on_Hurtbox_body_shape_entered(body_id, body, body_shape, area_shape):
+func _on_Hurtbox_body_entered(body):
 	if body is RockWallTileMap && !hurtbox.invincible:
 		var result = Utils.shape_cast_get_result(hurtbox.collisionShape.shape, hurtbox.collisionShape.global_transform)
 		if result == null || result.empty():

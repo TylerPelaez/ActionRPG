@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ComplexEnemy",
+"class": "Acolyte",
+"language": "GDScript",
+"path": "res://Enemies/Acolyte/Acolyte.gd"
+}, {
+"base": "Node2D",
+"class": "ArrowTrap",
+"language": "GDScript",
+"path": "res://World/ArrowTrap.gd"
+}, {
+"base": "Enemy",
+"class": "Bat",
+"language": "GDScript",
+"path": "res://Enemies/Core/SimpleEnemy.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
@@ -88,8 +103,21 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://Utils/State/StateMachine.gd"
+}, {
+"base": "ComplexEnemy",
+"class": "StatueKnight",
+"language": "GDScript",
+"path": "res://Enemies/StatueKnight/StatueKnight.gd"
+}, {
+"base": "Node2D",
+"class": "WorldButton",
+"language": "GDScript",
+"path": "res://World/Button.gd"
 } ]
 _global_script_class_icons={
+"Acolyte": "",
+"ArrowTrap": "",
+"Bat": "",
 "Boss": "",
 "BossStateMachine": "",
 "ComplexEnemy": "",
@@ -105,7 +133,9 @@ _global_script_class_icons={
 "Sequence": "",
 "SimpleAttackMove": "",
 "State": "",
-"StateMachine": ""
+"StateMachine": "",
+"StatueKnight": "",
+"WorldButton": ""
 }
 
 [application]
@@ -117,6 +147,7 @@ run/main_scene="res://World/Level.tscn"
 
 PlayerStats="*res://Player/PlayerStats.tscn"
 Utils="*res://Utils/Utils.gd"
+Events="*res://Utils/Events.gd"
 
 [display]
 
@@ -124,7 +155,7 @@ window/size/width=320
 window/size/height=180
 window/size/test_width=1280
 window/size/test_height=720
-window/vsync/use_vsync=false
+window/vsync/vsync_via_compositor=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
