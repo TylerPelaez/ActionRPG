@@ -41,6 +41,9 @@ func _ready():
 		
 		if child is ArrowTrap:
 			traps.append(child)
+			
+		if child is EventTrigger:
+			child.deactivate()
 		
 	roomExtents.initialize(staticBodies)
 	if enemy_count == 0:
@@ -69,6 +72,8 @@ func open_doors():
 		if child is Door:
 			child.open()
 		if child is Enemy:
+			child.deactivate()
+		if child is EventTrigger:
 			child.activate()
 
 func exited():
@@ -117,8 +122,6 @@ func reset():
 			instance.connect("on_death", self, "_on_enemy_death")
 			call_deferred("add_child", instance)
 			instance.set_deferred("global_position", enemy[1])
-
-
 
 func _on_RoomExtents_body_exited(body):
 	if active:

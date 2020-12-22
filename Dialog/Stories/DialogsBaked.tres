@@ -58,9 +58,157 @@ story = {
 "text": "<end>"
 }
 }
+},
+3: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 4
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>You awaken in a dark room. (Press J To advance Dialogs)</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+},
+4: {
+"links": {
+0: 3
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>Your head hurts, and you cannot recall how you got here.</dialog>"
+}
+}
+},
+4: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Tutorial<speaker>
+<dialog>A strange structure... These rooms seem more like cells, </dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>And the doors stay barred until I'm the only living thing left</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+5: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Self</speaker>
+<dialog>This door is locked shut... Maybe it unlocks elsewhere</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+6: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>You hear the sound of machinery</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+7: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Self</speaker>
+<dialog>As the door closes behind you, you feel a sense of dread</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Self</speaker>
+<dialog>You hear a distant cry of pain echoing from some other room</dialog>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Self</speaker>
+<dialog>You look around, and you notice hooded figures approaching</dialog>"
+},
+5: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
 "DEBUG_DIALOG": 1,
-"TUTORIAL_CONTROLS_1": 2
+"LOCKED_DOOR_DIALOG": 5,
+"OPEN_DOOR": 6,
+"STORY_0_DREAD": 7,
+"TUTORIAL_CONTROLS_0": 3,
+"TUTORIAL_CONTROLS_1": 2,
+"TUTORIAL_CONTROLS_2": 4
 }

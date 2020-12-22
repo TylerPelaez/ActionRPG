@@ -60,14 +60,14 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 16, 3 )
+extents = Vector2( 16, 5 )
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
-extents = Vector2( 3, 3 )
+extents = Vector2( 3, 5 )
 
 [sub_resource type="OccluderPolygon2D" id=6]
-polygon = PoolVector2Array( -16, 0, -16, -22, -10, -22, -10, 0 )
+polygon = PoolVector2Array( -16, 0, -16, -10, -10, -10, -10, 0 )
 
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0
@@ -88,16 +88,16 @@ anims/Close = SubResource( 2 )
 anims/Open = SubResource( 3 )
 
 [node name="ClosedCollider" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -3 )
+position = Vector2( 0, -5 )
 shape = SubResource( 4 )
 disabled = true
 
 [node name="OpenCollider1" type="CollisionShape2D" parent="."]
-position = Vector2( 13, -3 )
+position = Vector2( 13, -5 )
 shape = SubResource( 5 )
 
 [node name="OpenCollider2" type="CollisionShape2D" parent="."]
-position = Vector2( -13, -3 )
+position = Vector2( -13, -5 )
 shape = SubResource( 5 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

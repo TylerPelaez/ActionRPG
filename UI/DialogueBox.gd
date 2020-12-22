@@ -3,6 +3,7 @@ extends Control
 signal on_play_dialog
 signal on_finish_dialog
 
+const OPEN_DOOR_DIALOG_NAME = "OPEN_DOOR"
 const DEBUG_DIALOG = "DEBUG_DIALOG"
 const DEBUG_STORY = preload("res://Dialog/Stories/DialogsBaked.tres")
 const StoryReaderClass = preload("res://addons/EXP-System-Dialog/Reference_StoryReader/EXP_StoryReader.gd")
@@ -25,6 +26,8 @@ var debug = false
 func _ready():
 	story_reader = StoryReaderClass.new()
 	set_story(DEBUG_STORY)
+	
+	assert_lengths()
 	
 	if debug:
 		visible = false
@@ -70,6 +73,14 @@ func _is_playing():
 func _is_waiting():
 	return is_waiting
 
+func assert_lengths():
+	for did in story_reader.get_dids():
+		for nid in story_reader.get_nids(did):
+			var text = story_reader.get_text(did, nid)
+			var speaker = _get_tagged_text("speaker", text)
+			var dialog = _get_tagged_text("dialog", text)
+			# nice
+			assert (dialog.length() < 69)
 
 func _get_next_node():
 	_nid = story_reader.get_nid_from_slot(_did, _nid, 0)
@@ -102,10 +113,14 @@ func _play_node():
 	bodyAnimationPlayer.play("ShowText")
 
 
-func on_Events_event_triggered(dialogName):
+func on_Events_event_triggered(dialogName: String):
 	assert(!_is_playing())
+	
+	# This way, we can display specific door open text if we want, falling back to regular open door text
 	if story_reader.has_record_name(dialogName):
 		play_dialog(dialogName)
+	elif dialogName.find(OPEN_DOOR_DIALOG_NAME) != -1:
+		play_dialog(OPEN_DOOR_DIALOG_NAME)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	is_waiting = true

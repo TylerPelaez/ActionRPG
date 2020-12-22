@@ -10,6 +10,8 @@ export var MAX_SPEED := 50
 export var FRICTION := 200
 export var PUSH_STRENGTH := 400
 export var WANDER_TARGET_DROPOFF_RANGE := 5
+export var KNOCKBACK_AMOUNT := 120
+export (float) var PLAYER_DETECTION_RADIUS = 100.0 
 
 enum {
 	IDLE,
@@ -34,6 +36,7 @@ var activated = false
 
 
 func _ready():
+	$PlayerDetectionArea/CollisionShape2D.shape.radius = PLAYER_DETECTION_RADIUS
 	state = pick_random_state([IDLE, WANDER])
 
 func _physics_process(delta):
@@ -138,7 +141,7 @@ func pick_random_state(state_list):
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
-	knockback = area.knockback_vector * 120
+	knockback = area.knockback_vector * KNOCKBACK_AMOUNT
 	hurtbox.start_invincibility(0.4)
 	hurtbox.create_hit_effect()
 

@@ -64,6 +64,8 @@ func _on_Events_event_triggered(eventName: String):
 	assert(eventNameHeldDuringDialogTransition == null)
 	if tween.is_active():
 		eventNameHeldDuringDialogTransition = eventName
+	else:
+		dialogBox.on_Events_event_triggered(eventName)
 
 
 func _on_DialogueBox_on_play_dialog():

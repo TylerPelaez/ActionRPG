@@ -779,6 +779,7 @@ height = 4.435
 [node name="StatueKnight" instance=ExtResource( 2 )]
 collision_mask = 3
 script = ExtResource( 7 )
+KNOCKBACK_AMOUNT = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

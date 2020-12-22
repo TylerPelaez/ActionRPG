@@ -463,6 +463,7 @@ tracks/0/keys = {
 light_mask = 4
 script = ExtResource( 4 )
 PUSH_STRENGTH = 200
+PLAYER_DETECTION_RADIUS = 200.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = false

@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://Enemies/Core/Enemy.gd"
 }, {
 "base": "Area2D",
+"class": "EventTrigger",
+"language": "GDScript",
+"path": "res://Utils/EventTrigger.gd"
+}, {
+"base": "Area2D",
 "class": "HitBox",
 "language": "GDScript",
 "path": "res://Hitboxes and Hurtboxes/Hitbox.gd"
@@ -124,6 +129,7 @@ _global_script_class_icons={
 "DelayedSpawn": "",
 "Door": "",
 "Enemy": "",
+"EventTrigger": "",
 "HitBox": "",
 "MagicProjectile": "",
 "Move": "",

@@ -4,7 +4,7 @@ extends Node
 enum ENEMY {
 	BAT,
 	ACOLYTE,
-	KNIGHT
+	KNIGHT,
 }
 
 const enemyLookup = {

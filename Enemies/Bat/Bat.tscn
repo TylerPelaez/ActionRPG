@@ -14,7 +14,7 @@ height = 6.0
 
 [sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
-radius = 192.167
+radius = 144.0
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 4.0
@@ -82,7 +82,7 @@ shape = SubResource( 4 )
 [node name="AnimatedSprite" parent="." index="6"]
 material = SubResource( 5 )
 frames = SubResource( 11 )
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( 0, -12 )
 

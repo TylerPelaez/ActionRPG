@@ -7,7 +7,12 @@ script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
 "DEBUG_DIALOG": 1,
-"TUTORIAL_CONTROLS_1": 2
+"LOCKED_DOOR_DIALOG": 5,
+"OPEN_DOOR": 6,
+"STORY_0_DREAD": 7,
+"TUTORIAL_CONTROLS_0": 3,
+"TUTORIAL_CONTROLS_1": 2,
+"TUTORIAL_CONTROLS_2": 4
 }
 story = {
 1: {
@@ -62,7 +67,7 @@ story = {
 },
 2: {
 "available_nid": [  ],
-"groups": [  ],
+"groups": [ "" ],
 "human_readable_description": "Attack Controls",
 "name": "TUTORIAL_CONTROLS_1",
 "nodes": {
@@ -98,7 +103,246 @@ story = {
 "type": "line"
 }
 }
+},
+3: {
+"available_nid": [  ],
+"groups": [ "" ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "TUTORIAL_CONTROLS_0",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 500, -160 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 441, 244 ),
+"slot_amount": 1,
+"text": "<speaker>Tutorial</speaker>
+<dialog>You awaken in a dark room. (Press J To advance Dialogs)</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1780, -160 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 960, -160 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tutorial</speaker>
+<dialog>Your head hurts, and you cannot recall how you got here.</dialog>",
+"type": "line"
 }
 }
-available_dids = [  ]
-groups = [  ]
+},
+4: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "TUTORIAL_CONTROLS_2",
+"nodes": {
+1: {
+"graph_offset": Vector2( -20, -340 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 460, -340 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 639, 296.4 ),
+"slot_amount": 1,
+"text": "<speaker>Tutorial<speaker>
+<dialog>A strange structure... These rooms seem more like cells, </dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1140, -340 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tutorial</speaker>
+<dialog>And the doors stay barred until I'm the only living thing left</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 1620, -420 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+5: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Generic Dialog for a locked door",
+"name": "LOCKED_DOOR_DIALOG",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, -220 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 520, -240 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>This door is locked shut... Maybe it unlocks elsewhere</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1020, -260 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+6: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Generic Dialog for a door opening",
+"name": "OPEN_DOOR",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 500, -220 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tutorial</speaker>
+<dialog>You hear the sound of machinery</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 960, -220 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+7: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "STORY_0_DREAD",
+"nodes": {
+1: {
+"graph_offset": Vector2( 20, 80 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 520, 80 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>As the door closes behind you, you feel a sense of dread</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 520, 240 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>You hear a distant cry of pain echoing from some other room</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 520, 420 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>You look around, and you notice hooded figures approaching</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 520, 580 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+}
+}
+available_dids = [ 8 ]
+groups = [ "Tutorial" ]
