@@ -5,6 +5,5 @@
 
 [node name="BossRoom" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-[connection signal="body_exited" from="RoomExtents" to="." method="_on_RoomExtents_body_exited"]
 
 [editable path="RoomExtents"]

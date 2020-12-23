@@ -22,6 +22,11 @@ func spawn_boss():
 	boss.initialize(player, self)
 	boss.start()
 	
+func reset():
+	open_doors()
+	if !room_defeated:
+		boss.reset()
+
 func _on_RoomExtents_body_entered(body):
 	player = body
 	if !active:

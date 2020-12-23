@@ -578,7 +578,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Rooms/Room8/SmallBat2" index="6"]
 material = SubResource( 2 )
-frame = 0
 
 [node name="SmallBat8" parent="Rooms/Room8" instance=ExtResource( 26 )]
 position = Vector2( 64, 112 )
@@ -612,7 +611,6 @@ shape = SubResource( 3 )
 
 [node name="AnimatedSprite" parent="Rooms/Room8/SmallBat17" index="6"]
 material = SubResource( 4 )
-frame = 0
 
 [node name="SmallBat19" parent="Rooms/Room8" instance=ExtResource( 26 )]
 position = Vector2( -152, -160 )
@@ -853,37 +851,39 @@ pause_mode = 2
 
 [node name="Torch" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 16, -816 )
-frame = 1
+frame = 3
 
 [node name="Torch2" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 336, -688 )
-frame = 1
+frame = 3
 
 [node name="Torch4" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -112, -592 )
+frame = 2
 
 [node name="Torch5" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -288, -752 )
+frame = 2
 
 [node name="Torch9" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -160, -752 )
-frame = 5
+frame = 1
 
 [node name="Torch6" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -344, -560 )
-frame = 5
+frame = 1
 
 [node name="Torch7" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -424, -560 )
-frame = 5
+frame = 1
 
 [node name="Torch8" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -392, -752 )
-frame = 5
+frame = 1
 
 [node name="Torch3" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 96, -816 )
-frame = 1
+frame = 3
 
 [node name="Cutscenes" type="Node2D" parent="."]
 

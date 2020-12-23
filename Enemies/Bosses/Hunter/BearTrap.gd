@@ -6,6 +6,8 @@ func _on_Hitbox_body_entered(body):
 	die()
 
 func die():
+	$Hitbox.monitorable = false
+	$Hitbox.monitoring = false
 	$AnimationPlayer.play("die")
 	
 func _on_death():

@@ -10,12 +10,13 @@ var starts_in_wall
 var knockback_vector
 
 
-func initialize(direction: Vector2, in_wall: bool = false, _speed: float = SPEED ):
+func initialize(direction: Vector2, in_wall: bool = false, _speed: float = SPEED, hit_enemies: bool = true ):
 	sprite.rotation = direction.angle()
 	hitbox.rotation = direction.angle()
 	velocity = direction * _speed
 	knockback_vector = direction
 	starts_in_wall = in_wall
+	hitbox.set_collision_mask_bit(3, 1 if hit_enemies else 0)
 
 func _physics_process(delta):
 	global_position += velocity * delta

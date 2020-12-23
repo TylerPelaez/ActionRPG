@@ -31,6 +31,17 @@ func _ready():
 	start_global_position = global_position
 	lifebar.initialize(stats)
 	
+func reset():
+	target.disconnect("died", self, "_on_target_died")
+	visible = false
+
+	global_position = start_global_position
+	stats.health = stats.max_health
+	lifebar.disappear()
+	lifebar.initialize(stats)
+	state_machine.active = false
+	state_machine.reset()
+	
 func start():
 	lifebar.appear()
 	state_machine.start()

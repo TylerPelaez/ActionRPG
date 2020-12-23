@@ -65,6 +65,9 @@ func play_dialog(record_name : String):
 	_nid = story_reader.get_nid_via_exact_text(_did, "<start>")
 	_final_nid = story_reader.get_nid_via_exact_text(_did, "<end>")
 	current_name = record_name
+	if record_name.begins_with("PRELUDE"):
+		PlayerStats.letters_found += 1
+	
 	_get_next_node()
 	_play_node()
 	get_tree().paused = true

@@ -5,7 +5,7 @@ const BearTrapScene = preload("res://Enemies/Bosses/Hunter/BearTrap.tscn")
 
 
 const FIRE = "Fire"
-const PROJECTILE_COUNT = 5
+const PROJECTILE_COUNT = 7
 const PROJECTILE_ANGLE = 10
 
 var attack_direction
@@ -51,4 +51,4 @@ func fire(index: int):
 		
 		var direction = attack_direction.rotated( mult * deg2rad(PROJECTILE_ANGLE * ((i + 1) / 2)) )
 		var instance = Utils.instance_scene_on_main(ProjectileScene, owner.get_node(FIRE + str(index)).global_position)
-		instance.initialize(direction)
+		instance.initialize(direction, false, owner.PROJECTILE_SPEED, false)

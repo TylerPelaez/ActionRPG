@@ -16,6 +16,9 @@ var current_state = null
 export(bool) var active = false setget set_active
 
 func _ready():
+	reset()
+
+func reset():
 	states_stack.push_front(get_child(0))
 	current_state = states_stack[0]
 	if active:

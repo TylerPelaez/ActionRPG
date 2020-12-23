@@ -28,4 +28,4 @@ func fire():
 		
 		var direction = Vector2.RIGHT.rotated( mult * deg2rad(PROJECTILE_ANGLE * ((i + 1) / 2)) )
 		var instance = Utils.instance_scene_on_main(ProjectileScene, owner.get_node("AreaAttack").global_position + (direction * INITIAL_OFFSET))
-		instance.initialize(direction)	
+		instance.initialize(direction, false, owner.PROJECTILE_SPEED, false)

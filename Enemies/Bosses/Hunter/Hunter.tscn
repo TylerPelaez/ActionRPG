@@ -226,7 +226,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5.5, -4.5 ) ]
+"values": [ Vector2( -5.5, -8 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Fire1:position")
@@ -238,7 +238,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4.5, -4.5 ) ]
+"values": [ Vector2( 4.5, -8 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -282,7 +282,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -17, -15 ) ]
+"values": [ Vector2( 0, -15 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Fire0:position")
@@ -294,7 +294,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -17, -18.5 ) ]
+"values": [ Vector2( 0, -18.5 ) ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -338,7 +338,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 17, -18.5 ) ]
+"values": [ Vector2( 0, -18.5 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Fire1:position")
@@ -350,7 +350,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 17, -15 ) ]
+"values": [ Vector2( 0, -15 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -394,7 +394,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5.5, -28 ) ]
+"values": [ Vector2( -5.5, -16 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Fire0:position")
@@ -406,7 +406,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4.5, -28 ) ]
+"values": [ Vector2( 4.5, -16 ) ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -638,6 +638,7 @@ script = ExtResource( 5 )
 
 [node name="SimpleAttackMove" type="Node" parent="BossStateMachine/SimpleAttackSequence" index="0"]
 script = ExtResource( 7 )
+MAX_SPEED = 75.0
 
 [node name="SimpleAttack" type="Node" parent="BossStateMachine/SimpleAttackSequence" index="1"]
 script = ExtResource( 9 )
@@ -653,10 +654,10 @@ script = ExtResource( 13 )
 [node name="Idle" parent="BossStateMachine" index="3" instance=ExtResource( 6 )]
 
 [node name="Fire0" type="Position2D" parent="." index="10"]
-position = Vector2( 4.5, -28 )
+position = Vector2( 4.5, -16 )
 
 [node name="Fire1" type="Position2D" parent="." index="11"]
-position = Vector2( -5.5, -28 )
+position = Vector2( -5.5, -16 )
 
 [node name="AreaAttack" type="Position2D" parent="." index="12"]
 position = Vector2( -0.472473, -10.8668 )

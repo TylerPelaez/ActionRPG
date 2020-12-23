@@ -15,7 +15,7 @@ const enemyLookup = {
 	ENEMY.SMALLBAT: preload("res://Enemies/Bat/SmallBat.tscn")
 }
 
-const draw_debug = true
+const draw_debug = false
 const should_randomize = true
 const play_dialog = true
 

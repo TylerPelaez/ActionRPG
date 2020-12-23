@@ -19,6 +19,7 @@ var wave_spawners = {}
 var initial_enemies = []
 var traps = []
 
+
 func _ready():
 	enemy_count = 0
 	var staticBodies = []
