@@ -3,14 +3,20 @@ extends Node
 export(int) var max_health = 1 setget set_max_health
 var health = max_health setget set_health
 
+var shards = 0
+var death_count = 0
+
 signal no_health
 signal health_changed(value)
 signal max_health_changed(value)
+signal shards_changed(value)
+
 
 func set_health(value):
 	health = value
 	emit_signal("health_changed", health)
 	if health <= 0:
+		death_count += 1
 		emit_signal("no_health")
 
 func set_max_health(value):
@@ -19,7 +25,14 @@ func set_max_health(value):
 	emit_signal("max_health_changed", max_health)
 
 func _ready():
+	Events.add_event("PLAYER_SHARD_OBTAINED")
 	reset()
 
 func reset():
 	self.health = max_health
+
+func pickupShard():
+	shards += 1
+	if shards == 1:
+		Events.trigger("PLAYER_SHARD_OBTAINED")
+	emit_signal("shards_changed", shards)

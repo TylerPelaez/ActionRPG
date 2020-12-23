@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://Enemies/Core/ComplexEnemy.gd"
 }, {
 "base": "Node2D",
+"class": "CutsceneSpawner",
+"language": "GDScript",
+"path": "res://Dialog/CutsceneSpawner.gd"
+}, {
+"base": "Node2D",
 "class": "DelayedSpawn",
 "language": "GDScript",
 "path": "res://Enemies/DelayedSpawn.gd"
@@ -63,6 +68,11 @@ _global_script_classes=[ {
 "class": "HitBox",
 "language": "GDScript",
 "path": "res://Hitboxes and Hurtboxes/Hitbox.gd"
+}, {
+"base": "YSort",
+"class": "Level",
+"language": "GDScript",
+"path": "res://World/Level.gd"
 }, {
 "base": "AnimatedSprite",
 "class": "MagicProjectile",
@@ -99,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/Bosses/Hunter/SimpleAttackMove.gd"
 }, {
+"base": "Bat",
+"class": "Smallbat",
+"language": "GDScript",
+"path": "res://Enemies/Bat/SmallBat.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -114,6 +129,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/StatueKnight/StatueKnight.gd"
 }, {
+"base": "HitBox",
+"class": "SwordHitBox",
+"language": "GDScript",
+"path": "res://Player/SwordHitbox.gd"
+}, {
 "base": "Node2D",
 "class": "WorldButton",
 "language": "GDScript",
@@ -126,11 +146,13 @@ _global_script_class_icons={
 "Boss": "",
 "BossStateMachine": "",
 "ComplexEnemy": "",
+"CutsceneSpawner": "",
 "DelayedSpawn": "",
 "Door": "",
 "Enemy": "",
 "EventTrigger": "",
 "HitBox": "",
+"Level": "",
 "MagicProjectile": "",
 "Move": "",
 "Player": "",
@@ -138,16 +160,18 @@ _global_script_class_icons={
 "Room": "",
 "Sequence": "",
 "SimpleAttackMove": "",
+"Smallbat": "",
 "State": "",
 "StateMachine": "",
 "StatueKnight": "",
+"SwordHitBox": "",
 "WorldButton": ""
 }
 
 [application]
 
 config/name="SecretSanta"
-run/main_scene="res://World/Level.tscn"
+run/main_scene="res://World/Level1.tscn"
 
 [autoload]
 

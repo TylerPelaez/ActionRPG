@@ -16,7 +16,7 @@ radius = 5.818
 height = 14.731
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 75.0
+radius = 128.0
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 6.0
@@ -779,6 +779,7 @@ height = 4.435
 [node name="StatueKnight" instance=ExtResource( 2 )]
 collision_mask = 3
 script = ExtResource( 7 )
+MAX_SPEED = 40
 KNOCKBACK_AMOUNT = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -788,6 +789,7 @@ shape = SubResource( 1 )
 visible = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
+visible = false
 position = Vector2( -0.417, -11.686 )
 shape = SubResource( 2 )
 
@@ -795,7 +797,7 @@ shape = SubResource( 2 )
 max_health = 3
 
 [node name="PlayerDetectionArea" parent="." index="3"]
-visible = false
+PLAYER_STICKINESS_MULTIPLIER = 5.0
 
 [node name="CollisionShape2D" parent="PlayerDetectionArea" index="0"]
 shape = SubResource( 3 )
@@ -804,6 +806,7 @@ shape = SubResource( 3 )
 visible = false
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
+visible = false
 shape = SubResource( 4 )
 
 [node name="ShadowSprite" parent="." index="6"]
@@ -845,6 +848,7 @@ anims/RunRight = SubResource( 45 )
 anims/RunUp = SubResource( 46 )
 
 [node name="PlayerClose" type="Area2D" parent="." index="14"]
+visible = false
 position = Vector2( 0, -14.069 )
 rotation = -1.5708
 collision_layer = 0

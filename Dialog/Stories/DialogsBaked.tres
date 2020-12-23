@@ -63,7 +63,7 @@ story = {
 "nodes": {
 1: {
 "links": {
-0: 2
+0: 6
 },
 "text": "<start>"
 },
@@ -71,21 +71,35 @@ story = {
 "links": {
 0: 4
 },
-"text": "<speaker>Tutorial</speaker>
-<dialog>You awaken in a dark room. (Press J To advance Dialogs)</dialog>"
+"text": "<speaker>Narrate</speaker>
+<dialog>You awaken in a cold, dark room.</dialog>"
 },
 3: {
 "links": {
-
+0: 5
 },
-"text": "<end>"
+"text": "<speaker>Self</speaker>
+<dialog>Nothing to do except find out what's happening, I guess.</dialog>"
 },
 4: {
 "links": {
 0: 3
 },
+"text": "<speaker>Narrate</speaker>
+<dialog>You can't remember how you got here, and your head hurts..</dialog>"
+},
+5: {
+"links": {
+
+},
+"text": "<end>"
+},
+6: {
+"links": {
+0: 2
+},
 "text": "<speaker>Tutorial</speaker>
-<dialog>Your head hurts, and you cannot recall how you got here.</dialog>"
+<dialog>(Press J To advance Dialogs)</dialog>"
 }
 }
 },
@@ -101,14 +115,14 @@ story = {
 "links": {
 0: 3
 },
-"text": "<speaker>Tutorial<speaker>
-<dialog>A strange structure... These rooms seem more like cells, </dialog>"
+"text": "<speaker>Self</speaker>
+<dialog>This is a strange place, these rooms feel more like cells </dialog>"
 },
 3: {
 "links": {
 0: 4
 },
-"text": "<speaker>Tutorial</speaker>
+"text": "<speaker>Self</speaker>
 <dialog>And the doors stay barred until I'm the only living thing left</dialog>"
 },
 4: {
@@ -154,7 +168,7 @@ story = {
 "links": {
 0: 3
 },
-"text": "<speaker>Tutorial</speaker>
+"text": "<speaker>Narrate</speaker>
 <dialog>You hear the sound of machinery</dialog>"
 },
 3: {
@@ -177,24 +191,398 @@ story = {
 "links": {
 0: 3
 },
-"text": "<speaker>Self</speaker>
+"text": "<speaker>Narrate</speaker>
 <dialog>As the door closes behind you, you feel a sense of dread</dialog>"
 },
 3: {
 "links": {
 0: 4
 },
-"text": "<speaker>Self</speaker>
+"text": "<speaker>Narrate</speaker>
 <dialog>You hear a distant cry of pain echoing from some other room</dialog>"
 },
 4: {
 "links": {
 0: 5
 },
-"text": "<speaker>Self</speaker>
-<dialog>You look around, and you notice hooded figures approaching</dialog>"
+"text": "<speaker>Narrate</speaker>
+<dialog>You look around, and notice hooded figures approaching</dialog>"
 },
 5: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+8: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 5
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>If you don't want to wind up like him, I'd keep your distance.</dialog>"
+},
+3: {
+"links": {
+0: 7
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>So you don't know anything either...</dialog>"
+},
+4: {
+"links": {
+0: 6
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You raise your arms above your head, to prove you aren't a threat.</dialog>"
+},
+5: {
+"links": {
+0: 4
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>The woman with a crossbow looks to be having as bad a day as you.</dialog>"
+},
+6: {
+"links": {
+0: 3
+},
+"text": "<speaker>Self</speaker>
+<dialog>Don't shoot! I'm just trying to get out of here!!</dialog>"
+},
+7: {
+"links": {
+0: 8
+},
+"text": "<speaker>Self</speaker>
+<dialog>I woke up just a while ago, I was hoping you'd be able to explain.</dialog>"
+},
+8: {
+"links": {
+0: 16
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>I don't know much. I took a job from a young man.</dialog>"
+},
+9: {
+"links": {
+0: 17
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>An uneasy silence passes between both of you.</dialog>"
+},
+10: {
+"links": {
+0: 11
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>... but it was only a rat. </dialog>"
+},
+11: {
+"links": {
+0: 12
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>The woman lowers her weapons, before looking around the room. </dialog>"
+},
+12: {
+"links": {
+0: 18
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>I guess there's no sense in waiting around here.</dialog>"
+},
+13: {
+"links": {
+0: 14
+},
+"text": "<speaker>Self</speaker>
+<dialog>Let's split up, try and find a way to unlock it.</dialog>"
+},
+14: {
+"links": {
+0: 15
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>She nods, and walks away.</dialog>"
+},
+15: {
+"links": {
+
+},
+"text": "<end>"
+},
+16: {
+"links": {
+0: 9
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>But after that, my mind is blank.</dialog>"
+},
+17: {
+"links": {
+0: 10
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>A shadow darts across the floor. you both jolt around to face it...</dialog>"
+},
+18: {
+"links": {
+0: 13
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>I can see the stairway just behind that door.</dialog>"
+}
+}
+},
+9: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>You got a Gemshard!</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Tutorial</speaker>
+<dialog>These don't actually do anything, but feel free to collect them!</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+10: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>An old letter sits on the shelves. You strain to read the faded words:</dialog>"
+},
+3: {
+"links": {
+0: 5
+},
+"text": "<speaker>Letter</speaker>
+<dialog>We journeyed into the Yearlong woods, in search of a fabled weapon …</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+},
+5: {
+"links": {
+0: 4
+},
+"text": "<speaker>Letter</speaker>
+<dialog>... I have never before seen such a marvelous blade.</dialog>"
+}
+}
+},
+11: {
+"nodes": {
+1: {
+"links": {
+
+},
+"text": "<end>"
+},
+2: {
+"links": {
+0: 4
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>An old letter sits on the shelves. You strain to read the faded words:</dialog>"
+},
+3: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Letter</speaker>
+<dialog>Father is acting strangely. He looks upon me with a foreign anger ...
+</dialog>"
+},
+5: {
+"links": {
+0: 1
+},
+"text": "<speaker>Letter</speaker>
+<dialog>... He has more passion, more fire, he is even more beautiful ...</dialog>"
+}
+}
+},
+12: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>An old letter sits on the shelves. You strain to read the faded words:</dialog>"
+},
+3: {
+"links": {
+0: 5
+},
+"text": "<speaker>Letter</speaker>
+<dialog>... His servants now refuse to enter his office ...</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+},
+5: {
+"links": {
+0: 4
+},
+"text": "<speaker>Letter</speaker>
+<dialog>...  Some men I have not seen in weeks, I dare not ask …</dialog>"
+}
+}
+},
+13: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>An old letter sits on the shelves. You strain to read the faded words:</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Letter</speaker>
+<dialog>I age 10 years each day. I’m losing my hair, my skin is gray.</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+14: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>An old letter sits on the shelves. You strain to read the faded words:</dialog>"
+},
+3: {
+"links": {
+0: 5
+},
+"text": "<speaker>Letter</speaker>
+<dialog>My kind, dear brother. No, don’t you dare take care of me. </dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Letter</speaker>
+<dialog>Stay away.</dialog>"
+},
+6: {
+"links": {
+0: 4
+},
+"text": "<speaker>Letter</speaker>
+<dialog>All you will find here is death.</dialog>"
+}
+}
+},
+15: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>This Door is locked.</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Self</speaker>
+<dialog>This is the direction that woman went. I hope she's ok.</dialog>"
+},
+4: {
 "links": {
 
 },
@@ -205,8 +593,16 @@ story = {
 }
 names = {
 "DEBUG_DIALOG": 1,
+"HUNTER_CUSTCENE_0": 8,
 "LOCKED_DOOR_DIALOG": 5,
+"LOCKED_DOOR_HUNTER_PATH": 15,
 "OPEN_DOOR": 6,
+"PLAYER_SHARD_OBTAINED": 9,
+"PRELUDE_1": 10,
+"PRELUDE_2": 11,
+"PRELUDE_3": 12,
+"PRELUDE_4": 13,
+"PRELUDE_5": 14,
 "STORY_0_DREAD": 7,
 "TUTORIAL_CONTROLS_0": 3,
 "TUTORIAL_CONTROLS_1": 2,

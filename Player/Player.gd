@@ -20,6 +20,7 @@ var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
 var stats = PlayerStats
+var is_paused = false
 
 # initialize as if it was being initialized in _ready
 onready var animationTree = $AnimationTree
@@ -46,6 +47,10 @@ func reset():
 
 # Update
 func _physics_process(delta):
+	if is_paused && state == MOVE:
+		animationState.travel("Idle")
+		return
+	
 	match state:
 		MOVE:
 			move_state(delta)
@@ -136,3 +141,4 @@ func _on_Hurtbox_body_entered(body):
 				body.delete_cell(res["metadata"][0], res["metadata"][1])
 		
 		got_hit(body.damage)
+	

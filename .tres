@@ -441,7 +441,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>Don't shoot! I'm just trying to get out of here!!</dialog>",
+<dialog>Don't shoot! I refuse to die ignorant of this damnable place!</dialog>",
 "type": "line"
 },
 7: {
@@ -463,7 +463,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Hunter</speaker>
-<dialog>I don't know much. I took a job from a young man.</dialog>",
+<dialog>I don't know much. I took a job from a young man with gold to spend.</dialog>",
 "type": "line"
 },
 9: {

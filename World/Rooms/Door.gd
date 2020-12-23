@@ -1,13 +1,13 @@
 extends StaticBody2D
 class_name Door
 
-export (bool) var locked = false
-export (String) var openEventName
+export (bool) var locked_on_init = false
+export (String) var lockToggleEventName
 
 const closedDoor = preload("res://World/Door.png")
 const openDoor = preload("res://World/OpenDoor.png")
 
-
+var currently_locked
 
 onready var sprite = $Sprite
 onready var closedCollider = $ClosedCollider
@@ -17,11 +17,14 @@ onready var animationPlayer = $AnimationPlayer
 
 
 func _ready():
-	if !locked:
+	if lockToggleEventName != null:
+		Events.subscribe(lockToggleEventName, funcref(self, "toggleLock") )
+	
+	currently_locked = locked_on_init
+	
+	if !currently_locked:
 		open()
 	else:
-		assert(openEventName != null)
-		Events.subscribe(openEventName, funcref(self, "unlock") )
 		close()
 
 func close():	
@@ -30,12 +33,15 @@ func close():
 	openCollider2.set_deferred("disabled", true)
 	animationPlayer.play("Close")
 
-func unlock():
-	locked = false
-	open()
+func toggleLock():
+	currently_locked = !locked_on_init
+	if !currently_locked:
+		open()
+	else:
+		close()
 
 func open():
-	if !locked:
+	if !currently_locked:
 		animationPlayer.play("Open")
 
 func _on_finish_open():

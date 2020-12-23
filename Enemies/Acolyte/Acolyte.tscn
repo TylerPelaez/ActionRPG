@@ -192,7 +192,6 @@ graph_offset = Vector2( -271, -98 )
 
 [sub_resource type="Animation" id=37]
 resource_name = "AttackDown"
-length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -212,7 +211,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 1, 1.6 ),
+"times": PoolRealArray( 0.2, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -462,11 +461,12 @@ tracks/0/keys = {
 [node name="Acolyte" instance=ExtResource( 1 )]
 light_mask = 4
 script = ExtResource( 4 )
+MAX_SPEED = 60
 PUSH_STRENGTH = 200
+KNOCKBACK_AMOUNT = 60
 PLAYER_DETECTION_RADIUS = 200.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." index="1"]
@@ -540,6 +540,9 @@ anims/RunUp = SubResource( 48 )
 
 [node name="Line2D" parent="." index="14"]
 show_behind_parent = false
+
+[node name="AttackTimer" parent="." index="15"]
+wait_time = 2.0
 
 [editable path="Hurtbox"]
 

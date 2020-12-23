@@ -4,7 +4,7 @@ class_name Acolyte
 const Projectile = preload("res://Enemies/Acolyte/MagicProjectile.tscn")
 const CircleShape = preload("res://Enemies/Acolyte/MagicProjectileShape.tres")
 
-const max_player_closeness = 100.0
+const max_player_closeness = 50.0
 export var PROJECTILE_SPAWN_OFFSET = 16
 
 const STAND_STILL_AFTER_ATTACK_PERCENTAGE = 50
@@ -106,3 +106,5 @@ func update_chase_player_path():
 		
 		var real_final_point = last_point  + (direction_to_second_to_last_point * max_player_closeness)
 		chase_player_path = get_parent().get_nav_path(global_position, real_final_point)
+	
+	adjust_chase_path_for_collisions()

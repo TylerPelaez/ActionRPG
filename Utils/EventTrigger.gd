@@ -24,11 +24,13 @@ func deactivate():
 func activate():
 	activated = true
 	
+# warning-ignore:unused_argument
 func _on_EventTrigger_body_entered(body):
 	if activated && !triggered && !disabled:
 		Events.trigger(eventName)
 		triggered = true
 
+# warning-ignore:unused_argument
 func _on_EventTrigger_body_exited(body):
 	if retriggerable:
 		triggered = false

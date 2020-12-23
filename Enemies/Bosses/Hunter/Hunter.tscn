@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Hunter/Hunter.png" type="Texture" id=2]
@@ -410,6 +410,22 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=17]
+resource_name = "Talking"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 44, 0 ]
+}
+
+[sub_resource type="Animation" id=18]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -462,8 +478,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "spawn"
+[sub_resource type="Animation" id=19]
 length = 3.0
 step = 0.05
 tracks/0/type = "value"
@@ -610,8 +625,9 @@ anims/SimpleAttackDown = SubResource( 13 )
 anims/SimpleAttackLeft = SubResource( 14 )
 anims/SimpleAttackRight = SubResource( 15 )
 anims/SimpleAttackUp = SubResource( 16 )
-anims/die = SubResource( 17 )
-anims/spawn = SubResource( 18 )
+anims/Talking = SubResource( 17 )
+anims/die = SubResource( 18 )
+anims/spawn = SubResource( 19 )
 
 [node name="BossStateMachine" parent="." index="8"]
 script = ExtResource( 5 )

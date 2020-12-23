@@ -24,3 +24,6 @@ func trigger(eventName: String, args: Array = []) -> void:
 func subscribe(eventName: String, callback: FuncRef) -> void:
 	add_event(eventName)
 	events[eventName].append(callback)
+
+func clear():
+	events.clear()

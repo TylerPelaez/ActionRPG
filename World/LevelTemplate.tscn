@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://World/Rooms/Room.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/FloorTileMap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/DialogueBox.tscn" type="PackedScene" id=13]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://World/RugTileMap.tscn" type="PackedScene" id=15]
+[ext_resource path="res://World/WallTileMap.tscn" type="PackedScene" id=16]
+[ext_resource path="res://World/Stairs.tscn" type="PackedScene" id=18]
+[ext_resource path="res://World/Level.gd" type="Script" id=23]
+
+[node name="LevelTemplate" type="YSort"]
+script = ExtResource( 23 )
+
+[node name="RugTileMap16Offset" parent="." instance=ExtResource( 15 )]
+position = Vector2( 16, 16 )
+z_index = -1
+
+[node name="FloorTileMap" parent="." instance=ExtResource( 8 )]
+tile_data = PoolIntArray( -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -65538, 0, 0, -65537, 0, 65536, -131072, 0, 2, -131071, 0, 2, -131070, 0, 0, -131069, 0, 65537, -131068, 0, 1, -131067, 0, 0, -131066, 0, 0, -2, 0, 0, -1, 0, 2, -65536, 0, 65537, -65535, 0, 2, -65534, 0, 0, -65533, 0, 2, -65532, 0, 1, -65531, 0, 1, -65530, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 65538, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 0, 5, 0, 2, 6, 0, 0, 131070, 0, 0, 131071, 0, 1, 65536, 0, 2, 65537, 0, 1, 65538, 0, 65538, 65539, 0, 2, 65540, 0, 65536, 65541, 0, 65538, 65542, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 2, 131075, 0, 0, 131076, 0, 0, 131077, 0, 2, 131078, 0, 0, 262142, 0, 0, 262143, 0, 65536, 196608, 0, 65537, 196609, 0, 2, 196610, 0, 65537, 196611, 0, 65538, 196612, 0, 0, 196613, 0, 65537, 196614, 0, 0, 327678, 0, 0, 327679, 0, 1, 262144, 0, 2, 262145, 0, 65537, 262146, 0, 0, 262147, 0, 65538, 262148, 0, 0, 262149, 0, 2, 262150, 0, 0, 393214, 0, 0, 393215, 0, 65537, 327680, 0, 2, 327681, 0, 65537, 327682, 0, 65536, 327683, 0, 1, 327684, 0, 1, 327685, 0, 65536, 327686, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0 )
+
+[node name="WallTileMap" parent="." instance=ExtResource( 16 )]
+tile_data = PoolIntArray( -65537, 1, 8, -131072, 1, 10, -131071, 1, 10, -131070, 1, 10, -131069, 1, 10, -131068, 1, 10, -131067, 1, 11, -1, 1, 131076, -65536, 1, 196617, -65535, 1, 196617, -65534, 1, 196617, -65533, 1, 196617, -65532, 1, 196617, -65531, 1, 131079, 65535, 1, 65536, 5, 1, 65536, 131071, 1, 65536, 65541, 1, 65536, 196607, 1, 65536, 131077, 1, 65536, 262143, 1, 65536, 196613, 1, 65536, 327679, 1, 65540, 262144, 1, 10, 262145, 1, 10, 262146, 1, 10, 262147, 1, 10, 262148, 1, 10, 262149, 1, 65543, 393215, 1, 196616, 327680, 1, 196617, 327681, 1, 196617, 327682, 1, 196617, 327683, 1, 196617, 327684, 1, 196617, 327685, 1, 196619 )
+
+[node name="Rooms" type="YSort" parent="."]
+
+[node name="SpawnRoom" parent="Rooms" instance=ExtResource( 4 )]
+starting_room = true
+
+[node name="CollisionPolygon2D" parent="Rooms/SpawnRoom/RoomExtents" index="0"]
+position = Vector2( 256, -224 )
+polygon = PoolVector2Array( -96, 224, -256, 224, -256, 360, -96, 360 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.490196, 0.490196, 0.490196, 1 )
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Torches" type="Node2D" parent="."]
+pause_mode = 2
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+pause_mode = 1
+position = Vector2( 80, 80 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
+
+[node name="Camera2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 80, 80 )
+drag_margin_left = 0.01
+drag_margin_top = 0.01
+drag_margin_right = 0.01
+drag_margin_bottom = 0.01
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 14 )]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 63.0
+margin_bottom = 14.0
+
+[node name="DialogueBox" parent="CanvasLayer" instance=ExtResource( 13 )]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_top = 0.85
+anchor_bottom = 7.5
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Stairs" parent="." instance=ExtResource( 18 )]
+position = Vector2( 32, 64 )
+[connection signal="on_finish_dialog" from="CanvasLayer/DialogueBox" to="." method="_on_DialogueBox_on_finish_dialog"]
+[connection signal="on_play_dialog" from="CanvasLayer/DialogueBox" to="." method="_on_DialogueBox_on_play_dialog"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="player_entered" from="Stairs" to="." method="_on_Stairs_player_entered"]
+
+[editable path="Rooms/SpawnRoom"]
+
+[editable path="Rooms/SpawnRoom/RoomExtents"]

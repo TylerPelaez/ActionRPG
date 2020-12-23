@@ -14,4 +14,5 @@ func spawnEnemy():
 	var effect  = Utils.instance_scene_on_main(SpawnEffect, global_position)
 	effect.no_sound()
 	
+	
 	return instance

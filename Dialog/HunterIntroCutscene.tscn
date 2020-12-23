@@ -1,0 +1,232 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://WhiteColor.shader" type="Shader" id=1]
+[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Bosses/Hunter/Arrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Bosses/Hunter/Hunter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Dialog/HunterIntroCutscene.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=5]
+resource_name = "CutsceneEnd"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hunter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 2.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 112, 0 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("Hunter/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "IdleDown", "IdleRight", "RunRight" ),
+"times": PoolRealArray( 0, 0.5, 0.8 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hunter:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_CutsceneEnd_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "CutsceneStart"
+tracks/0/type = "method"
+tracks/0/path = NodePath("Arrow")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Vector2( -1, 0 ), false, 250.0 ],
+"method": "initialize"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Arrow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "HunterWalk"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hunter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("Hunter/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "RunLeft", "IdleLeft", "IdleDown" ),
+"times": PoolRealArray( 1, 2.5, 2.8 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hunter:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_HunterWalk_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Talking"
+loop = true
+tracks/0/type = "animation"
+tracks/0/path = NodePath("Hunter/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Talking" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 3.0
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/active = false
+
+[node name="HunterIntroCutscene" type="Node2D"]
+pause_mode = 2
+z_index = 1
+script = ExtResource( 5 )
+
+[node name="CutsceneAnimator" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/CutsceneEnd = SubResource( 5 )
+anims/CutsceneStart = SubResource( 1 )
+anims/HunterWalk = SubResource( 4 )
+anims/Talking = SubResource( 6 )
+
+[node name="Hunter" parent="." instance=ExtResource( 4 )]
+pause_mode = 2
+visible = false
+
+[node name="Sprite" parent="Hunter" index="1"]
+frame = 0
+
+[node name="Fire0" parent="Hunter" index="10"]
+position = Vector2( -5.5, -4.5 )
+
+[node name="Fire1" parent="Hunter" index="11"]
+position = Vector2( 4.5, -4.5 )
+
+[node name="Bat" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="CollisionShape2D" parent="Bat" index="0"]
+shape = SubResource( 2 )
+
+[node name="Hurtbox" parent="Bat" index="1"]
+visible = true
+
+[node name="Stats" parent="Bat" index="2"]
+max_health = 1
+
+[node name="AnimatedSprite" parent="Bat" index="6"]
+material = SubResource( 3 )
+
+[node name="Arrow" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+visible = false
+position = Vector2( 87, -11 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
+offset = Vector2( 0, -12 )
+zoom = Vector2( 0.5, 0.5 )
+[connection signal="no_health" from="Bat/Stats" to="." method="_on_Stats_no_health"]
+
+[editable path="Hunter"]
+
+[editable path="Bat"]
+
+[editable path="Arrow"]

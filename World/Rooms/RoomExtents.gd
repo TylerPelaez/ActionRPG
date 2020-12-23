@@ -22,10 +22,10 @@ func _ready():
 			max_x = max(max_x, point.x)
 			max_y = max(max_y, point.y)
 		
-		top_left.global_position = global_position + Vector2(min_x, min_y) + TOP_LEFT_OFFSET
+		top_left.global_position = polygon.global_transform.xform(Vector2(min_x, min_y) + TOP_LEFT_OFFSET)
 		if fmod(top_left.global_position.y, 32.0) == 0:
 			top_left.global_position += TOP_BUFFER
-		bottom_right.global_position = global_position + Vector2(max_x, max_y) + BOTTOM_RIGHT_OFFSET
+		bottom_right.global_position = polygon.global_transform.xform (Vector2(max_x, max_y) + BOTTOM_RIGHT_OFFSET)
 		
 		var bounds_size = bottom_right.global_position - top_left.global_position
 		var viewport_rect = get_viewport_rect().size
@@ -148,3 +148,9 @@ func closest_point_in_room(point: Vector2):
 	
 	return polygon.global_transform.xform(closest_point)
 	
+func get_midpoint_in_bounds():
+	var midpoint = (bottomRight() + topLeft()) / 2
+	if is_point_in_room(midpoint):
+		return midpoint
+	else:
+		return closest_point_in_room(midpoint)

@@ -1,4 +1,5 @@
 extends YSort
+class_name Level
 
 const total_lerp_time = 0.3
 
@@ -27,6 +28,12 @@ func _ready():
 				current_room = child
 				camera.set_limits(current_room.roomExtents.topLeft(), current_room.roomExtents.bottomRight())
 				camera.reset_smoothing()
+	
+	var cutscenes = get_node("Cutscenes")
+	if cutscenes != null:
+		for child in cutscenes.get_children():
+			assert (child is CutsceneSpawner)
+			child.initialize($CanvasLayer, camera, player)
 
 func _on_room_entered(room: Room):
 	if current_room == room:
@@ -56,7 +63,16 @@ func _on_room_entered(room: Room):
 
 func _on_player_death():
 	player.reset()
-	player.global_position = (previous_room.roomExtents.bottomRight() + previous_room.roomExtents.topLeft()) / 2
+
+	var midpoint = previous_room.roomExtents.get_midpoint_in_bounds()
+	var playerCollisionShape = player.get_node("CollisionShape2D")
+	while true:
+		if Utils.shape_cast(playerCollisionShape.shape, playerCollisionShape.global_transform.translated(playerCollisionShape.global_transform.xform_inv(midpoint))):
+			player.global_position = midpoint
+			break
+		
+		midpoint = previous_room.roomExtents.getRandomPointInRoom()
+		
 	current_room.reset()
 
 # For Dialog event triggering
@@ -82,4 +98,6 @@ func _on_Tween_tween_all_completed():
 		dialogBox.call_deferred("on_Events_event_triggered",eventNameHeldDuringDialogTransition)
 		eventNameHeldDuringDialogTransition = null
 
-
+func _on_Stairs_player_entered():
+	Events.clear()
+	Utils.load_next_level()

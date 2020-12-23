@@ -5,6 +5,7 @@ class_name Room
 signal room_entered(room)
 
 export var starting_room = false
+export (PackedScene) var item_drop
 
 onready var roomExtents = $RoomExtents
 var room_defeated = false
@@ -35,6 +36,7 @@ func _ready():
 			if child.wave > max_wave:
 				max_wave = child.wave
 			
+			
 			if !wave_spawners.has(child.wave):
 				wave_spawners[child.wave] = []
 			wave_spawners[child.wave].append(child)
@@ -44,6 +46,7 @@ func _ready():
 			
 		if child is EventTrigger:
 			child.deactivate()
+		
 		
 	roomExtents.initialize(staticBodies)
 	if enemy_count == 0:
@@ -94,6 +97,8 @@ func _on_enemy_death():
 	enemy_death_count += 1
 	if enemy_death_count >= enemy_count && current_wave == max_wave:
 		room_defeated = true
+		if item_drop != null:
+			Utils.call_deferred("instance_scene_on_main", item_drop, roomExtents.get_midpoint_in_bounds())
 		open_doors()
 	elif enemy_death_count >= enemy_count:
 		enemy_death_count = 0

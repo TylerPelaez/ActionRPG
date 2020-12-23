@@ -43,7 +43,7 @@ __meta__ = {
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
 margin_right = 250.0
-margin_bottom = 47.0
+margin_bottom = 46.0
 rect_min_size = Vector2( 10, 10 )
 texture = ExtResource( 1 )
 patch_margin_left = 3
@@ -56,7 +56,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 margin_right = 250.0
-margin_bottom = 47.0
+margin_bottom = 46.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -66,13 +66,13 @@ custom_constants/margin_bottom = 5
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 245.0
-margin_bottom = 42.0
+margin_bottom = 41.0
 size_flags_horizontal = 7
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 autowrap = true
-percent_visible = 0.819277
+percent_visible = 0.0
 max_lines_visible = 2
 __meta__ = {
 "_edit_use_anchors_": false

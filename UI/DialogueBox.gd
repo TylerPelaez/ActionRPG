@@ -1,7 +1,7 @@
 extends Control
 
 signal on_play_dialog
-signal on_finish_dialog
+signal on_finish_dialog(dialogName)
 
 const OPEN_DOOR_DIALOG_NAME = "OPEN_DOOR"
 const DEBUG_DIALOG = "DEBUG_DIALOG"
@@ -9,7 +9,11 @@ const DEBUG_STORY = preload("res://Dialog/Stories/DialogsBaked.tres")
 const StoryReaderClass = preload("res://addons/EXP-System-Dialog/Reference_StoryReader/EXP_StoryReader.gd")
 
 const SPEAKER_COLOR_LOOKUP = {
-	"Son": Color.white
+	"Tutorial": Color.gray,
+	"Self": Color.darkgreen,
+	"Narrate": Color.white,
+	"Hunter": Color("#4d2b25"),
+	"Letter": Color.gold
 }
 
 onready var bodyAnimationPlayer = $MarginContainer/MarginContainer/BodyLabel/AnimationPlayer
@@ -19,6 +23,7 @@ var _did = 0
 var _nid = 0
 var _final_nid = 0
 var story_reader
+var current_name
 var is_waiting = false
 
 var debug = false
@@ -59,6 +64,7 @@ func play_dialog(record_name : String):
 	_did = story_reader.get_did_via_record_name(record_name)
 	_nid = story_reader.get_nid_via_exact_text(_did, "<start>")
 	_final_nid = story_reader.get_nid_via_exact_text(_did, "<end>")
+	current_name = record_name
 	_get_next_node()
 	_play_node()
 	get_tree().paused = true
@@ -80,7 +86,8 @@ func assert_lengths():
 			var speaker = _get_tagged_text("speaker", text)
 			var dialog = _get_tagged_text("dialog", text)
 			# nice
-			assert (dialog.length() < 69)
+			var length = dialog.length()
+			assert (length < 75)
 
 func _get_next_node():
 	_nid = story_reader.get_nid_from_slot(_did, _nid, 0)
@@ -88,7 +95,7 @@ func _get_next_node():
 	if _nid == _final_nid:
 		visible = false
 		get_tree().paused = false
-		emit_signal("on_finish_dialog")
+		emit_signal("on_finish_dialog", current_name)
 
 func _get_tagged_text(tag : String, text : String):
 	var start_tag = "<" + tag + ">"
@@ -108,6 +115,9 @@ func _play_node():
 	if SPEAKER_COLOR_LOOKUP.has(speaker):
 		textColor = SPEAKER_COLOR_LOOKUP[speaker]
 	
+	if speaker != "Tutorial" && speaker != "Narrate":
+		dialog = '"' + dialog + '"'
+	
 	bodyLabel.text = dialog
 	bodyLabel.set("custom_colors/font_color", textColor)
 	bodyAnimationPlayer.play("ShowText")
@@ -115,6 +125,8 @@ func _play_node():
 
 func on_Events_event_triggered(dialogName: String):
 	assert(!_is_playing())
+	if !Utils.play_dialog:
+		return
 	
 	# This way, we can display specific door open text if we want, falling back to regular open door text
 	if story_reader.has_record_name(dialogName):
@@ -122,6 +134,7 @@ func on_Events_event_triggered(dialogName: String):
 	elif dialogName.find(OPEN_DOOR_DIALOG_NAME) != -1:
 		play_dialog(OPEN_DOOR_DIALOG_NAME)
 
+# warning-ignore:unused_argument
 func _on_AnimationPlayer_animation_finished(anim_name):
 	is_waiting = true
 	bodyAnimationPlayer.playback_speed = 1.0
