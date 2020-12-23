@@ -6,7 +6,7 @@
 [ext_resource path="res://Enemies/Bosses/Hunter/Hunter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Dialog/HunterIntroCutscene.gd" type="Script" id=5]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "CutsceneEnd"
 length = 2.5
 tracks/0/type = "value"
@@ -58,8 +58,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "CutsceneStart"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "method"
 tracks/0/path = NodePath("Arrow")
 tracks/0/interp = 1
@@ -99,7 +98,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "HunterWalk"
 length = 3.0
 tracks/0/type = "value"
@@ -151,7 +150,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Talking"
 loop = true
 tracks/0/type = "animation"
@@ -165,11 +164,11 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=5]
 resource_local_to_scene = true
 radius = 3.0
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
 shader_param/active = false
@@ -181,17 +180,16 @@ script = ExtResource( 5 )
 
 [node name="CutsceneAnimator" type="AnimationPlayer" parent="."]
 pause_mode = 2
-anims/CutsceneEnd = SubResource( 5 )
-anims/CutsceneStart = SubResource( 1 )
-anims/HunterWalk = SubResource( 4 )
-anims/Talking = SubResource( 6 )
+anims/CutsceneEnd = SubResource( 1 )
+anims/CutsceneStart = SubResource( 2 )
+anims/HunterWalk = SubResource( 3 )
+anims/Talking = SubResource( 4 )
 
 [node name="Hunter" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
-visible = false
 
 [node name="Sprite" parent="Hunter" index="1"]
-frame = 0
+frame = 2
 
 [node name="Fire0" parent="Hunter" index="10"]
 position = Vector2( -5.5, -4.5 )
@@ -203,7 +201,7 @@ position = Vector2( 4.5, -4.5 )
 pause_mode = 2
 
 [node name="CollisionShape2D" parent="Bat" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Hurtbox" parent="Bat" index="1"]
 visible = true
@@ -212,7 +210,7 @@ visible = true
 max_health = 1
 
 [node name="AnimatedSprite" parent="Bat" index="6"]
-material = SubResource( 3 )
+material = SubResource( 6 )
 
 [node name="Arrow" parent="." instance=ExtResource( 3 )]
 pause_mode = 2

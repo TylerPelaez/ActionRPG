@@ -6,7 +6,7 @@ var health = max_health setget set_health
 var shards = 0
 var death_count = 0
 var letters_found = 0
-
+var player_damage = 1
 
 signal no_health
 signal health_changed(value)
@@ -30,6 +30,9 @@ func _ready():
 	Events.add_event("PLAYER_SHARD_OBTAINED")
 	reset()
 
+func _on_new_scene():
+	Events.subscribe("FEEL_STRONGER", funcref(self,"increase_damage"))
+
 func reset():
 	self.health = max_health
 
@@ -38,3 +41,6 @@ func pickupShard():
 	if shards == 1:
 		Events.trigger("PLAYER_SHARD_OBTAINED")
 	emit_signal("shards_changed", shards)
+
+func increase_damage():
+	player_damage += 1

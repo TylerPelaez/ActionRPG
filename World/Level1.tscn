@@ -445,112 +445,115 @@ pause_mode = 2
 
 [node name="Torch" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 448, 48 )
-frame = 4
+frame = 5
 
 [node name="Torch11" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 16, 16 )
-frame = 1
+frame = 2
 
 [node name="Torch12" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -48, 16 )
-frame = 2
+frame = 3
 
 [node name="Torch13" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -264, 16 )
-frame = 1
+frame = 2
 
 [node name="Torch15" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -208, 16 )
-frame = 1
+frame = 2
 
 [node name="Torch16" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -112, 16 )
-frame = 4
+frame = 5
 
 [node name="Torch14" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -320, 16 )
-frame = 1
+frame = 2
 
 [node name="Torch6" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 560, 48 )
-frame = 1
+frame = 2
 
 [node name="Torch8" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 624, 48 )
-frame = 2
+frame = 3
 
 [node name="Torch7" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 736, 48 )
-frame = 2
+frame = 3
 
 [node name="Torch17" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 880, 16 )
-frame = 2
+frame = 3
 
 [node name="Torch21" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 848, -368 )
-frame = 2
+frame = 3
 
 [node name="Torch22" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 720, -368 )
-frame = 2
+frame = 3
 
 [node name="Torch23" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 536, -432 )
-frame = 1
+frame = 2
 
 [node name="Torch24" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 416, -432 )
-frame = 1
+frame = 2
 
 [node name="Torch18" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 992, 16 )
-frame = 2
+frame = 3
 
 [node name="Torch19" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 992, 176 )
-frame = 2
+frame = 3
 
 [node name="Torch20" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 1120, 96 )
-frame = 1
+frame = 2
 
 [node name="Torch2" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 96, 16 )
-frame = 1
+frame = 2
 
 [node name="Torch28" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 144, 208 )
-frame = 1
+frame = 2
 
 [node name="Torch25" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 160, -176 )
+frame = 1
 
 [node name="Torch26" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 296, -176 )
+frame = 1
 
 [node name="Torch27" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 224, -176 )
+frame = 1
 
 [node name="Torch3" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 168, 16 )
-frame = 2
+frame = 3
 
 [node name="Torch4" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 240, 16 )
-frame = 2
+frame = 3
 
 [node name="Torch5" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 312, 16 )
-frame = 1
+frame = 2
 
 [node name="Torch9" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -184, 112 )
-frame = 1
+frame = 2
 
 [node name="Torch10" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -136, 112 )
-frame = 1
+frame = 2
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 pause_mode = 1

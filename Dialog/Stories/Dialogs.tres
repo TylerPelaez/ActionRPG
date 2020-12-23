@@ -7,7 +7,10 @@ script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
 "DEBUG_DIALOG": 1,
+"FEEL_STRONGER": 18,
 "HUNTER_CUSTCENE_0": 8,
+"HUNTER_CUTSCENE_1": 16,
+"HUNTER_TABLET_0": 17,
 "LOCKED_DOOR_DIALOG": 5,
 "LOCKED_DOOR_HUNTER_PATH": 15,
 "OPEN_DOOR": 6,
@@ -973,6 +976,123 @@ story = {
 },
 4: {
 "graph_offset": Vector2( 40, 560 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+16: {
+"available_nid": [ 4 ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "HUNTER_CUTSCENE_1",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 120 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 40, 280 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>Hello There</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 40, 440 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+17: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "HUNTER_TABLET_0",
+"nodes": {
+1: {
+"graph_offset": Vector2( 0, 0 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 0, 160 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tablet</speaker>
+<dialog>BEEP BOP</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( -20, 320 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+18: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FEEL_STRONGER",
+"nodes": {
+1: {
+"graph_offset": Vector2( -20, 100 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( -20, 300 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>You feel stronger...</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( -20, 480 ),
 "links": {
 
 },

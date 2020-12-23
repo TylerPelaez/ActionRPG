@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Enemies/Acolyte/Acolyte.gd"
 }, {
 "base": "Node2D",
+"class": "Arrow",
+"language": "GDScript",
+"path": "res://Enemies/Bosses/Hunter/Arrow.gd"
+}, {
+"base": "Node2D",
 "class": "ArrowTrap",
 "language": "GDScript",
 "path": "res://World/ArrowTrap.gd"
@@ -141,6 +146,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Acolyte": "",
+"Arrow": "",
 "ArrowTrap": "",
 "Bat": "",
 "Boss": "",

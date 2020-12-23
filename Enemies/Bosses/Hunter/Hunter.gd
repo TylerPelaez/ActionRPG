@@ -20,7 +20,29 @@ func lay_trap():
 	traps_laid.push_back(instance)
 
 func reset():
+	clear_traps()
 	.reset()
+
+
+
+func clear_traps():
 	for trap in traps_laid:
 		trap.queue_free()
-	traps_laid = []
+		traps_laid = []
+	
+	for child in get_tree().current_scene.get_children():
+		if child is Arrow:
+			child.delete()
+
+func set_spawn_shader():
+	pass
+
+func set_white_color_shader():
+	pass
+
+func _on_Die_finished():
+	clear_traps()
+	._on_Die_finished()
+
+func disable_traps():
+	clear_traps()

@@ -3,6 +3,8 @@ class_name Enemy
 
 signal on_death
 
+const HealthPickup = preload("res://Player/PlayerHealthPickup.tscn")
+const GemPickup = preload("res://Player/GemshardPickup.tscn")
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
 export var ACCELERATION := 300
@@ -17,6 +19,8 @@ export (int) var PATHFIND_COLLISION_CHECK_ANGLES = 10
 
 export (float) var PATHFIND_NEIGHBOR_AVOIDANCE_RADIUS = 10.0
 export (float) var PATHFIND_MAX_NEIGHBOR_AVOIDANCE_ANGLES = 4
+export (float) var HEALTH_DROP_CHANCE = .05
+export (float) var GEM_DROP_CHANCE = .1
 
 enum {
 	IDLE,
@@ -185,8 +189,6 @@ func adjust_chase_path_for_collisions():
 				return
 			
 			current_offset += PATHFIND_COLLISION_CHECK_ANGLE_INCREMENT
-		 
-		print("failedall")
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
@@ -205,6 +207,16 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Stats_no_health():
 	emit_signal("on_death")
+	
+	var scene = null
+	if randf() < HEALTH_DROP_CHANCE:
+		scene = HealthPickup
+	elif randf() < GEM_DROP_CHANCE:
+		scene = GemPickup
+	
+	if scene != null:
+		Utils.instance_scene_on_main(scene, global_position)
+	
 	call_deferred("queue_free")
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)

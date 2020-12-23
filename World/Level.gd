@@ -34,6 +34,8 @@ func _ready():
 		for child in cutscenes.get_children():
 			assert (child is CutsceneSpawner)
 			child.initialize($CanvasLayer, camera, player)
+			
+	PlayerStats._on_new_scene()
 
 func _on_room_entered(room: Room):
 	if current_room == room:
@@ -88,7 +90,7 @@ func _on_DialogueBox_on_play_dialog():
 	pass # Replace with function body.
 
 
-func _on_DialogueBox_on_finish_dialog():
+func _on_DialogueBox_on_finish_dialog(dialogName):
 	pass # Replace with function body.
 
 

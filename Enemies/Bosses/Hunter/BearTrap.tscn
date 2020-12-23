@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Hunter/BearTrap.png" type="Texture" id=1]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Bosses/Hunter/BearTrap.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 5.41854
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 2.99998
+height = 4.00004
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 resource_name = "default"
 length = 0.1
 tracks/0/type = "value"
@@ -142,6 +143,48 @@ tracks/5/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "idle"
+} ]
+}
+
 [node name="BearTrap" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -153,12 +196,16 @@ hframes = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 1 )
+position = Vector2( 0, 1 )
+rotation = -1.57079
+shape = SubResource( 5 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "default"
-anims/default = SubResource( 2 )
+autoplay = "spawn"
+anims/default = SubResource( 6 )
 anims/die = SubResource( 3 )
+anims/spawn = SubResource( 4 )
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 

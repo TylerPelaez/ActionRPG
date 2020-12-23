@@ -378,7 +378,7 @@ material = SubResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -14 )
 hframes = 29
-frame = 21
+frame = 28
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -13.859 )
@@ -443,7 +443,7 @@ MAX_SPEED = 125.0
 wait_time = 10.0
 one_shot = true
 
-[node name="WallOrigin" type="Position2D" parent="." index="11"]
+[node name="WallOrigin" type="Position2D" parent="." index="10"]
 position = Vector2( -0.0356903, 3.89442 )
 [connection signal="timeout" from="BossStateMachine/SpinAttackSequence/SpinAttack/Timer" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Timer_timeout"]
 

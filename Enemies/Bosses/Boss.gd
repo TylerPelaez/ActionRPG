@@ -3,6 +3,8 @@ class_name Boss
 
 signal died()
 
+export (String) var boss_name = "Boss"
+
 const directionLookup = {
 	Vector2.RIGHT: "Right",
 	Vector2.UP: "Up",
@@ -13,23 +15,24 @@ const directionLookup = {
 onready var state_machine: StateMachine = $BossStateMachine 
 onready var stats = $Stats
 onready var hurtbox = $Hurtbox
-onready var lifebar = $BossLifebar
 
+var lifebar
 var room
 var start_global_position
 var target
 var last_direction = Vector2.DOWN
 
-func initialize(_target, _room):
+func initialize(_target, _room, _lifebar):
 	target = _target 
 	room = _room
+	lifebar = _lifebar
 	target.connect("died", self, "_on_target_died")
+	lifebar.initialize(stats, boss_name)
 
 func _ready():
 	visible = false
 	hurtbox.set_invincible(true)
 	start_global_position = global_position
-	lifebar.initialize(stats)
 	
 func reset():
 	target.disconnect("died", self, "_on_target_died")
@@ -37,8 +40,9 @@ func reset():
 
 	global_position = start_global_position
 	stats.health = stats.max_health
+	hurtbox.set_invincible(true)
+	lifebar.reset()
 	lifebar.disappear()
-	lifebar.initialize(stats)
 	state_machine.active = false
 	state_machine.reset()
 	

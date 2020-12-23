@@ -28,6 +28,7 @@ height = 1.8572
 
 [sub_resource type="Animation" id=4]
 resource_name = "AreaAttack"
+length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -35,10 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 44, 45 ]
+"values": [ 44, 45, 0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("BossStateMachine/AreaAttackSequence/AreaAttack")
@@ -186,7 +187,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-length = 3.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -194,7 +195,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 2.6 ),
+"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 24, 25, 25, 26, 27, 28 ]
@@ -206,11 +207,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8, 1.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.8, 1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ 0 ],
 "method": "fire"
+}, {
+"args": [  ],
+"method": "update_direction"
 }, {
 "args": [ 1 ],
 "method": "fire"
@@ -242,7 +246,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-length = 3.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -250,7 +254,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 2.6 ),
+"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 29, 30, 30, 31, 32, 33 ]
@@ -262,11 +266,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8, 1.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.8, 1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ 0 ],
 "method": "fire"
+}, {
+"args": [  ],
+"method": "update_direction"
 }, {
 "args": [ 1 ],
 "method": "fire"
@@ -298,7 +305,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-length = 3.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -306,7 +313,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 2.6 ),
+"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 34, 35, 35, 36, 37, 38 ]
@@ -318,11 +325,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8, 1.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.8, 1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ 0 ],
 "method": "fire"
+}, {
+"args": [  ],
+"method": "update_direction"
 }, {
 "args": [ 1 ],
 "method": "fire"
@@ -354,7 +364,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=16]
-length = 3.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -362,7 +372,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 2.6 ),
+"times": PoolRealArray( 0, 0.8, 1.1, 1.8, 2.2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 39, 40, 40, 41, 42, 43 ]
@@ -374,11 +384,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8, 1.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.8, 1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ 0 ],
 "method": "fire"
+}, {
+"args": [  ],
+"method": "update_direction"
 }, {
 "args": [ 1 ],
 "method": "fire"
@@ -477,6 +490,20 @@ tracks/3/keys = {
 "method": "_on_animation_finished"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_traps"
+} ]
+}
 
 [sub_resource type="Animation" id=19]
 length = 3.0
@@ -563,6 +590,7 @@ tracks/5/keys = {
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 10 )
+boss_name = "The Hunter"
 
 [node name="ShadowSprite" parent="." index="0"]
 position = Vector2( -0.5, 0.787 )
@@ -638,7 +666,7 @@ script = ExtResource( 5 )
 
 [node name="SimpleAttackMove" type="Node" parent="BossStateMachine/SimpleAttackSequence" index="0"]
 script = ExtResource( 7 )
-MAX_SPEED = 75.0
+MAX_SPEED = 100.0
 
 [node name="SimpleAttack" type="Node" parent="BossStateMachine/SimpleAttackSequence" index="1"]
 script = ExtResource( 9 )
@@ -647,6 +675,7 @@ script = ExtResource( 9 )
 
 [node name="AreaAttackMove" type="Node" parent="BossStateMachine/AreaAttackSequence" index="0"]
 script = ExtResource( 7 )
+MAX_SPEED = 100.0
 
 [node name="AreaAttack" type="Node" parent="BossStateMachine/AreaAttackSequence" index="1"]
 script = ExtResource( 13 )

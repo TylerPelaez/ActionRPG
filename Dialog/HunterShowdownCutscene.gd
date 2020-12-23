@@ -1,12 +1,17 @@
 extends Node2D
 
-export (String) var CUTSCENE_DIALOG_NAME = "HUNTER_CUSTCENE_0"
+export (String) var CUTSCENE_DIALOG_START = "HUNTER_CUTSCENE_1"
+export (String) var CUTSCENE_TABLET = "HUNTER_TABLET_0"
+
 signal cutscene_ended
 signal cutscene_ended_and_fade_over
 const UIScene = preload("res://UI/UI.tscn")
 onready var animator = $CutsceneAnimator
+onready var fake_player = $Player
+onready var fake_hunter = $Hunter
 
 var ui_ref
+
 
 func _ready():
 	if get_parent() == get_tree().root:
@@ -15,14 +20,19 @@ func _ready():
 		add_child(instance)
 		Events.connect("event_triggered", instance.get_node("DialogueBox"), "on_Events_event_triggered" )
 		
-		
-		
 		# The cutscene animator needs to know when dialog ended to play the ending of cutscene
 		initialize(instance)
-		
+		fake_player.true_pause = true
+		fake_player.animationTree.active = false
 		instance.fade_to_black(false)
 	
-	Events.add_event(CUTSCENE_DIALOG_NAME)
+	fake_player.true_pause = true
+	fake_player.animationTree.active = false
+	fake_hunter.visible = true
+	$Hunter/Sprite.frame = 44
+	$Hunter/AnimationPlayer.stop()
+	Events.add_event(CUTSCENE_DIALOG_START)
+	Events.add_event(CUTSCENE_TABLET)
 
 func initialize(ui):
 	# The cutscene animator needs to know when dialog ended to play the ending of cutscene
@@ -34,6 +44,7 @@ func initialize(ui):
 	
 
 func take_camera():
+	fake_player.visible = !fake_player.visible
 	$Camera2D.current = !$Camera2D.current
 
 func _on_black_fade_complete():
@@ -44,16 +55,22 @@ func _on_black_fade_complete():
 		emit_signal("cutscene_ended_and_fade_over")
 		queue_free()
 
-func _on_Stats_no_health():
-	animator.play("HunterWalk")
+func _on_CutsceneStart_finished():
+	Events.trigger(CUTSCENE_DIALOG_START)
+	
+func _on_WalkToTablet_finished():
+	Events.trigger(CUTSCENE_TABLET)
 
-func _on_HunterWalk_finished():
-	Events.trigger(CUTSCENE_DIALOG_NAME)
-	animator.play("Talking")
+# Player walks up, then first dialog occurs. 
+# Once dialog ends, player walks closer to the tablet, tablet dialog occurs.
+# Then Player talks to the hunter one last time, befor fight
 
 func _on_dialog_finished(dialogName):
-	if dialogName == CUTSCENE_DIALOG_NAME:
+	if dialogName == CUTSCENE_DIALOG_START:
+		animator.play("WalkToTablet")
+	elif dialogName == CUTSCENE_TABLET:
 		animator.play("CutsceneEnd")
-	
+
+# Tell game to continue + start boss fight
 func _on_CutsceneEnd_finished():
 	emit_signal("cutscene_ended")

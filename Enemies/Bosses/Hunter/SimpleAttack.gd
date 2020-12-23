@@ -12,9 +12,6 @@ var attack_direction
 
 func enter():
 	update_direction()
-
-func update(delta):
-	update_direction()
 	
 func update_direction():
 	attack_direction = (owner.target.global_position - owner.global_position).normalized()

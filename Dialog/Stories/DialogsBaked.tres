@@ -589,11 +589,83 @@ story = {
 "text": "<end>"
 }
 }
+},
+16: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>Hello There</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+17: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Tablet</speaker>
+<dialog>BEEP BOP</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+18: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You feel stronger...</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
 "DEBUG_DIALOG": 1,
+"FEEL_STRONGER": 18,
 "HUNTER_CUSTCENE_0": 8,
+"HUNTER_CUTSCENE_1": 16,
+"HUNTER_TABLET_0": 17,
 "LOCKED_DOOR_DIALOG": 5,
 "LOCKED_DOOR_HUNTER_PATH": 15,
 "OPEN_DOOR": 6,

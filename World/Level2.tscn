@@ -578,6 +578,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Rooms/Room8/SmallBat2" index="6"]
 material = SubResource( 2 )
+frame = 3
 
 [node name="SmallBat8" parent="Rooms/Room8" instance=ExtResource( 26 )]
 position = Vector2( 64, 112 )
@@ -611,6 +612,7 @@ shape = SubResource( 3 )
 
 [node name="AnimatedSprite" parent="Rooms/Room8/SmallBat17" index="6"]
 material = SubResource( 4 )
+frame = 3
 
 [node name="SmallBat19" parent="Rooms/Room8" instance=ExtResource( 26 )]
 position = Vector2( -152, -160 )
@@ -798,19 +800,22 @@ position = Vector2( 101, -6 )
 position = Vector2( -171, -14 )
 
 [node name="DelayedSpawn" parent="Rooms/Room10" instance=ExtResource( 9 )]
-position = Vector2( 69, -86 )
+position = Vector2( -35, 2 )
 enemyToSpawn = 3
 
 [node name="DelayedSpawn2" parent="Rooms/Room10" instance=ExtResource( 9 )]
-position = Vector2( 93, -110 )
+position = Vector2( -11, 18 )
 enemyToSpawn = 3
 
 [node name="DelayedSpawn3" parent="Rooms/Room10" instance=ExtResource( 9 )]
-position = Vector2( 109, -86 )
+position = Vector2( -59, 18 )
 enemyToSpawn = 3
 
 [node name="Door4" parent="Rooms/Room10" instance=ExtResource( 13 )]
 position = Vector2( 213, 122 )
+
+[node name="Acolyte" parent="Rooms/Room10" instance=ExtResource( 22 )]
+position = Vector2( 37, -118 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.490196, 0.490196, 0.490196, 1 )

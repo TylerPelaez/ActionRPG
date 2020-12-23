@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/GemshardPickup.tscn" type="PackedScene" id=1]
+
+[node name="PickupablePack" type="Node2D"]
+
+[node name="GemshardPickup" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16, 0 )
+
+[node name="GemshardPickup2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 0 )
+
+[node name="GemshardPickup3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 16 )
