@@ -4,6 +4,9 @@ class_name Bat
 onready var sprite = $AnimatedSprite
 onready var animationPlayer = $InvincibilityAnimationPlayer
 
+func _ready():
+	sprite.frame = randi() % sprite.frames.get_frame_count("default")
+
 func update_animation():
 	sprite.flip_h = velocity.x < 0
 

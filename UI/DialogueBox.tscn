@@ -1,25 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UI/DialogueBox.png" type="Texture" id=1]
 [ext_resource path="res://UI/Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/DialogueBox.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "ShowText"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
 [node name="DialogueBox" type="Control"]
+modulate = Color( 0.854902, 0.764706, 0.737255, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -310.0
@@ -78,6 +64,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/MarginContainer/BodyLabel"]
-anims/ShowText = SubResource( 1 )
-[connection signal="animation_finished" from="MarginContainer/MarginContainer/BodyLabel/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[node name="Tween" type="Tween" parent="MarginContainer/MarginContainer/BodyLabel"]
+[connection signal="tween_completed" from="MarginContainer/MarginContainer/BodyLabel/Tween" to="." method="_on_Tween_tween_completed"]

@@ -6,6 +6,7 @@ and makes sure every State object had all of these methods.
 extends Node
 class_name State
 
+# warning-ignore:unused_signal
 signal finished(next_state_name)
 
 func enter():

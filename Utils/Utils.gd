@@ -8,6 +8,7 @@ enum ENEMY {
 }
 
 
+
 const enemyLookup = {
 	ENEMY.BAT: preload("res://Enemies/Bat/Bat.tscn"),
 	ENEMY.ACOLYTE: preload("res://Enemies/Acolyte/Acolyte.tscn"),
@@ -28,6 +29,7 @@ var level = 1
 func _ready():
 	if should_randomize:
 		randomize()
+	
 
 func instance_scene_on_main(scene, position):
 	var main = get_tree().current_scene

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Utils/EventTrigger.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://World/Triggers.gd" type="Script" id=28]
 [ext_resource path="res://Dialog/CutsceneSpawner.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Dialog/HunterIntroCutscene.tscn" type="PackedScene" id=30]
+[ext_resource path="res://UI/Darken.tscn" type="PackedScene" id=31]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
@@ -578,7 +579,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Rooms/Room8/SmallBat2" index="6"]
 material = SubResource( 2 )
-frame = 3
+frame = 0
 
 [node name="SmallBat8" parent="Rooms/Room8" instance=ExtResource( 26 )]
 position = Vector2( 64, 112 )
@@ -612,7 +613,7 @@ shape = SubResource( 3 )
 
 [node name="AnimatedSprite" parent="Rooms/Room8/SmallBat17" index="6"]
 material = SubResource( 4 )
-frame = 3
+frame = 0
 
 [node name="SmallBat19" parent="Rooms/Room8" instance=ExtResource( 26 )]
 position = Vector2( -152, -160 )
@@ -817,9 +818,6 @@ position = Vector2( 213, 122 )
 [node name="Acolyte" parent="Rooms/Room10" instance=ExtResource( 22 )]
 position = Vector2( 37, -118 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.490196, 0.490196, 0.490196, 1 )
-
 [node name="Triggers" type="Node2D" parent="."]
 script = ExtResource( 28 )
 
@@ -856,39 +854,36 @@ pause_mode = 2
 
 [node name="Torch" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 16, -816 )
-frame = 3
 
 [node name="Torch2" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 336, -688 )
-frame = 3
 
 [node name="Torch4" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -112, -592 )
-frame = 2
+frame = 5
 
 [node name="Torch5" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -288, -752 )
-frame = 2
+frame = 5
 
 [node name="Torch9" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -160, -752 )
-frame = 1
+frame = 4
 
 [node name="Torch6" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -344, -560 )
-frame = 1
+frame = 4
 
 [node name="Torch7" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -424, -560 )
-frame = 1
+frame = 4
 
 [node name="Torch8" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( -392, -752 )
-frame = 1
+frame = 4
 
 [node name="Torch3" parent="Torches" instance=ExtResource( 7 )]
 position = Vector2( 96, -816 )
-frame = 3
 
 [node name="Cutscenes" type="Node2D" parent="."]
 
@@ -921,6 +916,9 @@ pause_mode = 2
 
 [node name="Stairs" parent="." instance=ExtResource( 18 )]
 position = Vector2( 80, -240 )
+
+[node name="CanvasModulate" parent="." instance=ExtResource( 31 )]
+color = Color( 0.411765, 0.227451, 0.0588235, 1 )
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="player_entered" from="Stairs" to="." method="_on_Stairs_player_entered"]
 

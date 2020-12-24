@@ -3,12 +3,15 @@ extends State
 export(float) var ACCELERATION := 300
 export(float) var MAX_SPEED := 200
 export (float) var TURN_SPEED := 1.0
+export (int) var MAX_HITS = 2
 
 const HitboxShape = preload("res://Enemies/Bosses/Son/SonSpinHitbox.tres")
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var collisionShape
+var active = false
+var hit_count = 0
 
 func enter():
 	owner.get_node("AnimationPlayer").play("SpinAttack")
@@ -22,8 +25,11 @@ func enter():
 	direction = (owner.target.global_position - owner.global_position).normalized()
 	velocity = Vector2.ZERO
 	$Timer.start()
+	active = true
+	hit_count = 0
 	
 func exit():
+	active = false
 	$Timer.stop()
 	velocity = Vector2.ZERO
 	collisionShape.shape = null
@@ -58,3 +64,17 @@ func handle_collision(collision: KinematicCollision2D):
 			collision.collider.delete_cell(res.metadata[0], res.metadata[1])
 	direction = new_direction
 	velocity = velocity.length() * direction
+
+func _on_Hitbox_area_entered(area):
+	assert(active)
+	hit_count += 1
+	if hit_count >= MAX_HITS:
+		emit_signal("finished")
+		
+
+
+func _on_Hitbox_body_entered(body):
+	assert(active)
+	hit_count += 1
+	if hit_count >= MAX_HITS:
+		emit_signal("finished")

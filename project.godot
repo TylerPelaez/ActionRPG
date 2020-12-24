@@ -185,6 +185,12 @@ PlayerStats="*res://Player/PlayerStats.tscn"
 Utils="*res://Utils/Utils.gd"
 Events="*res://Utils/Events.gd"
 
+[debug]
+
+gdscript/warnings/treat_warnings_as_errors=true
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+
 [display]
 
 window/size/width=320

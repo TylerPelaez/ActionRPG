@@ -6,6 +6,7 @@ var boss
 export (NodePath) var lifebarPath
 export (String) var ON_ENTER_TRIGGER = "BOSS_ROOM_ENTERED"
 export (String) var SPAWN_BOSS_TRIGGER = "SPAWN_BOSS"
+export (bool) var SPAWN_BOSS_IMMEDIATELY = false
 
 var cutscene_triggered = false
 
@@ -42,7 +43,7 @@ func _on_cutscene_triggered():
 func _on_RoomExtents_body_entered(body):
 	player = body
 	if !active:
-		if !room_defeated && cutscene_triggered:
+		if !room_defeated && (cutscene_triggered || SPAWN_BOSS_IMMEDIATELY):
 				spawn_boss()
 	._on_RoomExtents_body_entered(body)
 

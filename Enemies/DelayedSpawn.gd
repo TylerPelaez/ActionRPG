@@ -3,8 +3,9 @@ class_name DelayedSpawn
 
 const SpawnEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
-export (Utils.ENEMY) var enemyToSpawn
+export (preload("res://Utils/Utils.gd").ENEMY) var enemyToSpawn
 export (int) var wave =1
+
 
 func spawnEnemy():
 	var instance = Utils.enemyLookup[enemyToSpawn].instance()

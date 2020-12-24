@@ -15,10 +15,12 @@ var eventNameHeldDuringDialogTransition
 
 func _ready():
 	player.connect("died", self, "_on_player_death")
+# warning-ignore:return_value_discarded
 	Events.connect("event_triggered", self, "_on_Events_event_triggered")
 	for child in $Rooms.get_children():
 		if child is Room:
 			child.connect("room_entered", self, "_on_room_entered")
+			child.connect("room_exited", self, "_on_room_exited")
 			if child.starting_room && current_room != null:
 				print("ERROR: multiple rooms tagged as starting room, skipping second")
 				continue
@@ -62,6 +64,9 @@ func _on_room_entered(room: Room):
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)		
 	tween.start()
 
+func _on_room_exited(room: Room):
+	if current_room == room:
+		_on_room_entered(previous_room)
 
 func _on_player_death():
 	player.reset()

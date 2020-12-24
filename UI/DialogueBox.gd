@@ -3,6 +3,8 @@ extends Control
 signal on_play_dialog
 signal on_finish_dialog(dialogName)
 
+export (float) var per_character_length = .03
+
 const OPEN_DOOR_DIALOG_NAME = "OPEN_DOOR"
 const DEBUG_DIALOG = "DEBUG_DIALOG"
 const DEBUG_STORY = preload("res://Dialog/Stories/DialogsBaked.tres")
@@ -13,10 +15,11 @@ const SPEAKER_COLOR_LOOKUP = {
 	"Self": Color.darkgreen,
 	"Narrate": Color.white,
 	"Hunter": Color("#4d2b25"),
-	"Letter": Color.gold
+	"Letter": Color.gold,
+	"Tablet": Color.crimson
 }
 
-onready var bodyAnimationPlayer = $MarginContainer/MarginContainer/BodyLabel/AnimationPlayer
+onready var bodyTweener = $MarginContainer/MarginContainer/BodyLabel/Tween
 onready var bodyLabel = $MarginContainer/MarginContainer/BodyLabel
 
 var _did = 0
@@ -56,7 +59,7 @@ func _on_Dialog_Player_advanced():
 		if _is_playing():
 			_play_node()
 	else:
-		bodyAnimationPlayer.playback_speed = 3.0
+		bodyTweener.playback_speed = 3.0
 
 # Public Methods
 
@@ -86,7 +89,6 @@ func assert_lengths():
 	for did in story_reader.get_dids():
 		for nid in story_reader.get_nids(did):
 			var text = story_reader.get_text(did, nid)
-			var speaker = _get_tagged_text("speaker", text)
 			var dialog = _get_tagged_text("dialog", text)
 			# nice
 			var length = dialog.length()
@@ -123,8 +125,8 @@ func _play_node():
 	
 	bodyLabel.text = dialog
 	bodyLabel.set("custom_colors/font_color", textColor)
-	bodyAnimationPlayer.play("ShowText")
-
+	bodyTweener.interpolate_property(bodyLabel, "percent_visible", 0, 1, dialog.length() * per_character_length, Tween.TRANS_LINEAR)
+	bodyTweener.start()
 
 func on_Events_event_triggered(dialogName: String):
 	assert(!_is_playing())
@@ -137,7 +139,6 @@ func on_Events_event_triggered(dialogName: String):
 	elif dialogName.find(OPEN_DOOR_DIALOG_NAME) != -1:
 		play_dialog(OPEN_DOOR_DIALOG_NAME)
 
-# warning-ignore:unused_argument
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_Tween_tween_completed(object, key):
 	is_waiting = true
-	bodyAnimationPlayer.playback_speed = 1.0
+	bodyTweener.playback_speed = 1.0

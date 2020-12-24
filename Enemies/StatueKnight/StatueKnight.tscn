@@ -797,6 +797,7 @@ shape = SubResource( 2 )
 max_health = 3
 
 [node name="PlayerDetectionArea" parent="." index="3"]
+visible = false
 PLAYER_STICKINESS_MULTIPLIER = 5.0
 
 [node name="CollisionShape2D" parent="PlayerDetectionArea" index="0"]

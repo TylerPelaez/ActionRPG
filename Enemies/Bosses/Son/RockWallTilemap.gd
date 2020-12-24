@@ -8,15 +8,12 @@ export var damage = 1
 const RockWallTileBoundingBox = preload("res://Enemies/Bosses/Son/RockWallTileBoundingBox.tres")
 const TileMaterial = preload("res://Enemies/Bosses/Son/RockWallTilemapShaderMaterial.tres")
 const ORIGIN = Vector2(0,0)
-const TILE_COUNT = 10
+const TILE_COUNT = 20
 
 var expansions = 0
 
-var horizontal = false
-
 func _ready():
 	clear()
-	horizontal = randi() % 2 == 0
 	expand(0)
 #	for tile in tile_set.get_tiles_ids():
 #		tile_set.tile_set_material(tile, TileMaterial)
@@ -40,16 +37,14 @@ func _on_ClearTimer_timeout():
 	queue_free()
 
 func expand(index):
-	if horizontal:
 # warning-ignore:narrowing_conversion
-		set_cell(ORIGIN.x + index, ORIGIN.y, 0)
+	set_cell(ORIGIN.x + index, ORIGIN.y, 0)
 # warning-ignore:narrowing_conversion
-		set_cell(ORIGIN.x - index, ORIGIN.y, 0)
-	else:
+	set_cell(ORIGIN.x - index, ORIGIN.y, 0)
 # warning-ignore:narrowing_conversion
-		set_cell(ORIGIN.x, ORIGIN.y + index, 0)
+	set_cell(ORIGIN.x, ORIGIN.y + index, 0)
 # warning-ignore:narrowing_conversion
-		set_cell(ORIGIN.x, ORIGIN.y - index, 0)
+	set_cell(ORIGIN.x, ORIGIN.y - index, 0)
 	expansions += 1
 
 	update_bitmask_region()

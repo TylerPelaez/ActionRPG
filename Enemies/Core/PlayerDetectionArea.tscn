@@ -6,6 +6,7 @@
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
+PLAYER_STICKINESS_MULTIPLIER = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_PlayerDetectionArea_body_entered"]

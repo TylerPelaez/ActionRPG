@@ -591,6 +591,7 @@ collision_layer = 16
 collision_mask = 0
 script = ExtResource( 10 )
 boss_name = "The Hunter"
+death_event_name = "HUNTER_DEATH"
 
 [node name="ShadowSprite" parent="." index="0"]
 position = Vector2( -0.5, 0.787 )
@@ -666,7 +667,6 @@ script = ExtResource( 5 )
 
 [node name="SimpleAttackMove" type="Node" parent="BossStateMachine/SimpleAttackSequence" index="0"]
 script = ExtResource( 7 )
-MAX_SPEED = 100.0
 
 [node name="SimpleAttack" type="Node" parent="BossStateMachine/SimpleAttackSequence" index="1"]
 script = ExtResource( 9 )
@@ -675,7 +675,6 @@ script = ExtResource( 9 )
 
 [node name="AreaAttackMove" type="Node" parent="BossStateMachine/AreaAttackSequence" index="0"]
 script = ExtResource( 7 )
-MAX_SPEED = 100.0
 
 [node name="AreaAttack" type="Node" parent="BossStateMachine/AreaAttackSequence" index="1"]
 script = ExtResource( 13 )

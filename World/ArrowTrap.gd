@@ -20,6 +20,8 @@ export (DIRECTION) var facing_direction = DIRECTION.DOWN
 export (float) var arrowSpeed = 50.0
 export (bool) var spawnInWall = false
 
+export (bool) var dont_deactivate = false
+
 onready var fireIntervalTimer = $FireInterval
 
 var fireCount = 0
@@ -28,6 +30,10 @@ var active = false
 var direction = Vector2.DOWN
 
 func _ready():
+	if dont_deactivate:
+		active = true
+		fireIntervalTimer.start(initialFireInterval)
+	
 	match facing_direction:
 		DIRECTION.DOWN:
 			direction = Vector2.DOWN
@@ -51,11 +57,13 @@ func _ready():
 		Events.subscribe(shutoffEventName, funcref(self, "shutoff"))
 	
 func activate():
-	active = true
-	fireIntervalTimer.start(initialFireInterval)
+	if !dont_deactivate:
+		active = true
+		fireIntervalTimer.start(initialFireInterval)
 	
 func deactivate():
-	active = false
+	if !dont_deactivate:
+		active = false
 		
 func shutoff():
 	firing_enabled = false

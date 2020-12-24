@@ -215,7 +215,7 @@ func _on_Stats_no_health():
 		scene = GemPickup
 	
 	if scene != null:
-		Utils.instance_scene_on_main(scene, global_position)
+		Utils.call_deferred("instance_scene_on_main", scene, global_position)
 	
 	call_deferred("queue_free")
 	var enemyDeathEffect = EnemyDeathEffect.instance()

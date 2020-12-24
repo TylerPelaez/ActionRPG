@@ -4,6 +4,7 @@ class_name Boss
 signal died()
 
 export (String) var boss_name = "Boss"
+export (String) var death_event_name
 
 const directionLookup = {
 	Vector2.RIGHT: "Right",
@@ -30,6 +31,7 @@ func initialize(_target, _room, _lifebar):
 	lifebar.initialize(stats, boss_name)
 
 func _ready():
+	Events.add_event(death_event_name)
 	visible = false
 	hurtbox.set_invincible(true)
 	start_global_position = global_position
@@ -95,6 +97,7 @@ func _on_Stats_no_health():
 func _on_Die_finished():
 	state_machine.set_active(false)
 	emit_signal("died")
+	Events.trigger(death_event_name)
 	queue_free()
 
 func _on_target_died():

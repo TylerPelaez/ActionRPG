@@ -24,11 +24,11 @@ func reset():
 	.reset()
 
 
-
 func clear_traps():
 	for trap in traps_laid:
 		trap.queue_free()
-		traps_laid = []
+	
+	traps_laid.clear()
 	
 	for child in get_tree().current_scene.get_children():
 		if child is Arrow:

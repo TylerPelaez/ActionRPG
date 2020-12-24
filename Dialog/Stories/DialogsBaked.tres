@@ -596,16 +596,65 @@ story = {
 "links": {
 0: 2
 },
-"text": "<start>"
+"text": "<speaker>Self</speaker>
+<dialog>No magic buttons this time?</dialog>"
 },
 2: {
 "links": {
 0: 3
 },
 "text": "<speaker>Hunter</speaker>
-<dialog>Hello There</dialog>"
+<dialog>Well, I think there's one way past.</dialog>"
 },
 3: {
+"links": {
+0: 8
+},
+"text": "<speaker>Self</speaker>
+<dialog>Oh?</dialog>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<start>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>Shit.</dialog>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Self</speaker>
+<dialog>That happy to see me?</dialog>"
+},
+7: {
+"links": {
+0: 1
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>No it's... we're stuck.</dialog>"
+},
+8: {
+"links": {
+0: 9
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>Read it.</dialog>"
+},
+9: {
+"links": {
+0: 10
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>She gestures to the object in front of her.</dialog>"
+},
+10: {
 "links": {
 
 },
@@ -617,22 +666,78 @@ story = {
 "nodes": {
 1: {
 "links": {
-0: 2
+0: 4
 },
 "text": "<start>"
 },
 2: {
 "links": {
-0: 3
+0: 8
 },
 "text": "<speaker>Tablet</speaker>
-<dialog>BEEP BOP</dialog>"
+<dialog>ONE MUST DIE. ONE MUST LIVE.</dialog>"
 },
 3: {
 "links": {
 
 },
 "text": "<end>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>On the ground before you sits a crimson-red stone tablet.</dialog>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>It feels warm as you pick it up. You read the inscription:</dialog>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Tablet</speaker>
+<dialog>ONLY THE WORTHY MAY MEET THE FATHER.</dialog>"
+},
+7: {
+"links": {
+0: 2
+},
+"text": "<speaker>Tablet</speaker>
+<dialog>ONLY THE STRONG SURVIVE. THE WEAK PERISH.</dialog>"
+},
+8: {
+"links": {
+0: 9
+},
+"text": "<speaker>Tablet</speaker>
+<dialog>ONE MUST LIVE. ONE MUST DIE.</dialog>"
+},
+9: {
+"links": {
+0: 10
+},
+"text": "<speaker>Self</speaker>
+<dialog>You don't think this means...?</dialog>"
+},
+10: {
+"links": {
+0: 11
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>It seems pretty clear to me.</dialog>"
+},
+11: {
+"links": {
+0: 3
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>I'm sorry, it's nothing personal.</dialog>"
 }
 }
 },
@@ -658,6 +763,29 @@ story = {
 "text": "<end>"
 }
 }
+},
+19: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Hunter</speaker>
+<dialog>I'm sorry. Good luck.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
@@ -665,6 +793,7 @@ names = {
 "FEEL_STRONGER": 18,
 "HUNTER_CUSTCENE_0": 8,
 "HUNTER_CUTSCENE_1": 16,
+"HUNTER_DEATH": 19,
 "HUNTER_TABLET_0": 17,
 "LOCKED_DOOR_DIALOG": 5,
 "LOCKED_DOOR_HUNTER_PATH": 15,

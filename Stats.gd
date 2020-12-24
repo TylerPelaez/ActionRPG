@@ -6,7 +6,8 @@ var health = max_health setget set_health
 var shards = 0
 var death_count = 0
 var letters_found = 0
-var player_damage = 1
+# FIXME
+var player_damage = 2
 
 signal no_health
 signal health_changed(value)

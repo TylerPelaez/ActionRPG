@@ -10,6 +10,7 @@ names = {
 "FEEL_STRONGER": 18,
 "HUNTER_CUSTCENE_0": 8,
 "HUNTER_CUTSCENE_1": 16,
+"HUNTER_DEATH": 19,
 "HUNTER_TABLET_0": 17,
 "LOCKED_DOOR_DIALOG": 5,
 "LOCKED_DOOR_HUNTER_PATH": 15,
@@ -987,34 +988,111 @@ story = {
 }
 },
 16: {
-"available_nid": [ 4 ],
+"available_nid": [  ],
 "groups": [  ],
 "human_readable_description": "New Dialog - Enter Human Readable Description.",
 "name": "HUNTER_CUTSCENE_1",
 "nodes": {
 1: {
-"graph_offset": Vector2( 40, 120 ),
+"graph_offset": Vector2( -20, 1380 ),
 "links": {
 0: 2
+},
+"rect_size": Vector2( 606.833, 159.167 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>No magic buttons this time?</dialog>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( -20, 1560 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 611, 171.667 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>Well, I think there's one way past.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( -20, 1740 ),
+"links": {
+0: 8
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>Oh?</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( -20, 680 ),
+"links": {
+0: 5
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<start>",
 "type": "line"
 },
-2: {
-"graph_offset": Vector2( 40, 280 ),
+5: {
+"graph_offset": Vector2( -20, 860 ),
 "links": {
-0: 3
+0: 6
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Hunter</speaker>
-<dialog>Hello There</dialog>",
+<dialog>Shit.</dialog>",
 "type": "line"
 },
-3: {
-"graph_offset": Vector2( 40, 440 ),
+6: {
+"graph_offset": Vector2( -20, 1040 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>That happy to see me?</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( -20, 1200 ),
+"links": {
+0: 1
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>No it's... we're stuck.</dialog>",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( -20, 1920 ),
+"links": {
+0: 9
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>Read it.</dialog>",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( -20, 2100 ),
+"links": {
+0: 10
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>She gestures to the object in front of her.</dialog>",
+"type": "line"
+},
+10: {
+"graph_offset": Vector2( -20, 2300 ),
 "links": {
 
 },
@@ -1032,9 +1110,9 @@ story = {
 "name": "HUNTER_TABLET_0",
 "nodes": {
 1: {
-"graph_offset": Vector2( 0, 0 ),
+"graph_offset": Vector2( 40, -200 ),
 "links": {
-0: 2
+0: 4
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
@@ -1042,24 +1120,112 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 0, 160 ),
+"graph_offset": Vector2( -20, 700 ),
 "links": {
-0: 3
+0: 8
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Tablet</speaker>
-<dialog>BEEP BOP</dialog>",
+<dialog>ONE MUST DIE. ONE MUST LIVE.</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( -20, 320 ),
+"graph_offset": Vector2( -20, 1580 ),
 "links": {
 
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( -80, -20 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 789, 150 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>On the ground before you sits a crimson-red stone tablet.</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( -80, 160 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 815.167, 190 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>It feels warm as you pick it up. You read the inscription:</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( -20, 360 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 664.333, 155.833 ),
+"slot_amount": 1,
+"text": "<speaker>Tablet</speaker>
+<dialog>ONLY THE WORTHY MAY MEET THE FATHER.</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( -20, 540 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 641.833, 150 ),
+"slot_amount": 1,
+"text": "<speaker>Tablet</speaker>
+<dialog>ONLY THE STRONG SURVIVE. THE WEAK PERISH.</dialog>",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( -20, 880 ),
+"links": {
+0: 9
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Tablet</speaker>
+<dialog>ONE MUST LIVE. ONE MUST DIE.</dialog>",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( -20, 1060 ),
+"links": {
+0: 10
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>You don't think this means...?</dialog>",
+"type": "line"
+},
+10: {
+"graph_offset": Vector2( -20, 1240 ),
+"links": {
+0: 11
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>It seems pretty clear to me.</dialog>",
+"type": "line"
+},
+11: {
+"graph_offset": Vector2( -20, 1400 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>I'm sorry, it's nothing personal.</dialog>",
 "type": "line"
 }
 }
@@ -1093,6 +1259,45 @@ story = {
 },
 3: {
 "graph_offset": Vector2( -20, 480 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+19: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "HUNTER_DEATH",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 40, 240 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Hunter</speaker>
+<dialog>I'm sorry. Good luck.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 40, 440 ),
 "links": {
 
 },

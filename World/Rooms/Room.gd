@@ -3,6 +3,7 @@ class_name Room
 
 # warning-ignore:unused_signal
 signal room_entered(room)
+signal room_exited(room)
 
 export var starting_room = false
 export (PackedScene) var item_drop
@@ -18,7 +19,6 @@ var max_wave = 0
 var wave_spawners = {}
 var initial_enemies = []
 var traps = []
-
 
 func _ready():
 	enemy_count = 0
@@ -52,8 +52,6 @@ func _ready():
 	roomExtents.initialize(staticBodies)
 	if enemy_count == 0:
 		room_defeated = true
-		
-		
 
 func get_nav_path(from, to):
 	var path = roomExtents.nav.get_simple_path(from, to)
@@ -114,6 +112,10 @@ func _on_enemy_death():
 func reset():
 	open_doors()
 	if !room_defeated:
+		for child in get_tree().current_scene.get_children():
+			if child is Arrow:
+				child.delete()
+		
 		for child in get_children():
 			if child is Enemy:
 				child.queue_free()
@@ -130,6 +132,7 @@ func reset():
 			instance.set_deferred("global_position", enemy[1])
 
 func _on_RoomExtents_body_exited(body):
+	emit_signal("room_exited", self)
 	if active:
 		if !roomExtents.is_point_in_room(body.global_position):
 			body.global_position = roomExtents.closest_point_in_room(body.global_position)
