@@ -2,6 +2,8 @@ extends Control
 
 signal on_play_dialog
 signal on_finish_dialog(dialogName)
+signal choide_made
+
 
 export (float) var per_character_length = .03
 
@@ -9,6 +11,8 @@ const OPEN_DOOR_DIALOG_NAME = "OPEN_DOOR"
 const DEBUG_DIALOG = "DEBUG_DIALOG"
 const DEBUG_STORY = preload("res://Dialog/Stories/DialogsBaked.tres")
 const StoryReaderClass = preload("res://addons/EXP-System-Dialog/Reference_StoryReader/EXP_StoryReader.gd")
+const CHOICE_DIALOG = "THE_BLADE"
+
 
 const SPEAKER_COLOR_LOOKUP = {
 	"Tutorial": Color.gray,
@@ -23,6 +27,7 @@ const SPEAKER_COLOR_LOOKUP = {
 
 onready var bodyTweener = $MarginContainer/MarginContainer/BodyLabel/Tween
 onready var bodyLabel = $MarginContainer/MarginContainer/BodyLabel
+onready var choices = [$Choice1, $Choice2, $Choice3]
 
 var _did = 0
 var _nid = 0
@@ -30,7 +35,10 @@ var _final_nid = 0
 var story_reader
 var current_name
 var is_waiting = false
+var choices_displayed = false
+var final_choice
 
+var current_focus
 var debug = false
 
 func _ready():
@@ -39,10 +47,13 @@ func _ready():
 	
 	assert_lengths()
 	
+	for choice in choices:
+		choice.connect("focus_entered", self, "_on_focus_changed", [choice])
+
 	if debug:
 		visible = false
 		play_dialog(DEBUG_DIALOG)
-
+		show_choices()
 
 func set_story(story: Resource):
 	story_reader.read(story)
@@ -50,9 +61,16 @@ func set_story(story: Resource):
 # TODO: input
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed == true and Input.is_action_just_pressed("attack") && visible:
+		if choices_displayed && event.pressed == true and _is_waiting() and Input.is_action_just_pressed("attack"):
+			final_choice = current_focus
+			hide_choices()
 			_on_Dialog_Player_advanced()
 			Input.action_release("attack")
+		elif event.pressed == true and Input.is_action_just_pressed("attack") && visible:
+			_on_Dialog_Player_advanced()
+			Input.action_release("attack")
+		
+
 
 func _on_Dialog_Player_advanced():
 	if _is_waiting():
@@ -94,12 +112,20 @@ func assert_lengths():
 			var dialog = _get_tagged_text("dialog", text)
 			# nice
 			var length = dialog.length()
-			assert (length < 75)
 
 func _get_next_node():
-	_nid = story_reader.get_nid_from_slot(_did, _nid, 0)
+	var slot = 0
+	if _nid == 4:
+		if final_choice == $Choice1:
+			slot = 2
+		elif final_choice == $Choice2:
+			slot = 1
+		
+	_nid = story_reader.get_nid_from_slot(_did, _nid, slot)
 	
-	if _nid == _final_nid:
+	if current_name == CHOICE_DIALOG && _nid == 4:
+		show_choices()
+	elif _nid == _final_nid:
 		visible = false
 		get_tree().paused = false
 		emit_signal("on_finish_dialog", current_name)
@@ -144,3 +170,28 @@ func on_Events_event_triggered(dialogName: String):
 func _on_Tween_tween_completed(object, key):
 	is_waiting = true
 	bodyTweener.playback_speed = 1.0
+
+func _on_focus_changed(node):
+	for choice in choices:
+		if choice == node:
+			choice.modulate.a = 1
+			current_focus = choice
+		else:
+			choice.modulate.a = .5
+
+func show_choices():
+	for choice in choices:
+		choice.visible = true
+		choice.focus_mode = FOCUS_ALL
+	
+	choices_displayed = true
+	current_focus = $Choice2
+	$Choice2.grab_focus()
+
+func hide_choices():
+	for choice in choices:
+		choice.visible = false
+		choice.focus_mode = FOCUS_NONE
+	
+	choices_displayed = false
+	current_focus = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://World/Rooms/SideDoor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Rooms/Door.tscn" type="PackedScene" id=2]
@@ -22,7 +22,7 @@
 [ext_resource path="res://Player/PlayerHealthPickup.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player/GemshardPickup.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Enemies/DelayedSpawn.tscn" type="PackedScene" id=22]
-[ext_resource path="res://World/Level.gd" type="Script" id=23]
+[ext_resource path="res://World/Level4.gd" type="Script" id=23]
 [ext_resource path="res://Enemies/Bat/SmallBat.tscn" type="PackedScene" id=24]
 [ext_resource path="res://World/Table.tscn" type="PackedScene" id=25]
 [ext_resource path="res://World/Bookshelf.tscn" type="PackedScene" id=26]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Dialog/CutsceneSpawner.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Dialog/FatherConfrontationCutscene.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Enemies/Bosses/Son/SpawnSon.shader" type="Shader" id=33]
+[ext_resource path="res://Utils/SwordTrigger.tscn" type="PackedScene" id=34]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
@@ -504,7 +505,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="Rooms/Room7/SmallBat42" index="6"]
 material = SubResource( 2 )
-frame = 4
 
 [node name="InvincibilityAnimationPlayer" parent="Rooms/Room7/SmallBat42" index="8"]
 anims/Start = SubResource( 3 )
@@ -988,6 +988,7 @@ item_drop = ExtResource( 29 )
 lifebarPath = NodePath("../../CanvasLayer/BossLifebar")
 
 [node name="CollisionPolygon2D" parent="Rooms/BossRoom/RoomExtents" index="0"]
+visible = false
 polygon = PoolVector2Array( -184, -104, 168, -104, 168, 200, 40, 200, 40, 216, -56, 216, -56, 200, -184, 200 )
 
 [node name="Door" parent="Rooms/BossRoom" instance=ExtResource( 2 )]
@@ -1016,17 +1017,21 @@ position = Vector2( 24, 232 )
 [node name="Door4" parent="Rooms/BossRoom" instance=ExtResource( 2 )]
 pause_mode = 2
 position = Vector2( -40, -104 )
+locked_on_init = true
 
 [node name="Door5" parent="Rooms/BossRoom" instance=ExtResource( 2 )]
 pause_mode = 2
 position = Vector2( -8, -104 )
+locked_on_init = true
 
 [node name="Door6" parent="Rooms/BossRoom" instance=ExtResource( 2 )]
 pause_mode = 2
 position = Vector2( 24, -104 )
+locked_on_init = true
 
 [node name="Son" parent="Rooms/BossRoom" instance=ExtResource( 28 )]
-position = Vector2( -8, 104 )
+position = Vector2( -8, 80 )
+death_event_name = "FATHER_DEATH"
 
 [node name="RoomCenter" type="Position2D" parent="Rooms/BossRoom"]
 position = Vector2( -8, 24 )
@@ -1039,12 +1044,15 @@ polygon = PoolVector2Array( -48, -104, 48, -104, 48, 104, -48, 104 )
 
 [node name="Door" parent="Rooms/Room12" instance=ExtResource( 2 )]
 position = Vector2( 0, 120 )
+locked_on_init = true
 
 [node name="Door2" parent="Rooms/Room12" instance=ExtResource( 2 )]
 position = Vector2( 32, 120 )
+locked_on_init = true
 
 [node name="Door3" parent="Rooms/Room12" instance=ExtResource( 2 )]
 position = Vector2( -32, 120 )
+locked_on_init = true
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 3 )]
 color = Color( 0.313726, 0.168627, 0, 1 )
@@ -1092,6 +1100,9 @@ eventName = "BOSS_ROOM_ENTERED"
 
 [node name="CollisionPolygon2D" parent="Triggers/EventTrigger5" index="0"]
 polygon = PoolVector2Array( -176, -24, 176, -24, 176, 8, -176, 8 )
+
+[node name="SwordTrigger" parent="Triggers" instance=ExtResource( 34 )]
+position = Vector2( 80, -552 )
 
 [node name="Torches" type="Node2D" parent="."]
 pause_mode = 2

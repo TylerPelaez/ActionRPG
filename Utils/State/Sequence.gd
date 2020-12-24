@@ -22,6 +22,8 @@ func enter():
 	state_active.enter()
 
 func exit():
+	if state_active != null:
+		state_active.exit()
 	state_active = null
 
 func update(delta):

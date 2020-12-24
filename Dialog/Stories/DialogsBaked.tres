@@ -966,6 +966,87 @@ story = {
 "text": "<end>"
 }
 }
+},
+26: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You feel a rush of energy as you approach the weapon.</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>It glows red with dark magic, the power to steal life itself.</dialog>"
+},
+4: {
+"links": {
+0: 5,
+1: 8,
+2: 9
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>What will you do?</dialog>"
+},
+5: {
+"links": {
+0: 11
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You take the sword in hand.</dialog>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>And you know that you will live for 1000 years, and slay 1000 lives.</dialog>"
+},
+7: {
+"links": {
+
+},
+"text": "<end>"
+},
+8: {
+"links": {
+0: 7
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You leave the sword on the ground. Let it rot along with its owner.</dialog>"
+},
+9: {
+"links": {
+0: 10
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>Careful to not touch it, you wrap the sword in some discarded cloth.</dialog>"
+},
+10: {
+"links": {
+0: 7
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You'll take it to a friend, a blacksmith and a good man.</dialog>"
+},
+11: {
+"links": {
+0: 6
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>Blood rushes to your head, you hear the sound of distant laughter.</dialog>"
+}
+}
 }
 }
 names = {
@@ -991,6 +1072,7 @@ names = {
 "PRELUDE_4": 13,
 "PRELUDE_5": 14,
 "STORY_0_DREAD": 7,
+"THE_BLADE": 26,
 "TUTORIAL_CONTROLS_0": 3,
 "TUTORIAL_CONTROLS_1": 2,
 "TUTORIAL_CONTROLS_2": 4

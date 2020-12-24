@@ -64,7 +64,7 @@ polygon = PoolVector2Array( -174, -108, 178, -108, 178, 164, 18, 164, 18, 204, -
 [node name="Torch10" parent="Rooms/BossRoom" instance=ExtResource( 17 )]
 position = Vector2( -22, 12 )
 z_index = 0
-frame = 2
+frame = 3
 special = true
 
 [node name="Door2" parent="Rooms/BossRoom" instance=ExtResource( 2 )]
@@ -136,35 +136,35 @@ pause_mode = 2
 
 [node name="Torch" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 48, -624 )
-frame = 4
+frame = 5
 
 [node name="Torch5" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( -24, -624 )
-frame = 4
+frame = 5
 
 [node name="Torch6" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( -80, -624 )
-frame = 4
+frame = 5
 
 [node name="Torch2" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 112, -624 )
-frame = 4
+frame = 5
 
 [node name="Torch3" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 184, -624 )
-frame = 4
+frame = 5
 
 [node name="Torch7" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 112, -304 )
-frame = 2
+frame = 3
 
 [node name="Torch8" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 48, -304 )
-frame = 1
+frame = 2
 
 [node name="Torch4" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 240, -624 )
-frame = 4
+frame = 5
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 22 )]
 

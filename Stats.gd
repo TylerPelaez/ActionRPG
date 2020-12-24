@@ -7,7 +7,7 @@ var shards = 0
 var death_count = 0
 var letters_found = 0
 # FIXME
-var player_damage = 2
+var player_damage = 16
 
 signal no_health
 signal health_changed(value)

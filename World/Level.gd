@@ -55,6 +55,7 @@ func move_camera():
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)		
 		tween.start()
 
+
 func _on_room_exited(room: Room):
 	var most_current_room = get_most_current_room()
 		

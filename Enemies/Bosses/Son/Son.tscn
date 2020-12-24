@@ -137,6 +137,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 4, 5, 6, 7 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "RunLeft"
@@ -153,6 +165,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -171,6 +195,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 12, 13, 14, 15 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "RunUp"
@@ -187,6 +223,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 16, 17, 18, 19 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -223,7 +271,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=14]
 resource_name = "SummonEnemies"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -252,6 +300,18 @@ tracks/1/keys = {
 "args": [ false ],
 "method": "spawn_enemy"
 } ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -399,6 +459,54 @@ tracks/5/keys = {
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox/CollisionShape2D:shape")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CollisionShape2D:shape")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Son" instance=ExtResource( 1 )]
 collision_layer = 0
@@ -416,10 +524,9 @@ offset = Vector2( 0, -14 )
 hframes = 29
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, -13.859 )
-
-[node name="Hurtbox" parent="." index="3"]
 visible = false
+position = Vector2( 0, -13.859 )
+disabled = true
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -13.1826 )
@@ -458,6 +565,9 @@ script = ExtResource( 7 )
 
 [node name="Idle" parent="BossStateMachine" index="1" instance=ExtResource( 8 )]
 
+[node name="Timer" parent="BossStateMachine/Idle" index="0"]
+wait_time = 2.5
+
 [node name="RockWallSequence" parent="BossStateMachine" index="2" instance=ExtResource( 9 )]
 
 [node name="Move" type="Node" parent="BossStateMachine/RockWallSequence" index="0"]
@@ -476,11 +586,11 @@ script = ExtResource( 12 )
 
 [node name="SpinAttack" type="Node" parent="BossStateMachine/SpinAttackSequence" index="2"]
 script = ExtResource( 13 )
-MAX_SPEED = 90.0
-TURN_SPEED = 1.5
+MAX_SPEED = 80.0
+TURN_SPEED = 1.4
 
 [node name="Timer" type="Timer" parent="BossStateMachine/SpinAttackSequence/SpinAttack" index="0"]
-wait_time = 9.0
+wait_time = 7.0
 one_shot = true
 
 [node name="SummonEnemies" type="Node" parent="BossStateMachine" index="4"]
@@ -503,10 +613,10 @@ texture_scale = 0.3
 color = Color( 1, 0, 0, 1 )
 energy = 0.7
 range_item_cull_mask = 2
-[connection signal="area_entered" from="Hitbox" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Hitbox_area_entered"]
-[connection signal="body_entered" from="Hitbox" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Hitbox_body_entered"]
 [connection signal="timeout" from="BossStateMachine/SpinAttackSequence/SpinAttack/Timer" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Timer_timeout"]
 
 [editable path="Hurtbox"]
 
 [editable path="Hitbox"]
+
+[editable path="BossStateMachine/Idle"]

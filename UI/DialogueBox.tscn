@@ -57,12 +57,180 @@ size_flags_horizontal = 7
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TEST"
 autowrap = true
-percent_visible = 0.0
 max_lines_visible = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Tween" type="Tween" parent="MarginContainer/MarginContainer/BodyLabel"]
+
+[node name="Choice1" type="MarginContainer" parent="."]
+visible = false
+margin_left = -120.0
+margin_top = -60.0
+margin_right = -60.0
+margin_bottom = -40.0
+focus_neighbour_left = NodePath("../Choice3")
+focus_neighbour_right = NodePath("../Choice2")
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Choice1"]
+margin_right = 60.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Choice1"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="BodyLabel" type="Label" parent="Choice1/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 55.0
+margin_bottom = 20.0
+size_flags_horizontal = 7
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.996078, 1, 0, 1 )
+text = "DESTROY"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Choice1/MarginContainer/BodyLabel"]
+
+[node name="Choice2" type="MarginContainer" parent="."]
+visible = false
+margin_left = -30.0241
+margin_top = -60.0
+margin_right = 29.9759
+margin_bottom = -35.0
+focus_neighbour_left = NodePath("../Choice1")
+focus_neighbour_right = NodePath("../Choice3")
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Choice2"]
+margin_right = 60.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Choice2"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="BodyLabel" type="Label" parent="Choice2/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 55.0
+margin_bottom = 20.0
+size_flags_horizontal = 7
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "LEAVE"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Choice2/MarginContainer/BodyLabel"]
+
+[node name="Choice3" type="MarginContainer" parent="."]
+visible = false
+margin_left = 60.0
+margin_top = -60.0
+margin_right = 120.0
+margin_bottom = -35.0
+focus_neighbour_left = NodePath("../Choice2")
+focus_neighbour_right = NodePath("../Choice1")
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Choice3"]
+margin_right = 60.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Choice3"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="BodyLabel" type="Label" parent="Choice3/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 55.0
+margin_bottom = 20.0
+size_flags_horizontal = 7
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.741176, 0.00392157, 0.00392157, 1 )
+text = "KEEP"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Choice3/MarginContainer/BodyLabel"]
 [connection signal="tween_completed" from="MarginContainer/MarginContainer/BodyLabel/Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="Choice1/MarginContainer/BodyLabel/Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="Choice2/MarginContainer/BodyLabel/Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="Choice3/MarginContainer/BodyLabel/Tween" to="." method="_on_Tween_tween_completed"]

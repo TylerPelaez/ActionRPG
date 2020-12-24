@@ -4,7 +4,7 @@ class_name SimpleAttackMove
 func calculate_new_target_position():
 	var roomExtents = owner.room.roomExtents
 	var point = Vector2.ZERO
-	var cnt = 0
+
 	while (true):
 		point = roomExtents.getRandomPointInRoom()
 		

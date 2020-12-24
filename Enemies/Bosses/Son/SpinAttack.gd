@@ -7,6 +7,7 @@ export (int) var MAX_HITS = 2
 
 const HitboxShape = preload("res://Enemies/Bosses/Son/SonSpinHitbox.tres")
 
+var hitbox
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var collisionShape
@@ -15,11 +16,16 @@ var hit_count = 0
 
 func enter():
 	owner.get_node("AnimationPlayer").play("SpinAttack")
+	hitbox = owner.get_node("Hitbox")
 	collisionShape = owner.get_node("Hitbox/CollisionShape2D")
-	collisionShape.shape = HitboxShape
-	collisionShape.disabled = false
+	collisionShape.set_deferred("shape",  load("res://Enemies/Bosses/Son/SonSpinHitbox.tres"))
+	collisionShape.set_deferred("disabled", false)
+	hitbox.set_deferred("monitoring", true)
+	hitbox.set_deferred("monitorable", true)
+
+	hitbox.connect("area_entered", self, "_on_Hitbox_area_entered")
 	
-	owner.get_node("CollisionShape2D").shape = HitboxShape
+	owner.get_node("CollisionShape2D").shape = load("res://Enemies/Bosses/Son/SonSpinHitbox.tres")
 	owner.get_node("CollisionShape2D").disabled = false
 	
 	direction = (owner.target.global_position - owner.global_position).normalized()
@@ -29,13 +35,17 @@ func enter():
 	hit_count = 0
 	
 func exit():
-	active = false
-	$Timer.stop()
-	velocity = Vector2.ZERO
-	collisionShape.shape = null
-	collisionShape.disabled = true
-	owner.get_node("CollisionShape2D").shape = null
-	owner.get_node("CollisionShape2D").disabled = true
+	if active:
+		active = false
+		$Timer.stop()
+		velocity = Vector2.ZERO
+		hitbox.set_deferred("monitoring", false)
+		hitbox.set_deferred("monitorable", false)
+		collisionShape.set_deferred("shape", null)
+		collisionShape.set_deferred("disabled", true)
+		owner.get_node("CollisionShape2D").shape = null
+		owner.get_node("CollisionShape2D").disabled = true
+		hitbox.disconnect("area_entered", self, "_on_Hitbox_area_entered")
 
 func update(delta):
 	direction = direction.move_toward((owner.target.global_position - owner.global_position).normalized(), TURN_SPEED * delta).normalized()
@@ -69,12 +79,12 @@ func _on_Hitbox_area_entered(area):
 	assert(active)
 	hit_count += 1
 	if hit_count >= MAX_HITS:
+		$Timer.stop()
 		emit_signal("finished")
-		
-
 
 func _on_Hitbox_body_entered(body):
 	assert(active)
 	hit_count += 1
 	if hit_count >= MAX_HITS:
+		$Timer.stop()
 		emit_signal("finished")

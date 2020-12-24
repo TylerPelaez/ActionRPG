@@ -176,7 +176,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="SecretSanta"
+config/name="The Blade"
 run/main_scene="res://World/Level4.tscn"
 
 [autoload]
@@ -187,7 +187,6 @@ Events="*res://Utils/Events.gd"
 
 [debug]
 
-gdscript/warnings/treat_warnings_as_errors=true
 gdscript/warnings/unused_argument=false
 gdscript/warnings/unused_signal=false
 

@@ -45,6 +45,7 @@ func reset():
 	hurtbox.set_invincible(true)
 	lifebar.reset()
 	lifebar.disappear()
+	state_machine.idle()
 	state_machine.active = false
 	state_machine.reset()
 	

@@ -28,6 +28,7 @@ names = {
 "PRELUDE_4": 13,
 "PRELUDE_5": 14,
 "STORY_0_DREAD": 7,
+"THE_BLADE": 26,
 "TUTORIAL_CONTROLS_0": 3,
 "TUTORIAL_CONTROLS_1": 2,
 "TUTORIAL_CONTROLS_2": 4
@@ -1532,13 +1533,13 @@ story = {
 }
 },
 25: {
-"available_nid": [  ],
+"available_nid": [ 8 ],
 "groups": [  ],
 "human_readable_description": "New Dialog - Enter Human Readable Description.",
 "name": "FATHER_DEATH",
 "nodes": {
 1: {
-"graph_offset": Vector2( -80, 120 ),
+"graph_offset": Vector2( -60, -200 ),
 "links": {
 0: 2
 },
@@ -1548,7 +1549,7 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 440, 120 ),
+"graph_offset": Vector2( 400, -200 ),
 "links": {
 0: 3
 },
@@ -1559,7 +1560,7 @@ story = {
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 0, 320 ),
+"graph_offset": Vector2( -60, 60 ),
 "links": {
 0: 4
 },
@@ -1570,7 +1571,7 @@ story = {
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 480, 300 ),
+"graph_offset": Vector2( 400, 60 ),
 "links": {
 0: 5
 },
@@ -1581,7 +1582,7 @@ story = {
 "type": "line"
 },
 5: {
-"graph_offset": Vector2( -60, 500 ),
+"graph_offset": Vector2( -60, 300 ),
 "links": {
 0: 6
 },
@@ -1592,7 +1593,7 @@ story = {
 "type": "line"
 },
 6: {
-"graph_offset": Vector2( 480, 480 ),
+"graph_offset": Vector2( 400, 300 ),
 "links": {
 0: 7
 },
@@ -1613,7 +1614,136 @@ story = {
 "type": "line"
 }
 }
+},
+26: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "THE_BLADE",
+"nodes": {
+1: {
+"graph_offset": Vector2( -180, -200 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 280, -200 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>You feel a rush of energy as you approach the weapon.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( -620, -20 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 925, 334 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>It glows red with dark magic, the power to steal life itself.</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 420, 20 ),
+"links": {
+0: 5,
+1: 8,
+2: 9
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 3,
+"text": "<speaker>Narrate</speaker>
+<dialog>What will you do?</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( -80, 360 ),
+"links": {
+0: 11
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>You take the sword in hand.</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( -80, 720 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>And you know that you will live for 1000 years, and slay 1000 lives.</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 380, 880 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( 460, 360 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>You leave the sword on the ground. Let it rot along with its owner.</dialog>",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( 980, 360 ),
+"links": {
+0: 10
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>Careful to not touch it, you wrap the sword in some discarded cloth.</dialog>",
+"type": "line"
+},
+10: {
+"graph_offset": Vector2( 940, 560 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>You'll take it to a friend, a blacksmith and a good man.</dialog>",
+"type": "line"
+},
+11: {
+"graph_offset": Vector2( -80, 540 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>Blood rushes to your head, you hear the sound of distant laughter.</dialog>",
+"type": "line"
 }
 }
-available_dids = [  ]
+}
+}
+available_dids = [ 27 ]
 groups = [ "Tutorial" ]

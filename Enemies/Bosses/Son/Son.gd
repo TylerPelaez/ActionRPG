@@ -1,7 +1,7 @@
 extends Boss
 
-export (float) var SPAWN_X_OFFSET = 32
-export (float) var SPAWN_Y_OFFSET = 32
+export (float) var SPAWN_X_OFFSET = 64
+export (float) var SPAWN_Y_OFFSET = 64
 export (int) var MAX_SUMMONED_ENEMIES = 4
 
 const SpawnEffect = preload("res://Effects/EnemyDeathEffect.tscn")
@@ -61,12 +61,12 @@ func _on_enemy_death(enemy):
 	summoned_enemies.erase(enemy)
 
 func reset():
+	$Hitbox/CollisionShape2D.shape = null
 	clear_enemies()
 	.reset()
 
 func clear_enemies():
 	for enemy in summoned_enemies:
-		
 		if enemy is Acolyte && enemy.spawning_projectile != null:
 				enemy.spawning_projectile.queue_free()
 	
@@ -80,5 +80,8 @@ func clear_enemies():
 func _on_Die_finished():
 	clear_enemies()
 	._on_Die_finished()
-	Events.add_event("FATHER_DEATH")
-	Events.trigger("FATHER_DEATH")
+
+
+func set_invincible(value):
+	hurtbox.set_invincible(value)
+	$CollisionShape2D.set_deferred("disabled", value)
