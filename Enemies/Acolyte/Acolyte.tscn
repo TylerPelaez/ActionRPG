@@ -465,6 +465,7 @@ MAX_SPEED = 60
 PUSH_STRENGTH = 200
 KNOCKBACK_AMOUNT = 60
 PLAYER_DETECTION_RADIUS = 200.0
+max_player_closeness = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

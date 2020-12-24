@@ -1,0 +1,263 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Dialog/FatherConfrontationCutscene.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Bosses/Son/Son.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Bosses/Son/SpawnSon.shader" type="Shader" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 69 ), Vector2( 0, 35 ) ]
+}
+tracks/2/type = "animation"
+tracks/2/path = NodePath("Player/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": PoolStringArray( "RunUp", "[stop]" ),
+"times": PoolRealArray( 0, 1.6 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Player:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_CutsceneStart_finished"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Player/Sprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 27 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "AttackLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "AttackDown"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "AttackRight"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "AttackUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=8]
+blend_point_0/node = SubResource( 4 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 5 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 6 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 7 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "IdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "IdleUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=13]
+blend_point_0/node = SubResource( 9 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 10 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 11 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 12 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "RollLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "RollUp"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "RollRight"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "RollDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=18]
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 15 )
+blend_point_1/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 16 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 17 )
+blend_point_3/pos = Vector2( 0, 1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "RunLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "RunDown"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "RunRight"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "RunUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=23]
+blend_point_0/node = SubResource( 19 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 20 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 21 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 22 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachine" id=30]
+resource_local_to_scene = true
+states/Attack/node = SubResource( 8 )
+states/Attack/position = Vector2( 216, 223 )
+states/Idle/node = SubResource( 13 )
+states/Idle/position = Vector2( 216, 122 )
+states/Roll/node = SubResource( 18 )
+states/Roll/position = Vector2( 216, 3 )
+states/Run/node = SubResource( 23 )
+states/Run/position = Vector2( 518, 122 )
+transitions = [ "Idle", "Run", SubResource( 24 ), "Run", "Idle", SubResource( 25 ), "Idle", "Attack", SubResource( 26 ), "Attack", "Idle", SubResource( 27 ), "Idle", "Roll", SubResource( 28 ), "Roll", "Idle", SubResource( 29 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -313, 42 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=31]
+
+[sub_resource type="ShaderMaterial" id=32]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/time = 1.0
+shader_param/speed = 3.0
+shader_param/initialOffset = 0.5
+shader_param/clipOffset = 0.75
+
+[node name="FatherConfrontationCutscene" type="Node2D"]
+pause_mode = 2
+z_index = 1
+script = ExtResource( 2 )
+
+[node name="CutsceneAnimator" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/CutsceneStart = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
+offset = Vector2( 0, -12 )
+zoom = Vector2( 0.6, 0.6 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 0, 69 )
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="Sprite" parent="Player" index="1"]
+frame = 27
+
+[node name="AnimationTree" parent="Player" index="4"]
+tree_root = SubResource( 30 )
+parameters/playback = SubResource( 31 )
+
+[node name="Light2D" parent="Player" index="9"]
+visible = false
+enabled = false
+
+[node name="Light2D2" parent="Player" index="10"]
+visible = false
+enabled = false
+
+[node name="Father" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -24 )
+
+[node name="Sprite" parent="Father" index="1"]
+material = SubResource( 32 )
+frame = 28
+
+[editable path="Player"]
+
+[editable path="Father"]

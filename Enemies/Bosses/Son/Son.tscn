@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Enemies/Bosses/Boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Bosses/Son/TheSon.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Enemies/Bosses/Son/SpinAttackPrepare.gd" type="Script" id=12]
 [ext_resource path="res://Enemies/Bosses/Son/SpinAttack.gd" type="Script" id=13]
 [ext_resource path="res://Enemies/Bosses/Son/SpawnEnemies.gd" type="Script" id=14]
+[ext_resource path="res://Shadows/image.png" type="Texture" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -220,8 +221,9 @@ tracks/0/keys = {
 "values": [ 20 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=14]
 resource_name = "SummonEnemies"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -241,7 +243,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3, 0.6 ),
+"times": PoolRealArray( 0.8, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ true ],
@@ -252,7 +254,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/time")
@@ -317,7 +319,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 3.0
 step = 0.05
 tracks/0/type = "value"
@@ -339,7 +341,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2.6 ),
+"times": PoolRealArray( 0, 2.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 28, 0 ]
@@ -392,7 +394,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.05, 2.6 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -412,7 +414,6 @@ material = SubResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -14 )
 hframes = 29
-frame = 7
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0, -13.859 )
@@ -446,9 +447,9 @@ anims/RunRight = SubResource( 10 )
 anims/RunUp = SubResource( 11 )
 anims/SpinAttack = SubResource( 12 )
 anims/SpinPrepare = SubResource( 13 )
-anims/SummonEnemies = SubResource( 16 )
-anims/die = SubResource( 14 )
-anims/spawn = SubResource( 15 )
+anims/SummonEnemies = SubResource( 14 )
+anims/die = SubResource( 15 )
+anims/spawn = SubResource( 16 )
 
 [node name="BossStateMachine" parent="." index="8"]
 script = ExtResource( 7 )
@@ -487,6 +488,21 @@ script = ExtResource( 14 )
 
 [node name="WallOrigin" type="Position2D" parent="." index="10"]
 position = Vector2( -0.0356903, 3.89442 )
+
+[node name="Light2D" type="Light2D" parent="." index="11"]
+position = Vector2( 0, -15 )
+texture = ExtResource( 15 )
+texture_scale = 0.3
+color = Color( 1, 0, 0, 1 )
+energy = 0.7
+
+[node name="Light2D2" type="Light2D" parent="." index="12"]
+position = Vector2( 0, -15 )
+texture = ExtResource( 15 )
+texture_scale = 0.3
+color = Color( 1, 0, 0, 1 )
+energy = 0.7
+range_item_cull_mask = 2
 [connection signal="area_entered" from="Hitbox" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Hitbox_body_entered"]
 [connection signal="timeout" from="BossStateMachine/SpinAttackSequence/SpinAttack/Timer" to="BossStateMachine/SpinAttackSequence/SpinAttack" method="_on_Timer_timeout"]

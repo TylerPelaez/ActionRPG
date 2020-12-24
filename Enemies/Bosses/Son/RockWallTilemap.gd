@@ -15,9 +15,6 @@ var expansions = 0
 func _ready():
 	clear()
 	expand(0)
-#	for tile in tile_set.get_tiles_ids():
-#		tile_set.tile_set_material(tile, TileMaterial)
-#		tile_set.tile_get_material(tile).set_shader_param("global_transform", get_global_transform())
 
 # warning-ignore:unused_argument
 func _physics_process(delta):

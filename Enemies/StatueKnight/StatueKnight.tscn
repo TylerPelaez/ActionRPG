@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Core/ComplexEnemy.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://WhiteColor.shader" type="Shader" id=5]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/StatueKnight/StatueKnight.gd" type="Script" id=7]
+[ext_resource path="res://Shadows/image.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.0
@@ -881,6 +882,21 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitboxPivot/PlayerWithinRange" index="0"]
 rotation = 1.5708
 shape = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="." index="17"]
+position = Vector2( 0, -14 )
+texture = ExtResource( 8 )
+texture_scale = 0.3
+color = Color( 0.152941, 0.65098, 0.631373, 1 )
+energy = 0.5
+
+[node name="Light2D2" type="Light2D" parent="." index="18"]
+position = Vector2( 0, -14 )
+texture = ExtResource( 8 )
+texture_scale = 0.3
+color = Color( 0.152941, 0.65098, 0.631373, 1 )
+energy = 0.5
+range_item_cull_mask = 2
 [connection signal="area_entered" from="PlayerClose" to="." method="_on_PlayerClose_area_entered"]
 [connection signal="area_exited" from="PlayerClose" to="." method="_on_PlayerClose_area_exited"]
 [connection signal="area_entered" from="SwordHitboxPivot/PlayerWithinRange" to="." method="_on_PlayerWithinRange_area_entered"]

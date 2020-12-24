@@ -101,6 +101,7 @@ position = Vector2( 424, 128 )
 
 [node name="Acolyte" parent="Rooms/Room1" instance=ExtResource( 22 )]
 position = Vector2( 352, 96 )
+max_player_closeness = 50.0
 
 [node name="Door" parent="Rooms/Room1" instance=ExtResource( 1 )]
 position = Vector2( 232, 64 )
@@ -272,12 +273,15 @@ position = Vector2( -171, -321 )
 
 [node name="Acolyte2" parent="Rooms/Room7" instance=ExtResource( 22 )]
 position = Vector2( 197, 95 )
+max_player_closeness = 50.0
 
 [node name="Acolyte3" parent="Rooms/Room7" instance=ExtResource( 22 )]
 position = Vector2( 333, -17 )
+max_player_closeness = 50.0
 
 [node name="Acolyte4" parent="Rooms/Room7" instance=ExtResource( 22 )]
 position = Vector2( 309, 223 )
+max_player_closeness = 50.0
 
 [node name="DelayedSpawn" parent="Rooms/Room7" instance=ExtResource( 9 )]
 position = Vector2( 301, 95 )
@@ -377,6 +381,9 @@ fireInterval = 0.5
 initialFireInterval = 0.5
 modulo = 3
 moduloInterval = 3.0
+
+[node name="Bookshelf" parent="Rooms/Room7" instance=ExtResource( 10 )]
+position = Vector2( 237, -345 )
 
 [node name="Room8" parent="Rooms" instance=ExtResource( 4 )]
 
@@ -575,9 +582,6 @@ drag_margin_bottom = 0.01
 
 [node name="Stairs" parent="." instance=ExtResource( 18 )]
 position = Vector2( 480, -368 )
-
-[node name="Bookshelf" parent="." instance=ExtResource( 10 )]
-position = Vector2( 992, -344 )
 
 [node name="Cutscenes" type="Node2D" parent="."]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

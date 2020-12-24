@@ -4,7 +4,7 @@ class_name Acolyte
 const Projectile = preload("res://Enemies/Acolyte/MagicProjectile.tscn")
 const CircleShape = preload("res://Enemies/Acolyte/MagicProjectileShape.tres")
 
-const max_player_closeness = 50.0
+export var max_player_closeness = 100.0
 export var PROJECTILE_SPAWN_OFFSET = 16
 
 const STAND_STILL_AFTER_ATTACK_PERCENTAGE = 50
@@ -96,15 +96,33 @@ func _on_Stats_no_health():
 	if spawning_projectile != null:
 		spawning_projectile.queue_free()
 
-func update_chase_player_path():
-	# get path to player, then move back by the max_closeness value
-	chase_player_path = get_parent().get_nav_path(global_position, playerDetectionArea.player.global_position)
-	if !chase_player_path.empty():
-		var last_point: Vector2 = chase_player_path[chase_player_path.size() - 1]
-		chase_player_path.remove(chase_player_path.size() - 1)
-		var direction_to_second_to_last_point = (global_position - last_point if chase_player_path.empty() else  chase_player_path[chase_player_path.size() - 1] - last_point).normalized()
-		
-		var real_final_point = last_point  + (direction_to_second_to_last_point * max_player_closeness)
-		chase_player_path = get_parent().get_nav_path(global_position, real_final_point)
+func get_positions_to_avoid():
+	var result = .get_positions_to_avoid()
+	var rad = neighbor_collision_check_shape.radius
+	neighbor_collision_check_shape.radius = max_player_closeness
 	
-	adjust_chase_path_for_collisions()
+	#2 is the player mask
+	var intersection = Utils.shape_cast_get_result(neighbor_collision_check_shape, $CollisionShape2D.global_transform, 2, [self])
+	
+	neighbor_collision_check_shape.radius = rad
+	
+	if intersection != null && !intersection.empty():
+		result.append(intersection[0].collider.global_position)
+	return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

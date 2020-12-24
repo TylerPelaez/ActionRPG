@@ -7,6 +7,12 @@ script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
 "DEBUG_DIALOG": 1,
+"FATHER_1": 20,
+"FATHER_2": 21,
+"FATHER_3": 22,
+"FATHER_4": 23,
+"FATHER_CUTSCENE": 24,
+"FATHER_DEATH": 25,
 "FEEL_STRONGER": 18,
 "HUNTER_CUSTCENE_0": 8,
 "HUNTER_CUTSCENE_1": 16,
@@ -1298,6 +1304,306 @@ story = {
 },
 3: {
 "graph_offset": Vector2( 40, 440 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+20: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FATHER_1",
+"nodes": {
+1: {
+"graph_offset": Vector2( 320, 60 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 800, 0 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>You are being watched.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 800, 180 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+21: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FATHER_2",
+"nodes": {
+1: {
+"graph_offset": Vector2( 20, -40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 640, -20 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>Damn this accursed body, for it moves too slowly</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 80, 280 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>The words seem to come from every stone in this dungeon.</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 780, 360 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+22: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FATHER_3",
+"nodes": {
+1: {
+"graph_offset": Vector2( -280, 0 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 260, 60 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>Damn this useless mind, feeble and cowardly.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 840, 40 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+23: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FATHER_4",
+"nodes": {
+1: {
+"graph_offset": Vector2( -420, 20 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 140, 0 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 862, 207 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>Damn this wretched heart, beating my own son's stolen blood.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 100, 340 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+24: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FATHER_CUTSCENE",
+"nodes": {
+1: {
+"graph_offset": Vector2( -20, -140 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( -20, 20 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>May this man's blood be worthy of joining mine!</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 420, 20 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>May this act make me worthy of wielding this unholy blade!</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 160, 200 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+25: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "FATHER_DEATH",
+"nodes": {
+1: {
+"graph_offset": Vector2( -80, 120 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 440, 120 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>Please... the sword... take it...</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 0, 320 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Son</speaker>
+<dialog>... and destroy it... .</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 480, 300 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>Endless power, endless life. Just within your grasp...</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( -60, 500 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Son</speaker>
+<dialog>But it has such rage, and hunger...</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 480, 480 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>His body falls limp.</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 460, 700 ),
 "links": {
 
 },

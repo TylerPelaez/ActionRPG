@@ -16,7 +16,9 @@ const SPEAKER_COLOR_LOOKUP = {
 	"Narrate": Color.white,
 	"Hunter": Color("#4d2b25"),
 	"Letter": Color.gold,
-	"Tablet": Color.crimson
+	"Tablet": Color.crimson,
+	"Father": Color.crimson,
+	"Son": Color.gold
 }
 
 onready var bodyTweener = $MarginContainer/MarginContainer/BodyLabel/Tween

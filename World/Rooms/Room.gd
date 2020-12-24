@@ -78,9 +78,6 @@ func open_doors():
 		if child is EventTrigger:
 			child.activate()
 
-func exited():
-	pass
-
 # warning-ignore:unused_argument
 func _on_RoomExtents_body_entered(body):
 	if !active:
@@ -118,6 +115,8 @@ func reset():
 		
 		for child in get_children():
 			if child is Enemy:
+				if child is Acolyte && child.spawning_projectile != null:
+					child.spawning_projectile.queue_free()
 				child.queue_free()
 	
 		current_wave = 0

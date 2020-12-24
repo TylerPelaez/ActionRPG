@@ -786,10 +786,196 @@ story = {
 "text": "<end>"
 }
 }
+},
+20: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>You are being watched.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+21: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Father</speaker>
+<dialog>Damn this accursed body, for it moves too slowly</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>The words seem to come from every stone in this dungeon.</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+22: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Father</speaker>
+<dialog>Damn this useless mind, feeble and cowardly.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+23: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Father</speaker>
+<dialog>Damn this wretched heart, beating my own son's stolen blood.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+24: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Father</speaker>
+<dialog>May this man's blood be worthy of joining mine!</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Father</speaker>
+<dialog>May this act make me worthy of wielding this unholy blade!</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+25: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Father</speaker>
+<dialog>Please... the sword... take it...</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Son</speaker>
+<dialog>... and destroy it... .</dialog>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Father</speaker>
+<dialog>Endless power, endless life. Just within your grasp...</dialog>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Son</speaker>
+<dialog>But it has such rage, and hunger...</dialog>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>His body falls limp.</dialog>"
+},
+7: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
 "DEBUG_DIALOG": 1,
+"FATHER_1": 20,
+"FATHER_2": 21,
+"FATHER_3": 22,
+"FATHER_4": 23,
+"FATHER_CUTSCENE": 24,
+"FATHER_DEATH": 25,
 "FEEL_STRONGER": 18,
 "HUNTER_CUSTCENE_0": 8,
 "HUNTER_CUTSCENE_1": 16,

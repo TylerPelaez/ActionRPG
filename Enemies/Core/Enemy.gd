@@ -108,16 +108,15 @@ func chase_state(delta):
 		if player.global_position.distance_squared_to(global_position) <= 1 || chase_player_path == null || chase_player_path.empty():
 			accelerate_toward_point(player.global_position, delta)	
 		else:
-			# let's avoid our neighbors, 16 is the  "enemy" mask
-			var intersections = Utils.shape_cast_get_result(neighbor_collision_check_shape, $CollisionShape2D.global_transform, 16, [self])
+			var positions_to_avoid = get_positions_to_avoid()
 			
-			if intersections != null && !intersections.empty():
+			if !positions_to_avoid.empty():
 				var enemy_pos_sum = Vector2.ZERO
 			
-				for intersection in intersections:
-					enemy_pos_sum += intersection.collider.global_position
+				for pos in positions_to_avoid:
+					enemy_pos_sum += pos
 				
-				var average_pos = enemy_pos_sum / intersections.size()
+				var average_pos = enemy_pos_sum / positions_to_avoid.size()
 				var away_pos = $CollisionShape2D.global_transform.xform_inv(average_pos).rotated(rad2deg(180))
 				
 				
@@ -126,7 +125,16 @@ func chase_state(delta):
 				accelerate_toward_point(chase_player_path[0], delta)	
 	else:
 		state = IDLE
-	
+
+func get_positions_to_avoid():
+	# let's avoid our neighbors, 16 is the  "enemy" mask
+	var intersections = Utils.shape_cast_get_result(neighbor_collision_check_shape, $CollisionShape2D.global_transform, 16, [self])
+	var result = []
+	for intersection in intersections:
+		result.append(intersection.collider.global_position)
+		
+	return result
+
 func idle_state(delta):
 	chase_player_path = null
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)

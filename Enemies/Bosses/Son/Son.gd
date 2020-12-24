@@ -66,12 +66,19 @@ func reset():
 
 func clear_enemies():
 	for enemy in summoned_enemies:
+		
+		if enemy is Acolyte && enemy.spawning_projectile != null:
+				enemy.spawning_projectile.queue_free()
+	
 		enemy.queue_free()
 	
 	if wall != null:
 		wall.clear()
+		wall.queue_free()
 	summoned_enemies.clear()
 
 func _on_Die_finished():
 	clear_enemies()
 	._on_Die_finished()
+	Events.add_event("FATHER_DEATH")
+	Events.trigger("FATHER_DEATH")
