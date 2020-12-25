@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://chary___.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel"]
+margin_top = 2.0
+margin_right = 320.0
+margin_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][wave amp=50 freq=2][color=yellow]You Win![/color][/wave]
+Thanks For Playing![/center]"
+text = "You Win!
+Thanks For Playing!"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

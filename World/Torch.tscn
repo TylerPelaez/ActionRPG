@@ -38,6 +38,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=8]
 resource_name = "Flicker"
+length = 2.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Light2D:texture_scale")
@@ -46,7 +47,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.3, 0.4 ]
@@ -58,7 +59,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.3, 0.4 ]
@@ -69,19 +70,20 @@ modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 light_mask = 5
 z_index = 10
 frames = SubResource( 7 )
+frame = 1
 playing = true
 script = ExtResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
-texture_scale = 0.4
+texture_scale = 0.325351
 color = Color( 0.984314, 0.458824, 0.298039, 1 )
 energy = 0.9
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="."]
 texture = ExtResource( 1 )
-texture_scale = 0.4
+texture_scale = 0.325351
 color = Color( 0.984314, 0.458824, 0.298039, 1 )
 energy = 0.9
 range_item_cull_mask = 4

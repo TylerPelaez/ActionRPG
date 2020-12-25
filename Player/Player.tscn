@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://WhiteColor.shader" type="Shader" id=9]
 [ext_resource path="res://DirectionalAnimationStateMachine.tres" type="AnimationNodeStateMachine" id=10]
 [ext_resource path="res://Shadows/image.png" type="Texture" id=11]
+[ext_resource path="res://Music and Sounds/itempickup.wav" type="AudioStream" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -98,6 +99,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 10, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -21.563 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.4
@@ -176,6 +189,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 13, 5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -21.563 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -256,6 +281,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 13, -5 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -21.563 ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 0.4
@@ -334,6 +371,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 20, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -21.563 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -442,6 +491,18 @@ tracks/2/keys = {
 } ],
 "times": PoolRealArray( 0.1 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
+}
 
 [sub_resource type="Animation" id=12]
 length = 0.5
@@ -484,6 +545,18 @@ tracks/2/keys = {
 "stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -528,6 +601,18 @@ tracks/2/keys = {
 } ],
 "times": PoolRealArray( 0.1 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.5
@@ -570,6 +655,18 @@ tracks/2/keys = {
 "stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -755,8 +852,8 @@ position = Vector2( -0.508661, -9 )
 shape = SubResource( 21 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -12.518
+stream = ExtResource( 8 )
+volume_db = -21.563
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 22 )
@@ -764,7 +861,7 @@ anims/Stop = SubResource( 23 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 11 )
-texture_scale = 0.75
+texture_scale = 0.6
 color = Color( 1, 0.556863, 0.337255, 1 )
 energy = 0.7
 shadow_enabled = true
@@ -774,12 +871,16 @@ shadow_filter_smooth = 11.0
 
 [node name="Light2D2" type="Light2D" parent="."]
 texture = ExtResource( 11 )
-texture_scale = 0.8
+texture_scale = 0.6
 color = Color( 1, 0.678431, 0.517647, 1 )
 energy = 0.8
 range_item_cull_mask = 4
 shadow_filter = 1
 shadow_item_cull_mask = 0
+
+[node name="ItemPickupPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -20.155
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://WhiteColor.shader" type="Shader" id=1]
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Bosses/Hunter/Arrow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/Bosses/Hunter/Hunter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Dialog/HunterIntroCutscene.gd" type="Script" id=5]
+[ext_resource path="res://Shadows/image.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CutsceneEnd"
@@ -197,6 +198,19 @@ position = Vector2( -5.5, -4.5 )
 [node name="Fire1" parent="Hunter" index="11"]
 position = Vector2( 4.5, -4.5 )
 
+[node name="Light2D2" type="Light2D" parent="Hunter"]
+texture = ExtResource( 6 )
+texture_scale = 0.4
+color = Color( 1, 0.564706, 0.101961, 1 )
+energy = 0.7
+range_item_cull_mask = -2147483646
+
+[node name="Light2D" type="Light2D" parent="Hunter"]
+texture = ExtResource( 6 )
+texture_scale = 0.4
+color = Color( 1, 0.564706, 0.101961, 1 )
+energy = 0.7
+
 [node name="Bat" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
 
@@ -211,6 +225,7 @@ max_health = 1
 
 [node name="AnimatedSprite" parent="Bat" index="6"]
 material = SubResource( 6 )
+frame = 4
 
 [node name="Arrow" parent="." instance=ExtResource( 3 )]
 pause_mode = 2

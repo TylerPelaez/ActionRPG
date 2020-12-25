@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wavespaw.wav-213e98558afdd346c4368afa08eec5ea.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/wavespaw.wav"
+dest_files=[ "res://.import/wavespaw.wav-213e98558afdd346c4368afa08eec5ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

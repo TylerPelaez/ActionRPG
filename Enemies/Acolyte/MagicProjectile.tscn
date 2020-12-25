@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemies/Acolyte/MagicProjectileShape.tres" type="Shape2D" id=1]
 [ext_resource path="res://Enemies/Acolyte/MagicProjectile.tres" type="SpriteFrames" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/Acolyte/MagicProjectile.gd" type="Script" id=5]
 [ext_resource path="res://Shadows/image.png" type="Texture" id=6]
+[ext_resource path="res://Music and Sounds/launchmissile.wav" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.29295
@@ -41,7 +42,6 @@ tracks/1/keys = {
 
 [node name="MagicProjectile" type="AnimatedSprite"]
 frames = ExtResource( 2 )
-frame = 3
 playing = true
 offset = Vector2( 0.5, -16 )
 script = ExtResource( 5 )
@@ -89,6 +89,10 @@ range_item_cull_mask = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 anims/default = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.741
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

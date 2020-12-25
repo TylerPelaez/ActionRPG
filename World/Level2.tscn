@@ -148,8 +148,8 @@ enemyToSpawn = 3
 
 [node name="EventTrigger2" parent="Rooms/Room2" instance=ExtResource( 2 )]
 position = Vector2( -8, -80 )
-eventName = "PRELUDE_2"
-toggleDisableEventName = "PRELUDE_2"
+eventName = "PRELUDE_3"
+toggleDisableEventName = "PRELUDE_3"
 
 [node name="CollisionPolygon2D" parent="Rooms/Room2/EventTrigger2" index="0"]
 position = Vector2( 24, 0 )
@@ -185,8 +185,8 @@ position = Vector2( 0, -32 )
 
 [node name="EventTrigger" parent="Rooms/Room3" instance=ExtResource( 2 )]
 position = Vector2( 40, -72 )
-eventName = "PRELUDE_2"
-toggleDisableEventName = "PRELUDE_2"
+eventName = "PRELUDE_3"
+toggleDisableEventName = "PRELUDE_3"
 
 [node name="CollisionPolygon2D" parent="Rooms/Room3/EventTrigger" index="0"]
 polygon = PoolVector2Array( -104, -8, 24, -8, 24, 16, -104, 16 )
@@ -257,6 +257,11 @@ enemyToSpawn = 1
 
 [node name="DelayedSpawn2" parent="Rooms/Room4" instance=ExtResource( 9 )]
 position = Vector2( -64, 40 )
+
+[node name="EventTrigger3" parent="Rooms/Room4" instance=ExtResource( 2 )]
+position = Vector2( 80, -24 )
+eventName = "PRELUDE_3"
+toggleDisableEventName = "PRELUDE_3"
 
 [node name="Room5" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( -304, -616 )
@@ -491,7 +496,7 @@ position = Vector2( 0, 24 )
 position = Vector2( 24, -24 )
 
 [node name="DelayedSpawn" parent="Rooms/Room6" instance=ExtResource( 9 )]
-position = Vector2( -96, -40 )
+position = Vector2( -80, -24 )
 enemyToSpawn = 2
 
 [node name="Room7" parent="Rooms" instance=ExtResource( 4 )]
@@ -661,7 +666,7 @@ position = Vector2( 32, -176 )
 
 [node name="EventTrigger" parent="Rooms/Room8" instance=ExtResource( 2 )]
 position = Vector2( 0, 64 )
-eventName = "PRELUDE_3"
+eventName = "PRELUDE_2"
 
 [node name="CollisionPolygon2D" parent="Rooms/Room8/EventTrigger" index="0"]
 polygon = PoolVector2Array( 80, 0, 80, 24, -80, 24, -80, 0 )
@@ -919,6 +924,10 @@ position = Vector2( 80, -240 )
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 31 )]
 color = Color( 0.411765, 0.227451, 0.0588235, 1 )
+
+[node name="EnemyDeathSoundTimer" type="Timer" parent="."]
+wait_time = 0.88
+one_shot = true
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="player_entered" from="Stairs" to="." method="_on_Stairs_player_entered"]
 

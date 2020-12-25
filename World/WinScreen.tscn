@@ -2,10 +2,7 @@
 
 [ext_resource path="res://chary___.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://FinalScreen.gd" type="Script" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 22
-font_data = ExtResource( 1 )
+[ext_resource path="res://UI/RichTextLabel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
@@ -24,8 +21,12 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 1 )
 
-[node name="FinalScreen" type="Node2D"]
+[node name="WinScreen" type="Control"]
+pause_mode = 2
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0
@@ -58,22 +59,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.44
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
-margin_top = 2.0
-margin_right = 320.0
-margin_bottom = 50.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[center][wave amp=50 freq=2][color=yellow]You Win![/color][/wave]
-Thanks For Playing![/center]"
-text = "You Win!
-Thanks For Playing!"
-fit_content_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="RichTextLabel" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 56.0

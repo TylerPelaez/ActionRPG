@@ -21,6 +21,7 @@ export (float) var PATHFIND_NEIGHBOR_AVOIDANCE_RADIUS = 10.0
 export (float) var PATHFIND_MAX_NEIGHBOR_AVOIDANCE_ANGLES = 4
 export (float) var HEALTH_DROP_CHANCE = .05
 export (float) var GEM_DROP_CHANCE = .1
+const DEFAULT_PATH_UPDATE_TIME = 0.5
 
 enum {
 	IDLE,
@@ -90,13 +91,13 @@ func _physics_process(delta):
 
 
 func wander_state(delta):
-	chase_player_path = null
 	seek_player()
 	
 	if wanderController.get_time_left() == 0:
 		update_wander()
 	
-	accelerate_toward_point(wanderController.target_position, delta)
+	if chase_player_path != null && !chase_player_path.empty():
+		accelerate_toward_point(chase_player_path[0], delta)
 	
 	if global_position.distance_to(wanderController.target_position) <= WANDER_TARGET_DROPOFF_RANGE:
 		update_wander()
@@ -128,7 +129,7 @@ func chase_state(delta):
 
 func get_positions_to_avoid():
 	# let's avoid our neighbors, 16 is the  "enemy" mask
-	var intersections = Utils.shape_cast_get_result(neighbor_collision_check_shape, $CollisionShape2D.global_transform, 16, [self])
+	var intersections = Utils.shape_cast_get_result(neighbor_collision_check_shape, $CollisionShape2D.global_transform, 17, [self])
 	var result = []
 	for intersection in intersections:
 		result.append(intersection.collider.global_position)
@@ -162,8 +163,10 @@ func seek_player():
 		update_chase_player_path()
 		chasePlayerTimer.start()
 		
-func update_chase_player_path():
-	chase_player_path = get_parent().get_nav_path(global_position, playerDetectionArea.player.global_position)
+func update_chase_player_path(new_target = null):
+	if new_target == null:
+		new_target = playerDetectionArea.player.global_position
+	chase_player_path = get_parent().get_nav_path(global_position, new_target)
 	adjust_chase_path_for_collisions()
 	
 func adjust_chase_path_for_collisions():
@@ -200,6 +203,9 @@ func adjust_chase_path_for_collisions():
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
+	if state == WANDER:
+		update_chase_player_path(wanderController.target_position)
+	
 	wanderController.start_wander_timer(rand_range(1,3))
 
 func pick_random_state(state_list):
@@ -233,7 +239,7 @@ func _on_Stats_no_health():
 func _on_ChasePlayerPathfindTimer_timeout():
 	if state == CHASE && playerDetectionArea.player != null:
 		update_chase_player_path()
-	chasePlayerTimer.start()
+	chasePlayerTimer.start(DEFAULT_PATH_UPDATE_TIME + (randf() / 3.0))
 
 
 func activate():

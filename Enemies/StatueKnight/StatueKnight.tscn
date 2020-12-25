@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Core/ComplexEnemy.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/StatueKnight/StatueKnight.gd" type="Script" id=7]
 [ext_resource path="res://Shadows/image.png" type="Texture" id=8]
+[ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.0
@@ -162,6 +163,7 @@ graph_offset = Vector2( -286, 56 )
 [sub_resource type="Animation" id=35]
 resource_name = "AttackDown"
 length = 1.2
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -226,6 +228,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -296,6 +322,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 90.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=37]
 resource_name = "AttackRight"
@@ -365,6 +415,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 270.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=38]
 resource_name = "AttackUp"
@@ -433,6 +507,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 180.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -11.532 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -820,7 +918,6 @@ material = SubResource( 5 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -12 )
 hframes = 36
-frame = 15
 
 [node name="Hitbox" parent="." index="8"]
 visible = false
@@ -862,10 +959,9 @@ shape = SubResource( 47 )
 
 [node name="SwordHitboxPivot" type="Position2D" parent="." index="15"]
 position = Vector2( 0, -14.069 )
-rotation = 4.71239
 
 [node name="SwordHitbox" parent="SwordHitboxPivot" index="0" instance=ExtResource( 6 )]
-position = Vector2( -2.623, 15.924 )
+position = Vector2( 1.923, 19.195 )
 rotation = 1.5708
 collision_mask = 4
 damage = 2
@@ -897,6 +993,10 @@ texture_scale = 0.3
 color = Color( 0.152941, 0.65098, 0.631373, 1 )
 energy = 0.5
 range_item_cull_mask = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="19"]
+stream = ExtResource( 9 )
+volume_db = -11.532
 [connection signal="area_entered" from="PlayerClose" to="." method="_on_PlayerClose_area_entered"]
 [connection signal="area_exited" from="PlayerClose" to="." method="_on_PlayerClose_area_exited"]
 [connection signal="area_entered" from="SwordHitboxPivot/PlayerWithinRange" to="." method="_on_PlayerWithinRange_area_entered"]

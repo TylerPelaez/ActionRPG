@@ -3,6 +3,8 @@ class_name Player
 
 signal died
 
+const PickupHealthSound = preload("res://Music and Sounds/pickuphealth.wav")
+const PickupGemSound = preload("res://Music and Sounds/itempickup.wav")
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 
 export var ACCELERATION = 500
@@ -130,6 +132,13 @@ func got_hit(damage):
 func _invincibility_started():
 	blinkAnimationPlayer.play("Start")
 
+func pickup_health():
+	$ItemPickupPlayer.stream = PickupHealthSound
+	$ItemPickupPlayer.play()
+	
+func pickup_shard():
+	$ItemPickupPlayer.stream = PickupGemSound
+	$ItemPickupPlayer.play()
 
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")

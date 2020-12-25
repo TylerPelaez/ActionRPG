@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Music and Sounds/magical_theme.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Music and Sounds/BackgroundMusic.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/dungeon002.ogg" type="AudioStream" id=3]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = -21.102
+autoplay = true
+script = ExtResource( 2 )
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.646
+autoplay = true

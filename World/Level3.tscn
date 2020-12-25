@@ -22,7 +22,7 @@
 [ext_resource path="res://Dialog/CutsceneSpawner.gd" type="Script" id=20]
 [ext_resource path="res://Dialog/HunterShowdownCutscene.tscn" type="PackedScene" id=21]
 [ext_resource path="res://UI/Darken.tscn" type="PackedScene" id=22]
-[ext_resource path="res://World/Level.gd" type="Script" id=23]
+[ext_resource path="res://World/Level3.gd" type="Script" id=23]
 
 [node name="Level3" type="YSort"]
 script = ExtResource( 23 )
@@ -64,7 +64,7 @@ polygon = PoolVector2Array( -174, -108, 178, -108, 178, 164, 18, 164, 18, 204, -
 [node name="Torch10" parent="Rooms/BossRoom" instance=ExtResource( 17 )]
 position = Vector2( -22, 12 )
 z_index = 0
-frame = 3
+frame = 5
 special = true
 
 [node name="Door2" parent="Rooms/BossRoom" instance=ExtResource( 2 )]
@@ -136,35 +136,35 @@ pause_mode = 2
 
 [node name="Torch" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 48, -624 )
-frame = 5
+frame = 0
 
 [node name="Torch5" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( -24, -624 )
-frame = 5
+frame = 0
 
 [node name="Torch6" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( -80, -624 )
-frame = 5
+frame = 0
 
 [node name="Torch2" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 112, -624 )
-frame = 5
+frame = 0
 
 [node name="Torch3" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 184, -624 )
-frame = 5
+frame = 0
 
 [node name="Torch7" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 112, -304 )
-frame = 3
+frame = 5
 
 [node name="Torch8" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 48, -304 )
-frame = 2
+frame = 3
 
 [node name="Torch4" parent="Torches" instance=ExtResource( 17 )]
 position = Vector2( 240, -624 )
-frame = 5
+frame = 0
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 22 )]
 
@@ -202,6 +202,11 @@ script = ExtResource( 20 )
 triggering_event = "BOSS_ROOM_ENTERED"
 Cutscene = ExtResource( 21 )
 ON_COMPLETE_TRIGGER = "SPAWN_BOSS"
+
+[node name="EnemyDeathSoundTimer" type="Timer" parent="."]
+wait_time = 0.88
+one_shot = true
+[connection signal="boss_died" from="Rooms/BossRoom" to="." method="_on_BossRoom_boss_died"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="player_entered" from="Stairs" to="." method="_on_Stairs_player_entered"]
 

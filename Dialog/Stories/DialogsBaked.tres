@@ -40,7 +40,7 @@ story = {
 "nodes": {
 1: {
 "links": {
-0: 2
+0: 4
 },
 "text": "<start>"
 },
@@ -49,13 +49,20 @@ story = {
 0: 3
 },
 "text": "<speaker>Tutorial</speaker>
-<dialog>Press J to Attack, Press K To Roll</dialog>"
+<dialog>Press J to Attack, Press K To Evade</dialog>"
 },
 3: {
 "links": {
 
 },
 "text": "<end>"
+},
+4: {
+"links": {
+0: 2
+},
+"text": "<speaker>Self</speaker>
+<dialog>Those bats look angry!</dialog>"
 }
 }
 },
@@ -72,21 +79,21 @@ story = {
 0: 4
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>You awaken in a cold, dark room.</dialog>"
+<dialog>You awaken, shivering in a dark room.</dialog>"
 },
 3: {
 "links": {
 0: 5
 },
 "text": "<speaker>Self</speaker>
-<dialog>Nothing to do except find out what's happening, I guess.</dialog>"
+<dialog>This isn't good. I need to find a way out of here.</dialog>"
 },
 4: {
 "links": {
-0: 3
+0: 7
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>You can't remember how you got here, and your head hurts..</dialog>"
+<dialog>Your muscles ache, your head stings...</dialog>"
 },
 5: {
 "links": {
@@ -99,7 +106,14 @@ story = {
 0: 2
 },
 "text": "<speaker>Tutorial</speaker>
-<dialog>(Press J To advance Dialogs)</dialog>"
+<dialog>Press J To advance Dialog.</dialog>"
+},
+7: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>... and you don't remember how you got here.</dialog>"
 }
 }
 },
@@ -116,14 +130,14 @@ story = {
 0: 3
 },
 "text": "<speaker>Self</speaker>
-<dialog>This is a strange place, these rooms feel more like cells </dialog>"
+<dialog>This is a strange place, these rooms feel alive.</dialog>"
 },
 3: {
 "links": {
 0: 4
 },
 "text": "<speaker>Self</speaker>
-<dialog>And the doors stay barred until I'm the only living thing left</dialog>"
+<dialog>The doors seem determined to keep me locked in as long as possible.</dialog>"
 },
 4: {
 "links": {
@@ -169,7 +183,7 @@ story = {
 0: 3
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>You hear the sound of machinery</dialog>"
+<dialog>You hear the sound of metal gears grinding against stone.</dialog>"
 },
 3: {
 "links": {
@@ -192,21 +206,21 @@ story = {
 0: 3
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>As the door closes behind you, you feel a sense of dread</dialog>"
+<dialog>You feel a sense of dread immediately upon entering this room.</dialog>"
 },
 3: {
 "links": {
 0: 4
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>You hear a distant cry of pain echoing from some other room</dialog>"
+<dialog>From afar, you hear an anguished cry of pain.</dialog>"
 },
 4: {
 "links": {
 0: 5
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>You look around, and notice hooded figures approaching</dialog>"
+<dialog>Hooded figures retreat into the darkness as you approach.</dialog>"
 },
 5: {
 "links": {
@@ -250,28 +264,28 @@ story = {
 0: 4
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>The woman with a crossbow looks to be having as bad a day as you.</dialog>"
+<dialog>The woman with a crossbow looks to be having as bad a day as you are.</dialog>"
 },
 6: {
 "links": {
 0: 3
 },
 "text": "<speaker>Self</speaker>
-<dialog>Don't shoot! I'm just trying to get out of here!!</dialog>"
+<dialog>Don't shoot! I'm just trying to get out of here!</dialog>"
 },
 7: {
 "links": {
 0: 8
 },
 "text": "<speaker>Self</speaker>
-<dialog>I woke up just a while ago, I was hoping you'd be able to explain.</dialog>"
+<dialog>I woke up just a while ago, I was hoping you'd know more.</dialog>"
 },
 8: {
 "links": {
 0: 16
 },
 "text": "<speaker>Hunter</speaker>
-<dialog>I don't know much. I took a job from a young man.</dialog>"
+<dialog>I don't know much. I took a job from a young man,</dialog>"
 },
 9: {
 "links": {
@@ -306,14 +320,14 @@ story = {
 0: 14
 },
 "text": "<speaker>Self</speaker>
-<dialog>Let's split up, try and find a way to unlock it.</dialog>"
+<dialog>Let's split up, try and unlock it.</dialog>"
 },
 14: {
 "links": {
 0: 15
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>She nods, and walks away.</dialog>"
+<dialog>She nods in agreement, and walks away.</dialog>"
 },
 15: {
 "links": {
@@ -445,7 +459,7 @@ story = {
 0: 1
 },
 "text": "<speaker>Letter</speaker>
-<dialog>... He has more passion, more fire, he is even more beautiful ...</dialog>"
+<dialog>He looks younger every day, even so his temper becomes more foul.</dialog>"
 }
 }
 },
@@ -536,7 +550,7 @@ story = {
 0: 5
 },
 "text": "<speaker>Letter</speaker>
-<dialog>My kind, dear brother. No, don’t you dare take care of me. </dialog>"
+<dialog>My dear brother, it's too late to save me.</dialog>"
 },
 4: {
 "links": {
@@ -549,7 +563,7 @@ story = {
 0: 6
 },
 "text": "<speaker>Letter</speaker>
-<dialog>Stay away.</dialog>"
+<dialog>Just stay away.</dialog>"
 },
 6: {
 "links": {
@@ -597,7 +611,7 @@ story = {
 0: 2
 },
 "text": "<speaker>Self</speaker>
-<dialog>No magic buttons this time?</dialog>"
+<dialog>Surely there's another button we can step on.</dialog>"
 },
 2: {
 "links": {
@@ -631,7 +645,7 @@ story = {
 0: 7
 },
 "text": "<speaker>Self</speaker>
-<dialog>That happy to see me?</dialog>"
+<dialog>Not happy to see me?</dialog>"
 },
 7: {
 "links": {
@@ -730,14 +744,14 @@ story = {
 0: 11
 },
 "text": "<speaker>Hunter</speaker>
-<dialog>It seems pretty clear to me.</dialog>"
+<dialog>It doesn't leave much room for interpretation.</dialog>"
 },
 11: {
 "links": {
 0: 3
 },
 "text": "<speaker>Hunter</speaker>
-<dialog>I'm sorry, it's nothing personal.</dialog>"
+<dialog>Look, I need to get out of here. I'm sorry, it's nothing personal.</dialog>"
 }
 }
 },
@@ -774,16 +788,23 @@ story = {
 },
 2: {
 "links": {
-0: 3
+0: 4
 },
 "text": "<speaker>Hunter</speaker>
-<dialog>I'm sorry. Good luck.</dialog>"
+<dialog>Agh... I'm... Sorry... Good luck...</dialog>"
 },
 3: {
 "links": {
 
 },
 "text": "<end>"
+},
+4: {
+"links": {
+0: 3
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>As The Hunter breathes her last breathe, the doors ahead open.</dialog>"
 }
 }
 },
@@ -823,14 +844,14 @@ story = {
 0: 3
 },
 "text": "<speaker>Father</speaker>
-<dialog>Damn this accursed body, for it moves too slowly</dialog>"
+<dialog>Damn this accursed body, for it moves too slowly.</dialog>"
 },
 3: {
 "links": {
 0: 4
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>The words seem to come from every stone in this dungeon.</dialog>"
+<dialog>The words seem to come from every stone in the dungeon.</dialog>"
 },
 4: {
 "links": {
@@ -853,7 +874,7 @@ story = {
 0: 3
 },
 "text": "<speaker>Father</speaker>
-<dialog>Damn this useless mind, feeble and cowardly.</dialog>"
+<dialog>Damn this useless mind, greedy and cowardly.</dialog>"
 },
 3: {
 "links": {
@@ -876,7 +897,7 @@ story = {
 0: 3
 },
 "text": "<speaker>Father</speaker>
-<dialog>Damn this wretched heart, beating my own son's stolen blood.</dialog>"
+<dialog>Damn this treacherous heart, pumping stolen blood.</dialog>"
 },
 3: {
 "links": {
@@ -890,7 +911,7 @@ story = {
 "nodes": {
 1: {
 "links": {
-0: 2
+0: 6
 },
 "text": "<start>"
 },
@@ -913,6 +934,48 @@ story = {
 
 },
 "text": "<end>"
+},
+5: {
+"links": {
+0: 7
+},
+"text": "<speaker>Father</speaker>
+<dialog>I am the master of this house!</dialog>"
+},
+6: {
+"links": {
+0: 5
+},
+"text": "<speaker>Self</speaker>
+<dialog>You! Who are you? What is this place!?</dialog>"
+},
+7: {
+"links": {
+0: 8
+},
+"text": "<speaker>Father</speaker>
+<dialog>With this blade, I will strike you down, as I have thousands before you.</dialog>"
+},
+8: {
+"links": {
+0: 9
+},
+"text": "<speaker>Father</speaker>
+<dialog>As I have my own son. You are nothing.</dialog>"
+},
+9: {
+"links": {
+0: 10
+},
+"text": "<speaker>Father</speaker>
+<dialog>But these souls give me strength now</dialog>"
+},
+10: {
+"links": {
+0: 2
+},
+"text": "<speaker>Father</speaker>
+<dialog>In your slaughter, you will be elavated!</dialog>"
 }
 }
 },
@@ -936,34 +999,48 @@ story = {
 0: 4
 },
 "text": "<speaker>Son</speaker>
-<dialog>... and destroy it... .</dialog>"
+<dialog>... and destroy it...</dialog>"
 },
 4: {
 "links": {
 0: 5
 },
 "text": "<speaker>Father</speaker>
-<dialog>Endless power, endless life. Just within your grasp...</dialog>"
+<dialog>No! Endless power, endless life. Just within your grasp...</dialog>"
 },
 5: {
 "links": {
 0: 6
 },
 "text": "<speaker>Son</speaker>
-<dialog>But it has such rage, and hunger...</dialog>"
+<dialog>It will consume you as it has him....</dialog>"
 },
 6: {
 "links": {
-0: 7
+0: 8
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>His body falls limp.</dialog>"
+<dialog>His eyes are blood-red, his face contorted with rage.</dialog>"
 },
 7: {
 "links": {
 
 },
 "text": "<end>"
+},
+8: {
+"links": {
+0: 9
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>As his struggle ends, the youthful exterior rapidly ages.</dialog>"
+},
+9: {
+"links": {
+0: 7
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>By the time you look away, he is nothing but ash.</dialog>"
 }
 }
 },
@@ -987,7 +1064,7 @@ story = {
 0: 4
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>It glows red with dark magic, the power to steal life itself.</dialog>"
+<dialog>It glows red with ancient magic, the power to steal life itself.</dialog>"
 },
 4: {
 "links": {
@@ -1023,18 +1100,18 @@ story = {
 0: 7
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>You leave the sword on the ground. Let it rot along with its owner.</dialog>"
+<dialog>You leave the sword on the ground, and exit the dungeon.</dialog>"
 },
 9: {
 "links": {
 0: 10
 },
 "text": "<speaker>Narrate</speaker>
-<dialog>Careful to not touch it, you wrap the sword in some discarded cloth.</dialog>"
+<dialog>Careful to not touch it, you wrap the blade in leather and take it out of the dungeon.</dialog>"
 },
 10: {
 "links": {
-0: 7
+0: 13
 },
 "text": "<speaker>Narrate</speaker>
 <dialog>You'll take it to a friend, a blacksmith and a good man.</dialog>"
@@ -1045,6 +1122,20 @@ story = {
 },
 "text": "<speaker>Narrate</speaker>
 <dialog>Blood rushes to your head, you hear the sound of distant laughter.</dialog>"
+},
+12: {
+"links": {
+0: 7
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>The dark legacy of the blade ends here.</dialog>"
+},
+13: {
+"links": {
+0: 12
+},
+"text": "<speaker>Narrate</speaker>
+<dialog>Together, you will detemine how to destroy this abomination</dialog>"
 }
 }
 }

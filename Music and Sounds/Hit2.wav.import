@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hit2.wav-496de2eedd87077b0899a709baeb8208.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Hit2.wav"
+dest_files=[ "res://.import/Hit2.wav-496de2eedd87077b0899a709baeb8208.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

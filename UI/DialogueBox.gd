@@ -74,6 +74,7 @@ func _input(event):
 
 func _on_Dialog_Player_advanced():
 	if _is_waiting():
+		$AdvanceAudioPlayer.play()
 		is_waiting = false
 		_get_next_node()
 		if _is_playing():
@@ -112,6 +113,7 @@ func assert_lengths():
 			var dialog = _get_tagged_text("dialog", text)
 			# nice
 			var length = dialog.length()
+			assert(text == "<end>" || story_reader.has_slot(did, nid, 0))
 
 func _get_next_node():
 	var slot = 0

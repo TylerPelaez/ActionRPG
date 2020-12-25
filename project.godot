@@ -177,13 +177,14 @@ _global_script_class_icons={
 [application]
 
 config/name="The Blade"
-run/main_scene="res://World/Level4.tscn"
+run/main_scene="res://MainMenu.tscn"
 
 [autoload]
 
 PlayerStats="*res://Player/PlayerStats.tscn"
 Utils="*res://Utils/Utils.gd"
 Events="*res://Utils/Events.gd"
+BackgroundMusic="*res://Music and Sounds/BackgroundMusic.tscn"
 
 [debug]
 

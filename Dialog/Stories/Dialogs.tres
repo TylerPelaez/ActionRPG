@@ -91,9 +91,9 @@ story = {
 "name": "TUTORIAL_CONTROLS_1",
 "nodes": {
 1: {
-"graph_offset": Vector2( 140, -140 ),
+"graph_offset": Vector2( -200, -320 ),
 "links": {
-0: 2
+0: 4
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
@@ -108,17 +108,28 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Tutorial</speaker>
-<dialog>Press J to Attack, Press K To Roll</dialog>",
+<dialog>Press J to Attack, Press K To Evade</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 140, 140 ),
+"graph_offset": Vector2( 140, 180 ),
 "links": {
 
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 300, -220 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>Those bats look angry!</dialog>",
 "type": "line"
 }
 }
@@ -130,7 +141,7 @@ story = {
 "name": "TUTORIAL_CONTROLS_0",
 "nodes": {
 1: {
-"graph_offset": Vector2( -220, -320 ),
+"graph_offset": Vector2( -360, -380 ),
 "links": {
 0: 6
 },
@@ -140,40 +151,40 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 280, -180 ),
+"graph_offset": Vector2( 560, -440 ),
 "links": {
 0: 4
 },
 "rect_size": Vector2( 441, 244 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>You awaken in a cold, dark room.</dialog>",
+<dialog>You awaken, shivering in a dark room.</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 1260, -180 ),
+"graph_offset": Vector2( 1080, 40 ),
 "links": {
 0: 5
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>Nothing to do except find out what's happening, I guess.</dialog>",
+<dialog>This isn't good. I need to find a way out of here.</dialog>",
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 760, -160 ),
+"graph_offset": Vector2( 1040, -480 ),
 "links": {
-0: 3
+0: 7
 },
-"rect_size": Vector2( 324, 137 ),
+"rect_size": Vector2( 755, 273 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>You can't remember how you got here, and your head hurts..</dialog>",
+<dialog>Your muscles ache, your head stings...</dialog>",
 "type": "line"
 },
 5: {
-"graph_offset": Vector2( 1860, -180 ),
+"graph_offset": Vector2( 1560, 40 ),
 "links": {
 
 },
@@ -183,14 +194,25 @@ story = {
 "type": "line"
 },
 6: {
-"graph_offset": Vector2( 280, -360 ),
+"graph_offset": Vector2( 80, -400 ),
 "links": {
 0: 2
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Tutorial</speaker>
-<dialog>(Press J To advance Dialogs)</dialog>",
+<dialog>Press J To advance Dialog.</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 1860, -440 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>... and you don't remember how you got here.</dialog>",
 "type": "line"
 }
 }
@@ -202,7 +224,7 @@ story = {
 "name": "TUTORIAL_CONTROLS_2",
 "nodes": {
 1: {
-"graph_offset": Vector2( -20, -340 ),
+"graph_offset": Vector2( -260, -320 ),
 "links": {
 0: 2
 },
@@ -212,29 +234,29 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 440, -340 ),
+"graph_offset": Vector2( 260, -300 ),
 "links": {
 0: 3
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>This is a strange place, these rooms feel more like cells </dialog>",
+<dialog>This is a strange place, these rooms feel alive.</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 940, -340 ),
+"graph_offset": Vector2( 760, -300 ),
 "links": {
 0: 4
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>And the doors stay barred until I'm the only living thing left</dialog>",
+<dialog>The doors seem determined to keep me locked in as long as possible.</dialog>",
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 1440, -340 ),
+"graph_offset": Vector2( 1300, -300 ),
 "links": {
 
 },
@@ -308,7 +330,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>You hear the sound of machinery</dialog>",
+<dialog>You hear the sound of metal gears grinding against stone.</dialog>",
 "type": "line"
 },
 3: {
@@ -347,7 +369,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>As the door closes behind you, you feel a sense of dread</dialog>",
+<dialog>You feel a sense of dread immediately upon entering this room.</dialog>",
 "type": "line"
 },
 3: {
@@ -358,7 +380,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>You hear a distant cry of pain echoing from some other room</dialog>",
+<dialog>From afar, you hear an anguished cry of pain.</dialog>",
 "type": "line"
 },
 4: {
@@ -369,7 +391,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>You look around, and notice hooded figures approaching</dialog>",
+<dialog>Hooded figures retreat into the darkness as you approach.</dialog>",
 "type": "line"
 },
 5: {
@@ -441,7 +463,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>The woman with a crossbow looks to be having as bad a day as you.</dialog>",
+<dialog>The woman with a crossbow looks to be having as bad a day as you are.</dialog>",
 "type": "line"
 },
 6: {
@@ -452,7 +474,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>Don't shoot! I'm just trying to get out of here!!</dialog>",
+<dialog>Don't shoot! I'm just trying to get out of here!</dialog>",
 "type": "line"
 },
 7: {
@@ -463,7 +485,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>I woke up just a while ago, I was hoping you'd be able to explain.</dialog>",
+<dialog>I woke up just a while ago, I was hoping you'd know more.</dialog>",
 "type": "line"
 },
 8: {
@@ -474,7 +496,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Hunter</speaker>
-<dialog>I don't know much. I took a job from a young man.</dialog>",
+<dialog>I don't know much. I took a job from a young man,</dialog>",
 "type": "line"
 },
 9: {
@@ -529,7 +551,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>Let's split up, try and find a way to unlock it.</dialog>",
+<dialog>Let's split up, try and unlock it.</dialog>",
 "type": "line"
 },
 14: {
@@ -540,7 +562,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>She nods, and walks away.</dialog>",
+<dialog>She nods in agreement, and walks away.</dialog>",
 "type": "line"
 },
 15: {
@@ -756,7 +778,7 @@ story = {
 "rect_size": Vector2( 773, 317 ),
 "slot_amount": 1,
 "text": "<speaker>Letter</speaker>
-<dialog>... He has more passion, more fire, he is even more beautiful ...</dialog>",
+<dialog>He looks younger every day, even so his temper becomes more foul.</dialog>",
 "type": "line"
 }
 }
@@ -907,7 +929,7 @@ story = {
 "rect_size": Vector2( 778, 168 ),
 "slot_amount": 1,
 "text": "<speaker>Letter</speaker>
-<dialog>My kind, dear brother. No, don’t you dare take care of me. </dialog>",
+<dialog>My dear brother, it's too late to save me.</dialog>",
 "type": "line"
 },
 4: {
@@ -928,7 +950,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Letter</speaker>
-<dialog>Stay away.</dialog>",
+<dialog>Just stay away.</dialog>",
 "type": "line"
 },
 6: {
@@ -1008,7 +1030,7 @@ story = {
 "rect_size": Vector2( 606.833, 159.167 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>No magic buttons this time?</dialog>",
+<dialog>Surely there's another button we can step on.</dialog>",
 "type": "line"
 },
 2: {
@@ -1062,7 +1084,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Self</speaker>
-<dialog>That happy to see me?</dialog>",
+<dialog>Not happy to see me?</dialog>",
 "type": "line"
 },
 7: {
@@ -1221,7 +1243,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Hunter</speaker>
-<dialog>It seems pretty clear to me.</dialog>",
+<dialog>It doesn't leave much room for interpretation.</dialog>",
 "type": "line"
 },
 11: {
@@ -1232,7 +1254,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Hunter</speaker>
-<dialog>I'm sorry, it's nothing personal.</dialog>",
+<dialog>Look, I need to get out of here. I'm sorry, it's nothing personal.</dialog>",
 "type": "line"
 }
 }
@@ -1283,7 +1305,7 @@ story = {
 "name": "HUNTER_DEATH",
 "nodes": {
 1: {
-"graph_offset": Vector2( 40, 40 ),
+"graph_offset": Vector2( 20, 60 ),
 "links": {
 0: 2
 },
@@ -1293,24 +1315,35 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 40, 240 ),
+"graph_offset": Vector2( 20, 240 ),
 "links": {
-0: 3
+0: 4
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Hunter</speaker>
-<dialog>I'm sorry. Good luck.</dialog>",
+<dialog>Agh... I'm... Sorry... Good luck...</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 40, 440 ),
+"graph_offset": Vector2( 20, 640 ),
 "links": {
 
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 20, 420 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>As The Hunter breathes her last breathe, the doors ahead open.</dialog>",
 "type": "line"
 }
 }
@@ -1378,7 +1411,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Father</speaker>
-<dialog>Damn this accursed body, for it moves too slowly</dialog>",
+<dialog>Damn this accursed body, for it moves too slowly.</dialog>",
 "type": "line"
 },
 3: {
@@ -1389,7 +1422,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>The words seem to come from every stone in this dungeon.</dialog>",
+<dialog>The words seem to come from every stone in the dungeon.</dialog>",
 "type": "line"
 },
 4: {
@@ -1428,7 +1461,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Father</speaker>
-<dialog>Damn this useless mind, feeble and cowardly.</dialog>",
+<dialog>Damn this useless mind, greedy and cowardly.</dialog>",
 "type": "line"
 },
 3: {
@@ -1450,7 +1483,7 @@ story = {
 "name": "FATHER_4",
 "nodes": {
 1: {
-"graph_offset": Vector2( -420, 20 ),
+"graph_offset": Vector2( 140, -160 ),
 "links": {
 0: 2
 },
@@ -1467,11 +1500,11 @@ story = {
 "rect_size": Vector2( 862, 207 ),
 "slot_amount": 1,
 "text": "<speaker>Father</speaker>
-<dialog>Damn this wretched heart, beating my own son's stolen blood.</dialog>",
+<dialog>Damn this treacherous heart, pumping stolen blood.</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 100, 340 ),
+"graph_offset": Vector2( 140, 240 ),
 "links": {
 
 },
@@ -1489,9 +1522,9 @@ story = {
 "name": "FATHER_CUTSCENE",
 "nodes": {
 1: {
-"graph_offset": Vector2( -20, -140 ),
+"graph_offset": Vector2( -120, -640 ),
 "links": {
-0: 2
+0: 6
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
@@ -1499,7 +1532,7 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( -20, 20 ),
+"graph_offset": Vector2( -80, 120 ),
 "links": {
 0: 3
 },
@@ -1510,7 +1543,7 @@ story = {
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 420, 20 ),
+"graph_offset": Vector2( 440, 120 ),
 "links": {
 0: 4
 },
@@ -1521,7 +1554,7 @@ story = {
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 160, 200 ),
+"graph_offset": Vector2( 900, 120 ),
 "links": {
 
 },
@@ -1529,11 +1562,77 @@ story = {
 "slot_amount": 1,
 "text": "<end>",
 "type": "line"
+},
+5: {
+"graph_offset": Vector2( -120, -300 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>I am the master of this house!</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( -120, -480 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Self</speaker>
+<dialog>You! Who are you? What is this place!?</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 340, -380 ),
+"links": {
+0: 8
+},
+"rect_size": Vector2( 757, 239 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>With this blade, I will strike you down, as I have thousands before you.</dialog>",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( -100, -100 ),
+"links": {
+0: 9
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>As I have my own son. You are nothing.</dialog>",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( 400, -100 ),
+"links": {
+0: 10
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>But these souls give me strength now</dialog>",
+"type": "line"
+},
+10: {
+"graph_offset": Vector2( -540, 120 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Father</speaker>
+<dialog>In your slaughter, you will be elavated!</dialog>",
+"type": "line"
 }
 }
 },
 25: {
-"available_nid": [ 8 ],
+"available_nid": [  ],
 "groups": [  ],
 "human_readable_description": "New Dialog - Enter Human Readable Description.",
 "name": "FATHER_DEATH",
@@ -1567,7 +1666,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Son</speaker>
-<dialog>... and destroy it... .</dialog>",
+<dialog>... and destroy it...</dialog>",
 "type": "line"
 },
 4: {
@@ -1578,7 +1677,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Father</speaker>
-<dialog>Endless power, endless life. Just within your grasp...</dialog>",
+<dialog>No! Endless power, endless life. Just within your grasp...</dialog>",
 "type": "line"
 },
 5: {
@@ -1589,28 +1688,50 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Son</speaker>
-<dialog>But it has such rage, and hunger...</dialog>",
+<dialog>It will consume you as it has him....</dialog>",
 "type": "line"
 },
 6: {
 "graph_offset": Vector2( 400, 300 ),
 "links": {
-0: 7
+0: 8
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>His body falls limp.</dialog>",
+<dialog>His eyes are blood-red, his face contorted with rage.</dialog>",
 "type": "line"
 },
 7: {
-"graph_offset": Vector2( 460, 700 ),
+"graph_offset": Vector2( 320, 780 ),
 "links": {
 
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( -40, 500 ),
+"links": {
+0: 9
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>As his struggle ends, the youthful exterior rapidly ages.</dialog>",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( 440, 500 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>By the time you look away, he is nothing but ash.</dialog>",
 "type": "line"
 }
 }
@@ -1650,7 +1771,7 @@ story = {
 "rect_size": Vector2( 925, 334 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>It glows red with dark magic, the power to steal life itself.</dialog>",
+<dialog>It glows red with ancient magic, the power to steal life itself.</dialog>",
 "type": "line"
 },
 4: {
@@ -1689,7 +1810,7 @@ story = {
 "type": "line"
 },
 7: {
-"graph_offset": Vector2( 380, 880 ),
+"graph_offset": Vector2( 860, 1140 ),
 "links": {
 
 },
@@ -1699,14 +1820,14 @@ story = {
 "type": "line"
 },
 8: {
-"graph_offset": Vector2( 460, 360 ),
+"graph_offset": Vector2( 440, 380 ),
 "links": {
 0: 7
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>You leave the sword on the ground. Let it rot along with its owner.</dialog>",
+<dialog>You leave the sword on the ground, and exit the dungeon.</dialog>",
 "type": "line"
 },
 9: {
@@ -1717,13 +1838,13 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
-<dialog>Careful to not touch it, you wrap the sword in some discarded cloth.</dialog>",
+<dialog>Careful to not touch it, you wrap the blade in leather and take it out of the dungeon.</dialog>",
 "type": "line"
 },
 10: {
 "graph_offset": Vector2( 940, 560 ),
 "links": {
-0: 7
+0: 13
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
@@ -1732,7 +1853,7 @@ story = {
 "type": "line"
 },
 11: {
-"graph_offset": Vector2( -80, 540 ),
+"graph_offset": Vector2( -100, 540 ),
 "links": {
 0: 6
 },
@@ -1740,6 +1861,28 @@ story = {
 "slot_amount": 1,
 "text": "<speaker>Narrate</speaker>
 <dialog>Blood rushes to your head, you hear the sound of distant laughter.</dialog>",
+"type": "line"
+},
+12: {
+"graph_offset": Vector2( 940, 920 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>The dark legacy of the blade ends here.</dialog>",
+"type": "line"
+},
+13: {
+"graph_offset": Vector2( 1000, 740 ),
+"links": {
+0: 12
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Narrate</speaker>
+<dialog>Together, you will detemine how to destroy this abomination</dialog>",
 "type": "line"
 }
 }

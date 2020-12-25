@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://World/Rooms/SideDoor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Rooms/Door.tscn" type="PackedScene" id=2]
@@ -17,7 +17,7 @@
 [ext_resource path="res://World/RugTileMap.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/WallTileMap.tscn" type="PackedScene" id=16]
 [ext_resource path="res://World/ArrowTrap.tscn" type="PackedScene" id=17]
-[ext_resource path="res://World/Stairs.tscn" type="PackedScene" id=18]
+[ext_resource path="res://World/Torch.tscn" type="PackedScene" id=18]
 [ext_resource path="res://World/Button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Player/PlayerHealthPickup.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player/GemshardPickup.tscn" type="PackedScene" id=21]
@@ -26,7 +26,6 @@
 [ext_resource path="res://Enemies/Bat/SmallBat.tscn" type="PackedScene" id=24]
 [ext_resource path="res://World/Table.tscn" type="PackedScene" id=25]
 [ext_resource path="res://World/Bookshelf.tscn" type="PackedScene" id=26]
-[ext_resource path="res://WhiteColor.shader" type="Shader" id=27]
 [ext_resource path="res://Enemies/Bosses/Son/Son.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Player/PickupablePack.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Utils/EventTrigger.tscn" type="PackedScene" id=30]
@@ -34,48 +33,6 @@
 [ext_resource path="res://Dialog/FatherConfrontationCutscene.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Enemies/Bosses/Son/SpawnSon.shader" type="Shader" id=33]
 [ext_resource path="res://Utils/SwordTrigger.tscn" type="PackedScene" id=34]
-
-[sub_resource type="CircleShape2D" id=1]
-resource_local_to_scene = true
-radius = 3.0
-
-[sub_resource type="ShaderMaterial" id=2]
-resource_local_to_scene = true
-shader = ExtResource( 27 )
-shader_param/active = false
-
-[sub_resource type="Animation" id=3]
-resource_name = "Start"
-length = 0.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Stop"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
@@ -99,7 +56,7 @@ script = ExtResource( 23 )
 [node name="RugTileMap16Offset" parent="." instance=ExtResource( 15 )]
 position = Vector2( 16, 16 )
 z_index = -1
-tile_data = PoolIntArray( -19, 0, 4, -18, 0, 2, -17, 0, 3, -14, 0, 4, -13, 0, 2, -12, 0, 2, -11, 0, 2, -10, 0, 5, 65517, 0, 65540, 65518, 0, 65538, 65519, 0, 65541, 65522, 0, 65537, 65523, 0, 65538, 65524, 0, 65538, 65525, 0, 65538, 65526, 0, 65539, 131053, 0, 65537, 131054, 0, 65538, 131055, 0, 65541, 131058, 0, 131073, 131059, 0, 131074, 131060, 0, 131074, 131061, 0, 131074, 131062, 0, 131077, 131071, 0, 0, 65540, 0, 0, 196589, 0, 65540, 196590, 0, 65538, 196591, 0, 65541, 196607, 0, 131072, 131076, 0, 131072, 262125, 0, 65540, 262126, 0, 65538, 262127, 0, 65539, 196613, 0, 196608, 327661, 0, 65540, 327662, 0, 65538, 327663, 0, 65541, 393197, 0, 65537, 393198, 0, 65538, 393199, 0, 65539, 458733, 0, 65540, 458734, 0, 65538, 458735, 0, 65539, 524269, 0, 65537, 524270, 0, 65538, 524271, 0, 65539, 589805, 0, 65540, 589806, 0, 65538, 589807, 0, 65541, 589810, 0, 1, 589811, 0, 2, 589812, 0, 2, 589813, 0, 3, 655341, 0, 65537, 655342, 0, 65538, 655343, 0, 65539, 655346, 0, 65537, 655347, 0, 65538, 655348, 0, 65538, 655349, 0, 65539, 720877, 0, 131076, 720878, 0, 131074, 720879, 0, 131077, 720882, 0, 131073, 720883, 0, 131074, 720884, 0, 131074, 720885, 0, 131075 )
+tile_data = PoolIntArray( -1179647, 0, 1, -1179646, 0, 5, -1114111, 0, 65537, -1114110, 0, 65541, -1048575, 0, 65537, -1048574, 0, 65541, -983039, 0, 65540, -983038, 0, 65539, -917503, 0, 65540, -917502, 0, 65541, -851967, 0, 65540, -851966, 0, 65539, -786431, 0, 65537, -786430, 0, 65541, -720895, 0, 65540, -720894, 0, 65539, -655359, 0, 65537, -655358, 0, 65541, -589823, 0, 65537, -589822, 0, 65539, -458778, 0, 4, -458777, 0, 2, -458776, 0, 2, -458775, 0, 2, -458774, 0, 2, -458773, 0, 3, -524287, 0, 65540, -524286, 0, 65541, -393243, 0, 1, -393242, 0, 0, -393241, 0, 65538, -393240, 0, 65538, -393239, 0, 65538, -393238, 0, 65538, -393237, 0, 65539, -458751, 0, 65540, -458750, 0, 65541, -327707, 0, 65537, -327706, 0, 65538, -327705, 0, 65538, -327704, 0, 65538, -327703, 0, 65538, -327702, 0, 65538, -327701, 0, 65541, -393215, 0, 65537, -393214, 0, 65539, -262174, 0, 196609, -262173, 0, 196610, -262172, 0, 196610, -262171, 0, 0, -262170, 0, 131074, -262169, 0, 131074, -262168, 0, 0, -262167, 0, 65538, -262166, 0, 65538, -262165, 0, 65541, -327679, 0, 65540, -327678, 0, 65539, -196632, 0, 65537, -196631, 0, 65538, -196630, 0, 65538, -196629, 0, 65539, -262143, 0, 131076, -262142, 0, 131077, -131098, 0, 196609, -131097, 0, 196610, -131096, 0, 0, -131095, 0, 131074, -131094, 0, 131074, -131093, 0, 131075, -19, 0, 4, -18, 0, 2, -17, 0, 3, -14, 0, 4, -13, 0, 2, -12, 0, 2, -11, 0, 2, -10, 0, 5, 65517, 0, 65540, 65518, 0, 65538, 65519, 0, 65541, 65522, 0, 65537, 65523, 0, 65538, 65524, 0, 65538, 65525, 0, 65538, 65526, 0, 65539, 131053, 0, 65537, 131054, 0, 65538, 131055, 0, 65541, 131058, 0, 131073, 131059, 0, 131074, 131060, 0, 131074, 131061, 0, 131074, 131062, 0, 131077, 131071, 0, 0, 65540, 0, 0, 196589, 0, 65540, 196590, 0, 65538, 196591, 0, 65541, 196607, 0, 131072, 131076, 0, 131072, 262125, 0, 65540, 262126, 0, 65538, 262127, 0, 65539, 196613, 0, 196608, 327661, 0, 65540, 327662, 0, 65538, 327663, 0, 65541, 393197, 0, 65537, 393198, 0, 65538, 393199, 0, 65539, 458733, 0, 65540, 458734, 0, 65538, 458735, 0, 65539, 524269, 0, 65537, 524270, 0, 65538, 524271, 0, 65539, 589805, 0, 65540, 589806, 0, 65538, 589807, 0, 65541, 589810, 0, 1, 589811, 0, 2, 589812, 0, 2, 589813, 0, 3, 524292, 0, 196609, 524293, 0, 196611, 655341, 0, 65537, 655342, 0, 65538, 655343, 0, 65539, 655346, 0, 65537, 655347, 0, 65538, 655348, 0, 65538, 655349, 0, 65539, 720877, 0, 131076, 720878, 0, 131074, 720879, 0, 131077, 720882, 0, 131073, 720883, 0, 131074, 720884, 0, 131074, 720885, 0, 131075 )
 
 [node name="FloorTileMap" parent="." instance=ExtResource( 8 )]
 z_index = -2
@@ -221,6 +178,9 @@ position = Vector2( 32, 32 )
 [node name="Button" parent="Rooms/Room5" instance=ExtResource( 19 )]
 position = Vector2( -64, -48 )
 event_name = "SHUTOFF_ARROW"
+
+[node name="Table" parent="Rooms/Room5" instance=ExtResource( 25 )]
+position = Vector2( 32, -24 )
 
 [node name="Room6" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( 0, 376 )
@@ -440,41 +400,17 @@ position = Vector2( 32, 24 )
 [node name="SmallBat4" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 88, 16 )
 
-[node name="SmallBat5" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 96, -8 )
-
-[node name="SmallBat6" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 80, -16 )
-
 [node name="SmallBat7" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 104, 72 )
 
-[node name="SmallBat8" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 112, 48 )
-
-[node name="SmallBat9" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 96, 40 )
-
 [node name="SmallBat10" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 152, 32 )
-
-[node name="SmallBat11" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 144, -24 )
-
-[node name="SmallBat12" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 144, 0 )
-
-[node name="SmallBat14" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 56, -16 )
 
 [node name="SmallBat15" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 40, -24 )
 
 [node name="SmallBat16" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 96, -32 )
-
-[node name="SmallBat17" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 104, -56 )
 
 [node name="SmallBat18" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 88, -64 )
@@ -497,33 +433,14 @@ position = Vector2( -144, -112 )
 [node name="SmallBat41" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -160, -120 )
 
-[node name="SmallBat42" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -136, -32 )
-
-[node name="CollisionShape2D" parent="Rooms/Room7/SmallBat42" index="0"]
-shape = SubResource( 1 )
-
-[node name="AnimatedSprite" parent="Rooms/Room7/SmallBat42" index="6"]
-material = SubResource( 2 )
-
-[node name="InvincibilityAnimationPlayer" parent="Rooms/Room7/SmallBat42" index="8"]
-anims/Start = SubResource( 3 )
-anims/Stop = SubResource( 4 )
-
-[node name="SmallBat43" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -128, -56 )
-
 [node name="SmallBat44" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -144, -64 )
 
 [node name="SmallBat45" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -88, -72 )
+position = Vector2( -79, -72 )
 
 [node name="SmallBat46" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -80, -96 )
-
-[node name="SmallBat47" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -96, -104 )
 
 [node name="SmallBat48" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -192, -96 )
@@ -555,35 +472,11 @@ position = Vector2( -24, 200 )
 [node name="SmallBat22" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 32, 192 )
 
-[node name="SmallBat23" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 40, 168 )
-
-[node name="SmallBat24" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 24, 160 )
-
-[node name="SmallBat25" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 56, 224 )
-
-[node name="SmallBat26" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 40, 216 )
-
-[node name="SmallBat27" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 96, 208 )
-
-[node name="SmallBat28" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( 104, 184 )
-
 [node name="SmallBat29" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 88, 176 )
 
-[node name="SmallBat30" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -8, 184 )
-
 [node name="SmallBat31" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 0, 160 )
-
-[node name="SmallBat32" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -16, 152 )
 
 [node name="SmallBat33" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( 40, 144 )
@@ -633,35 +526,8 @@ position = Vector2( -112, -16 )
 [node name="SmallBat58" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -104, -40 )
 
-[node name="SmallBat59" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -120, -48 )
-
-[node name="SmallBat60" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -96, 40 )
-
-[node name="SmallBat61" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -88, 16 )
-
-[node name="SmallBat62" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -104, 8 )
-
-[node name="SmallBat63" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -48, 0 )
-
-[node name="SmallBat64" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -40, -24 )
-
-[node name="SmallBat65" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -56, -32 )
-
 [node name="SmallBat66" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -128, -16 )
-
-[node name="SmallBat67" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -144, -48 )
-
-[node name="SmallBat68" parent="Rooms/Room7" instance=ExtResource( 24 )]
-position = Vector2( -136, -48 )
 
 [node name="SmallBat69" parent="Rooms/Room7" instance=ExtResource( 24 )]
 position = Vector2( -104, -64 )
@@ -677,9 +543,6 @@ position = Vector2( -80, -24 )
 
 [node name="Bat13" parent="Rooms/Room7" instance=ExtResource( 7 )]
 position = Vector2( -120, -128 )
-
-[node name="Bat10" parent="Rooms/Room7" instance=ExtResource( 7 )]
-position = Vector2( -72, -72 )
 
 [node name="Bat11" parent="Rooms/Room7" instance=ExtResource( 7 )]
 position = Vector2( -128, -80 )
@@ -699,9 +562,6 @@ position = Vector2( -200, 192 )
 [node name="Acolyte2" parent="Rooms/Room7" instance=ExtResource( 9 )]
 position = Vector2( -200, 144 )
 
-[node name="StatueKnight3" parent="Rooms/Room7" instance=ExtResource( 6 )]
-position = Vector2( 88, -104 )
-
 [node name="StatueKnight4" parent="Rooms/Room7" instance=ExtResource( 6 )]
 position = Vector2( 88, -152 )
 
@@ -712,7 +572,7 @@ position = Vector2( 32, -104 )
 position = Vector2( 32, -152 )
 
 [node name="StatueKnight5" parent="Rooms/Room7" instance=ExtResource( 6 )]
-position = Vector2( -169, -103 )
+position = Vector2( -160, -104 )
 
 [node name="StatueKnight6" parent="Rooms/Room7" instance=ExtResource( 6 )]
 position = Vector2( -169, -151 )
@@ -807,9 +667,6 @@ position = Vector2( -104, 24 )
 [node name="SmallBat6" parent="Rooms/Room9" instance=ExtResource( 24 )]
 position = Vector2( -72, 0 )
 
-[node name="SmallBat29" parent="Rooms/Room9" instance=ExtResource( 24 )]
-position = Vector2( -88, 0 )
-
 [node name="SmallBat7" parent="Rooms/Room9" instance=ExtResource( 24 )]
 position = Vector2( -16, 32 )
 
@@ -840,9 +697,6 @@ position = Vector2( 168, 8 )
 [node name="SmallBat16" parent="Rooms/Room9" instance=ExtResource( 24 )]
 position = Vector2( 152, 32 )
 
-[node name="SmallBat17" parent="Rooms/Room9" instance=ExtResource( 24 )]
-position = Vector2( 200, 40 )
-
 [node name="SmallBat18" parent="Rooms/Room9" instance=ExtResource( 24 )]
 position = Vector2( 208, -8 )
 
@@ -860,9 +714,6 @@ position = Vector2( 176, 24 )
 
 [node name="SmallBat31" parent="Rooms/Room9" instance=ExtResource( 24 )]
 position = Vector2( 224, 56 )
-
-[node name="SmallBat30" parent="Rooms/Room9" instance=ExtResource( 24 )]
-position = Vector2( 224, 32 )
 
 [node name="SmallBat23" parent="Rooms/Room9" instance=ExtResource( 24 )]
 position = Vector2( 264, 16 )
@@ -898,16 +749,19 @@ position = Vector2( -155, 5 )
 position = Vector2( -224, -16 )
 
 [node name="Bookshelf2" parent="Rooms/Room9" instance=ExtResource( 26 )]
-position = Vector2( -128, -16 )
+position = Vector2( -192, -16 )
 
 [node name="Bookshelf3" parent="Rooms/Room9" instance=ExtResource( 26 )]
-position = Vector2( -88, -16 )
+position = Vector2( 64, -16 )
 
 [node name="Bookshelf4" parent="Rooms/Room9" instance=ExtResource( 26 )]
-position = Vector2( -48, -16 )
+position = Vector2( 264, -16 )
 
 [node name="Bookshelf5" parent="Rooms/Room9" instance=ExtResource( 26 )]
 position = Vector2( -8, -16 )
+
+[node name="Table" parent="Rooms/Room9" instance=ExtResource( 25 )]
+position = Vector2( -88, -8 )
 
 [node name="Room10" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( -144, 56 )
@@ -926,10 +780,6 @@ lockToggleEventName = "FINAL_BOSS_OPEN_DOOR"
 
 [node name="Button2" parent="Rooms/Room10" instance=ExtResource( 19 )]
 position = Vector2( 0, 64 )
-event_name = "FINAL_BOSS_OPEN_DOOR"
-
-[node name="Button3" parent="Rooms/Room10" instance=ExtResource( 19 )]
-position = Vector2( 224, -32 )
 event_name = "FINAL_BOSS_OPEN_DOOR"
 
 [node name="StatueKnight" parent="Rooms/Room10" instance=ExtResource( 6 )]
@@ -1055,7 +905,6 @@ position = Vector2( -32, 120 )
 locked_on_init = true
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 3 )]
-color = Color( 0.313726, 0.168627, 0, 1 )
 
 [node name="Triggers" type="Node2D" parent="."]
 
@@ -1063,8 +912,14 @@ color = Color( 0.313726, 0.168627, 0, 1 )
 position = Vector2( 80, 0 )
 toggleDisableEventName = "FINAL_BOSS_OPEN_DOOR"
 
+[node name="CollisionPolygon2D" parent="Triggers/LockedDoorDialog" index="0"]
+polygon = PoolVector2Array( -16, 0, 16, 0, 16, 8, -16, 8 )
+
 [node name="LockedDoorDialog2" parent="Triggers" instance=ExtResource( 5 )]
 toggleDisableEventName = "FINAL_BOSS_OPEN_DOOR"
+
+[node name="CollisionPolygon2D" parent="Triggers/LockedDoorDialog2" index="0"]
+polygon = PoolVector2Array( -16, 64, -16, 112, -32, 112, -32, 64 )
 
 [node name="EventTrigger" parent="Triggers" instance=ExtResource( 30 )]
 position = Vector2( 192, 80 )
@@ -1092,6 +947,7 @@ position = Vector2( 80, -160 )
 eventName = "FATHER_4"
 
 [node name="CollisionPolygon2D" parent="Triggers/EventTrigger4" index="0"]
+position = Vector2( 0, -56 )
 polygon = PoolVector2Array( -80, -8, 80, -8, 80, 32, -80, 32 )
 
 [node name="EventTrigger5" parent="Triggers" instance=ExtResource( 30 )]
@@ -1102,11 +958,139 @@ eventName = "BOSS_ROOM_ENTERED"
 polygon = PoolVector2Array( -176, -24, 176, -24, 176, 8, -176, 8 )
 
 [node name="SwordTrigger" parent="Triggers" instance=ExtResource( 34 )]
-position = Vector2( 80, -552 )
+position = Vector2( 80, -488 )
 
 [node name="Torches" type="Node2D" parent="."]
 pause_mode = 2
-visible = false
+
+[node name="Torch" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 192, 48 )
+frame = 0
+
+[node name="Torch2" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 232, -112 )
+frame = 0
+
+[node name="Torch3" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 336, 16 )
+frame = 0
+
+[node name="Torch4" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 368, 176 )
+frame = 5
+
+[node name="Torch5" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 304, 336 )
+frame = 5
+
+[node name="Torch6" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 176, 432 )
+frame = 4
+
+[node name="Torch7" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 48, 432 )
+frame = 4
+
+[node name="Torch31" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -48, 368 )
+frame = 4
+
+[node name="Torch8" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 288, 432 )
+frame = 4
+
+[node name="Torch9" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 112, 432 )
+frame = 4
+
+[node name="Torch10" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 216, 240 )
+frame = 4
+
+[node name="Torch11" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 72, 240 )
+frame = 4
+
+[node name="Torch12" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -426, -50 )
+frame = 4
+
+[node name="Torch13" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -498, -50 )
+frame = 2
+
+[node name="Torch14" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -586, -50 )
+frame = 2
+
+[node name="Torch15" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -656, -48 )
+
+[node name="Torch16" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -298, -178 )
+
+[node name="Torch17" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -368, -176 )
+frame = 0
+
+[node name="Torch32" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -460, -178 )
+
+[node name="Torch33" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -530, -176 )
+frame = 0
+
+[node name="Torch18" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -98, -178 )
+frame = 0
+
+[node name="Torch19" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -170, -178 )
+frame = 5
+
+[node name="Torch20" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 32, -16 )
+frame = 5
+
+[node name="Torch21" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 136, -16 )
+frame = 5
+
+[node name="Torch22" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -192, -48 )
+frame = 5
+
+[node name="Torch23" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -90, -50 )
+frame = 5
+
+[node name="Torch24" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 16, -240 )
+frame = 4
+
+[node name="Torch25" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( 144, -240 )
+frame = 4
+
+[node name="Torch26" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -520, 432 )
+frame = 4
+
+[node name="Torch27" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -394, 430 )
+frame = 4
+
+[node name="Torch28" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -704, 240 )
+frame = 4
+
+[node name="Torch29" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -288, 240 )
+frame = 4
+
+[node name="Torch30" parent="Torches" instance=ExtResource( 18 )]
+position = Vector2( -216, 240 )
+frame = 2
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 pause_mode = 1
@@ -1134,9 +1118,6 @@ visible = false
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Stairs" parent="." instance=ExtResource( 18 )]
-position = Vector2( 80, -761 )
-
 [node name="Cutscenes" type="Node2D" parent="."]
 
 [node name="CutsceneSpawner" parent="Cutscenes" instance=ExtResource( 31 )]
@@ -1144,8 +1125,11 @@ position = Vector2( 80, -416 )
 triggering_event = "BOSS_ROOM_ENTERED"
 Cutscene = ExtResource( 32 )
 ON_COMPLETE_TRIGGER = "SPAWN_BOSS"
+
+[node name="EnemyDeathSoundTimer" type="Timer" parent="."]
+wait_time = 0.88
+one_shot = true
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
-[connection signal="player_entered" from="Stairs" to="." method="_on_Stairs_player_entered"]
 
 [editable path="Rooms/SpawnRoom"]
 
@@ -1179,8 +1163,6 @@ ON_COMPLETE_TRIGGER = "SPAWN_BOSS"
 
 [editable path="Rooms/Room7/RoomExtents"]
 
-[editable path="Rooms/Room7/SmallBat42"]
-
 [editable path="Rooms/Room8"]
 
 [editable path="Rooms/Room8/RoomExtents"]
@@ -1206,6 +1188,10 @@ ON_COMPLETE_TRIGGER = "SPAWN_BOSS"
 [editable path="Rooms/Room12"]
 
 [editable path="Rooms/Room12/RoomExtents"]
+
+[editable path="Triggers/LockedDoorDialog"]
+
+[editable path="Triggers/LockedDoorDialog2"]
 
 [editable path="Triggers/EventTrigger"]
 

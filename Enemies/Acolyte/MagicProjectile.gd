@@ -30,6 +30,7 @@ func launch(target):
 	area2D.monitoring = true
 	collider.disabled = false
 	deletionTimer.start()
+	$AudioStreamPlayer.play()
 
 # warning-ignore:unused_argument
 func _on_Area2D_area_entered(area):

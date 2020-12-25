@@ -4,6 +4,9 @@ class_name Door
 export (bool) var locked_on_init = false
 export (String) var lockToggleEventName
 
+const door_open_sound = preload("res://Music and Sounds/dooropen.wav")
+const door_close_sound = preload("res://Music and Sounds/doorclose.wav")
+
 const closedDoor = preload("res://World/Door.png")
 const openDoor = preload("res://World/OpenDoor.png")
 
@@ -32,6 +35,10 @@ func close():
 	openCollider1.set_deferred("disabled", true)
 	openCollider2.set_deferred("disabled", true)
 	animationPlayer.play("Close")
+	if !$AudioStreamPlayer.playing && !get_tree().current_scene.just_started():
+		$AudioStreamPlayer.stream = door_close_sound
+		$AudioStreamPlayer.volume_db = -20.428
+		$AudioStreamPlayer.play()
 
 func toggleLock():
 	currently_locked = !locked_on_init
@@ -43,6 +50,10 @@ func toggleLock():
 func open():
 	if !currently_locked:
 		animationPlayer.play("Open")
+		if !$AudioStreamPlayer.playing && !get_tree().current_scene.just_started():
+			$AudioStreamPlayer.stream = door_open_sound
+			$AudioStreamPlayer.volume_db = -18.511
+			$AudioStreamPlayer.play()
 
 func _on_finish_open():
 	closedCollider.set_deferred("disabled", true)

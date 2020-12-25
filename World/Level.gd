@@ -1,7 +1,7 @@
 extends YSort
 class_name Level
 
-const total_lerp_time = 0.3
+const total_lerp_time = 0.5
 
 onready var camera = $Camera2D
 onready var player = $Player
@@ -10,7 +10,7 @@ onready var tween = $Tween
 
 var playerOverlappingRoomsQueue = []
 var mostRecentlyExitedRoom 
-
+var ready = false
 var eventNameHeldDuringDialogTransition
 
 func _ready():
@@ -33,6 +33,7 @@ func _ready():
 			child.initialize($CanvasLayer, camera, player)
 			
 	PlayerStats._on_new_scene()
+	ready = true
 
 func _on_room_entered(room: Room):
 	playerOverlappingRoomsQueue.push_back(room)
@@ -40,7 +41,7 @@ func _on_room_entered(room: Room):
 
 func move_camera():
 	var room = get_most_current_room()
-	if tween != null:
+	if tween != null && ready:
 		tween.interpolate_property(camera, "limit_left",
 			camera.limit_left, room.roomExtents.topLeft().x, total_lerp_time,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
@@ -53,7 +54,8 @@ func move_camera():
 		tween.interpolate_property(camera, "limit_bottom",
 			camera.limit_bottom, room.roomExtents.bottomRight().y, total_lerp_time,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)		
-		tween.start()
+		tween.call_deferred("start")
+#		player.is_paused = true
 
 
 func _on_room_exited(room: Room):
@@ -120,7 +122,18 @@ func _on_Tween_tween_all_completed():
 	if eventNameHeldDuringDialogTransition != null:
 		dialogBox.call_deferred("on_Events_event_triggered",eventNameHeldDuringDialogTransition)
 		eventNameHeldDuringDialogTransition = null
+#	player.is_paused = false
 
 func _on_Stairs_player_entered():
 	Events.clear()
 	Utils.load_next_level()
+
+func just_started():
+	return !ready
+
+func enemyDeathSoundPlay():
+	if !$EnemyDeathSoundTimer.time_left:
+		$EnemyDeathSoundTimer.start()
+
+func enemyDeathSoundPlaying():
+	return $EnemyDeathSoundTimer.time_left

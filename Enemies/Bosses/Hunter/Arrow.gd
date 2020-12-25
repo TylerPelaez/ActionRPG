@@ -2,6 +2,7 @@ extends Node2D
 class_name Arrow
 
 const SPEED = 300
+const EFFECT = preload("res://Effects/ArrowDeathEffect.tscn")
 
 onready var sprite = $Sprite
 onready var hitbox = $Hitbox
@@ -27,6 +28,7 @@ func _on_Hitbox_area_entered(area):
 	delete()
 
 func delete():
+	Utils.instance_scene_on_main(EFFECT, global_position)
 	queue_free()
 
 # warning-ignore:unused_argument

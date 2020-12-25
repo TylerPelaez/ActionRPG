@@ -1,5 +1,6 @@
 extends Room
 
+signal boss_died
 
 var player
 var boss
@@ -26,6 +27,7 @@ func on_boss_death():
 	room_defeated = true
 	if item_drop != null:
 		Utils.call_deferred("instance_scene_on_main", item_drop, roomExtents.get_midpoint_in_bounds())
+	emit_signal("boss_died")
 	open_doors()
 
 func spawn_boss():
